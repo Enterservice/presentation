@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterservice · Acceleration &amp; Equity</title>
+<meta name="description" content="Il programma Enterservice Equity per startup e nuove imprese. Consulenza di qualità senza stress di cassa — in cambio di una quota societaria o revenue sharing.">
+<link rel="icon" type="image/png" href="Images/logo-icona.png">
+<link rel="apple-touch-icon" href="Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#140C64;--navy-2:#1E1580;--navy-3:#0C0740;
+  --yellow:#FBA800;--yellow-soft:#FFD77A;--yellow-bg:#FFF8E7;
+  --gray:#727476;--gray-soft:#B8BABC;
+  --ink:#1B1B1F;--paper:#FAFAF7;--mist:#F3F2F8;--line:#E5E3EE;
+  --shadow:0 24px 60px -22px rgba(20,12,100,.28);
+  --t:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+.display{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:normal;line-height:1.12}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+button{font-family:inherit}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,12,100,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);transition:padding .3s var(--t)}
+.topbar.scrolled{padding:8px 32px}
+.topbrand{display:flex;align-items:center}
+.topbar-logo{height:44px;width:auto;max-width:240px;transition:height .3s var(--t);display:block}
+.topbar.scrolled .topbar-logo{height:34px}
+.topnav{display:flex;gap:24px;align-items:center}
+.topnav a{color:rgba(255,255,255,.75);font-size:13px;font-weight:500;transition:color .3s;letter-spacing:.01em;display:inline-flex;align-items:center;gap:6px}
+.topnav a:hover{color:var(--yellow)}
+.topnav .home-link{color:var(--yellow-soft)}
+.topnav .home-link svg{width:12px;height:12px}
+.topcta{background:var(--yellow);color:var(--navy);padding:10px 20px;border-radius:24px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:all .3s var(--t);cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;border:none}
+.topcta:hover{background:#fff;transform:translateY(-1px);box-shadow:0 10px 20px -5px rgba(251,168,0,.4)}
+.topcta svg{width:14px;height:14px}
+.menu-toggle{display:none;background:transparent;border:none;color:#fff;cursor:pointer;padding:8px}
+.menu-toggle svg{width:26px;height:26px}
+
+/* HERO */
+.hero{min-height:90vh;padding:140px 7vw 90px;position:relative;background:radial-gradient(1400px 900px at 85% -10%,#2A1E9E 0%,var(--navy) 50%,var(--navy-3) 100%);color:#fff;display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10vw;top:10vh;width:60vw;height:60vw;border-radius:50%;background:rgba(251,168,0,.1);filter:blur(40px);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-10vw;bottom:-20vh;width:50vw;height:50vw;border-radius:50%;background:rgba(30,21,128,.5);filter:blur(60px);pointer-events:none}
+.hero-wrap{max-width:1200px;margin:0 auto;position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1.5px solid rgba(251,168,0,.4);background:rgba(251,168,0,.08);color:var(--yellow);border-radius:30px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:32px}
+.hero-badge::before{content:"";width:7px;height:7px;background:var(--yellow);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(251,168,0,.5)}50%{box-shadow:0 0 0 8px rgba(251,168,0,0)}}
+.hero h1{font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(40px,5.4vw,72px);line-height:1.08;margin-bottom:28px;color:#fff}
+.hero h1 .u{display:inline-block;border-bottom:5px solid var(--yellow);padding-bottom:6px}
+.hero-lead{font-size:clamp(16px,1.3vw,19px);color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:40px;font-weight:300;max-width:620px}
+.hero-lead strong{color:var(--yellow);font-weight:500}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--yellow);color:var(--navy);padding:17px 26px;border-radius:12px;font-weight:700;font-size:14px;transition:all .3s var(--t);display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;letter-spacing:.02em}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 15px 30px -10px rgba(251,168,0,.5)}
+.btn-primary svg{width:16px;height:16px;transition:transform .3s}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{color:rgba(255,255,255,.75);padding:17px 20px;font-weight:500;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:color .3s}
+.btn-ghost:hover{color:var(--yellow)}
+.btn-ghost svg{width:14px;height:14px}
+
+/* Hero visual card */
+.hero-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:36px;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.hero-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--yellow)}
+.hero-card-tag{color:var(--yellow);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:24px}
+.hero-card-title{font-family:'Plus Jakarta Sans';color:#fff;font-weight:700;font-size:22px;margin-bottom:24px;line-height:1.35}
+.hero-deal-row{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid rgba(255,255,255,.08)}
+.hero-deal-row:first-of-type{border-top:none;padding-top:0}
+.hero-deal-row:last-of-type{padding-bottom:0}
+.hero-deal-icon{width:38px;height:38px;background:rgba(251,168,0,.15);color:var(--yellow);border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.hero-deal-icon svg{width:18px;height:18px}
+.hero-deal-body{color:rgba(255,255,255,.85);font-size:13.5px;line-height:1.5;font-weight:300}
+.hero-deal-body strong{color:#fff;font-weight:600}
+
+/* SECTIONS */
+section.block{padding:100px 7vw;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:16px;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--yellow)}
+.section-title{font-family:'Plus Jakarta Sans';font-weight:800;color:var(--navy);font-size:clamp(30px,4.2vw,52px);line-height:1.15;margin-bottom:22px}
+.section-title .u{border-bottom:4px solid var(--yellow);padding-bottom:4px}
+.section-lead{font-size:clamp(15px,1.2vw,17px);color:var(--gray);line-height:1.7;max-width:780px;margin-bottom:56px}
+.section-lead strong{color:var(--navy);font-weight:600}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--t),transform .8s var(--t)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
+
+/* MANIFESTO — "il problema che risolviamo" */
+.manifesto{background:var(--paper)}
+.manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.manifesto-visual{background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px;box-shadow:var(--shadow);position:relative}
+.manifesto-visual-head{font-family:'Plus Jakarta Sans';color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding-bottom:18px;border-bottom:2px solid var(--yellow);margin-bottom:22px}
+.barrier-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.barrier-item:last-child{border-bottom:none}
+.barrier-icon{width:40px;height:40px;background:#FFE5E5;color:#B83232;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.barrier-icon svg{width:20px;height:20px}
+.barrier-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:15px;margin-bottom:4px}
+.barrier-body{font-size:13px;color:var(--gray);line-height:1.55}
+
+/* MOMENTS */
+.moments{background:#fff}
+.moment-tabs{display:flex;gap:10px;margin-bottom:44px}
+.moment-tab{flex:1;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:22px 28px;cursor:pointer;transition:all .35s var(--t);display:flex;align-items:center;gap:18px;text-align:left}
+.moment-tab:hover{border-color:var(--yellow)}
+.moment-tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.moment-tab-icon{width:44px;height:44px;border-radius:10px;background:var(--yellow-bg);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none;transition:all .3s}
+.moment-tab.active .moment-tab-icon{background:var(--yellow);color:var(--navy)}
+.moment-tab-icon svg{width:22px;height:22px}
+.moment-tab-label{font-family:'Plus Jakarta Sans';font-weight:700;font-size:clamp(15px,1.3vw,18px);color:var(--navy);line-height:1.25}
+.moment-tab.active .moment-tab-label{color:#fff}
+.moment-tab-sub{font-size:12.5px;color:var(--gray);margin-top:4px;font-weight:400;line-height:1.4}
+.moment-tab.active .moment-tab-sub{color:var(--yellow-soft)}
+.moment-panel{display:none;animation:fadein .5s var(--t)}
+.moment-panel.active{display:block}
+@keyframes fadein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.moment-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.moment-text h3{font-family:'Plus Jakarta Sans';font-weight:800;color:var(--navy);font-size:clamp(26px,2.8vw,36px);line-height:1.15;margin-bottom:20px}
+.moment-text h3 .u{border-bottom:4px solid var(--yellow);padding-bottom:3px}
+.moment-text p{color:var(--gray);font-size:15px;line-height:1.75;margin-bottom:16px}
+.moment-text p strong{color:var(--navy);font-weight:600}
+.moment-signals{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:var(--shadow)}
+.moment-signals-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:15px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--yellow);display:flex;align-items:center;gap:10px}
+.moment-signals-title svg{width:20px;height:20px;color:var(--yellow)}
+.moment-signal{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.moment-signal:last-child{border-bottom:none}
+.moment-signal-check{width:22px;height:22px;border-radius:50%;background:var(--navy);color:var(--yellow);display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.moment-signal-check svg{width:12px;height:12px}
+.moment-signal-text{font-size:13.5px;color:var(--ink);line-height:1.5}
+.moment-signal-text strong{color:var(--navy);font-weight:600}
+
+/* HOW IT WORKS — program flow */
+.how{background:var(--mist);position:relative;overflow:hidden}
+.how::before{content:"";position:absolute;top:-20%;right:-15%;width:50vw;height:50vw;border-radius:50%;background:rgba(251,168,0,.06);filter:blur(50px);pointer-events:none}
+.how-wrap{position:relative;z-index:2}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:16px}
+.phase-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:32px 26px;position:relative;transition:all .4s var(--t);display:flex;flex-direction:column;gap:16px}
+.phase-card:hover{border-color:var(--yellow);box-shadow:var(--shadow);transform:translateY(-6px)}
+.phase-card:not(:last-child)::after{content:"";position:absolute;top:56px;right:-14px;width:12px;height:12px;border-top:2px solid var(--yellow);border-right:2px solid var(--yellow);transform:rotate(45deg);z-index:3}
+.phase-badge{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--navy);color:var(--yellow);border-radius:14px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:22px}
+.phase-num{font-size:10px;color:var(--gray);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-top:6px}
+.phase-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:20px;line-height:1.15}
+.phase-body{color:var(--gray);font-size:13.5px;line-height:1.65;flex:1}
+.phase-body strong{color:var(--navy);font-weight:600}
+.phase-mini{background:var(--yellow-bg);border-left:3px solid var(--yellow);padding:12px 14px;border-radius:6px;font-size:12px;color:var(--navy);line-height:1.5}
+
+/* DEAL STRUCTURE — explain equity/revenue share mechanism */
+.deal{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.deal::before{content:"";position:absolute;right:-10vw;bottom:-30vh;width:60vw;height:60vw;border-radius:50%;background:rgba(251,168,0,.06);filter:blur(60px)}
+.deal-wrap{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.deal .eyebrow{color:var(--yellow)}
+.deal .eyebrow::before{background:var(--yellow)}
+.deal-title{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(28px,4.2vw,52px);line-height:1.15;margin-bottom:22px}
+.deal-title .u{border-bottom:4px solid var(--yellow);padding-bottom:4px}
+.deal-lead{color:rgba(255,255,255,.8);font-size:clamp(15px,1.2vw,17px);line-height:1.7;max-width:820px;margin-bottom:48px;font-weight:300}
+.deal-lead strong{color:var(--yellow);font-weight:500}
+.deal-options{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
+.deal-option{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px;transition:all .4s var(--t);backdrop-filter:blur(10px)}
+.deal-option:hover{background:rgba(251,168,0,.08);border-color:var(--yellow);transform:translateY(-4px)}
+.deal-option-icon{width:48px;height:48px;background:var(--yellow);color:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.deal-option-icon svg{width:24px;height:24px}
+.deal-option-title{font-family:'Plus Jakarta Sans';font-weight:700;color:#fff;font-size:22px;margin-bottom:12px;line-height:1.2}
+.deal-option-body{color:rgba(255,255,255,.75);font-size:14px;line-height:1.7;font-weight:300}
+.deal-option-body strong{color:var(--yellow);font-weight:500}
+.deal-callout{background:rgba(251,168,0,.1);border:1px solid rgba(251,168,0,.3);border-radius:14px;padding:26px 32px;display:flex;gap:20px;align-items:center}
+.deal-callout-icon{width:48px;height:48px;background:var(--yellow);color:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.deal-callout-icon svg{width:24px;height:24px}
+.deal-callout-text{color:#fff;font-size:clamp(14px,1.1vw,16px);line-height:1.55;font-weight:300}
+.deal-callout-text strong{color:var(--yellow);font-weight:600}
+
+/* VALUE — what startups actually get */
+.value{background:var(--paper)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:16px}
+.value-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:32px 28px;transition:all .5s var(--t);display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.value-card::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:0;background:var(--navy);transition:height .5s var(--t);z-index:0}
+.value-card>*{position:relative;z-index:1;transition:color .3s}
+.value-card:hover{border-color:var(--navy);transform:translateY(-6px);box-shadow:var(--shadow)}
+.value-card:hover::after{height:100%}
+.value-card:hover .value-title,.value-card:hover .value-body{color:#fff}
+.value-card:hover .value-icon{background:var(--yellow);color:var(--navy)}
+.value-icon{width:52px;height:52px;background:var(--navy);color:var(--yellow);border-radius:14px;display:flex;align-items:center;justify-content:center;transition:all .4s}
+.value-icon svg{width:26px;height:26px}
+.value-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:19px;line-height:1.25}
+.value-body{color:var(--gray);font-size:14px;line-height:1.65}
+
+/* CRITERIA — who we look for */
+.criteria{background:#fff}
+.criteria-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.criteria-list{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:40px;box-shadow:var(--shadow)}
+.criteria-list-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--yellow)}
+.criteria-list-icon{width:44px;height:44px;background:var(--yellow-bg);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--navy)}
+.criteria-list-icon svg{width:22px;height:22px}
+.criteria-list-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:18px}
+.criteria-list-sub{font-size:12px;color:var(--gray);margin-top:2px}
+.criteria-items{display:flex;flex-direction:column;gap:14px}
+.criteria-item{display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--ink);line-height:1.5}
+.criteria-item-check{width:22px;height:22px;border-radius:50%;background:var(--navy);color:var(--yellow);display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.criteria-item-check svg{width:12px;height:12px}
+.criteria-item strong{color:var(--navy);font-weight:600}
+
+/* FAQ */
+.faq{background:var(--mist)}
+.faq-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:880px;margin:16px auto 0}
+.faq-item{background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:var(--yellow)}
+.faq-q{padding:22px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:15.5px;line-height:1.4;transition:all .3s;background:transparent;border:none;width:100%;text-align:left}
+.faq-q:hover{background:var(--yellow-bg)}
+.faq-toggle{width:32px;height:32px;background:var(--yellow-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;transition:transform .4s var(--t),background .3s;color:var(--navy)}
+.faq-item.open .faq-toggle{transform:rotate(45deg);background:var(--yellow)}
+.faq-toggle svg{width:14px;height:14px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--t);font-size:14px;color:var(--gray);line-height:1.7}
+.faq-item.open .faq-a{max-height:500px}
+.faq-a-inner{padding:0 28px 24px}
+.faq-a strong{color:var(--navy);font-weight:600}
+
+/* FINAL */
+.final{background:radial-gradient(1200px 700px at 50% 0%,#2A1E9E 0%,var(--navy) 50%,var(--navy-3) 100%);color:#fff;padding:120px 7vw;text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;bottom:-30%;left:50%;transform:translateX(-50%);width:80vw;height:80vw;border-radius:50%;background:rgba(251,168,0,.05);filter:blur(80px);pointer-events:none}
+.final-wrap{max-width:780px;margin:0 auto;position:relative;z-index:2}
+.final-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1.5px solid var(--yellow);border-radius:30px;color:var(--yellow);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:32px}
+.final-eyebrow::before{content:"→"}
+.final-title{font-family:'Plus Jakarta Sans';font-weight:800;color:#fff;font-size:clamp(36px,5vw,68px);line-height:1.08;margin-bottom:26px}
+.final-title .u{border-bottom:5px solid var(--yellow);padding-bottom:5px}
+.final-lead{color:rgba(255,255,255,.8);font-size:clamp(15px,1.3vw,18px);line-height:1.7;margin-bottom:42px;font-weight:300;max-width:620px;margin-left:auto;margin-right:auto}
+.final-cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-big{padding:20px 32px;border-radius:14px;font-weight:700;font-size:15px;transition:all .3s var(--t);display:inline-flex;align-items:center;gap:12px;letter-spacing:.01em}
+.btn-big svg{width:17px;height:17px;transition:transform .3s}
+.btn-big:hover svg{transform:translateX(5px)}
+.btn-big.primary{background:var(--yellow);color:var(--navy)}
+.btn-big.primary:hover{background:#fff;transform:translateY(-3px);box-shadow:0 20px 40px -10px rgba(251,168,0,.5)}
+.btn-big.secondary{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-big.secondary:hover{background:rgba(255,255,255,.2);border-color:var(--yellow);transform:translateY(-3px)}
+.final-contacts{padding-top:36px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:center;gap:36px;flex-wrap:wrap;color:rgba(255,255,255,.6);font-size:13px}
+.final-contacts a{color:var(--yellow-soft);transition:color .3s}
+.final-contacts a:hover{color:var(--yellow)}
+.final-contacts .label{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;font-weight:600}
+
+/* FOOTER */
+footer{background:var(--navy-3);color:rgba(255,255,255,.5);padding:48px 7vw;border-top:1px solid rgba(255,255,255,.08)}
+.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start}
+.footer-brand{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.footer-logo{height:50px;width:auto;max-width:260px}
+.footer-brand-tagline{color:var(--yellow);font-family:'Plus Jakarta Sans';font-weight:700;font-size:11px;letter-spacing:.14em}
+.footer-info{font-size:12.5px;line-height:1.7;text-align:right}
+.footer-info strong{color:#fff;font-weight:600}
+.footer-bottom{max-width:1200px;margin:28px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.03em;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-bottom a{color:var(--yellow-soft);transition:color .3s}
+.footer-bottom a:hover{color:var(--yellow)}
+
+/* MOBILE NAV */
+.mobile-nav{position:fixed;top:0;right:-100%;width:85%;max-width:340px;height:100vh;z-index:60;background:var(--navy);padding:100px 32px 40px;transition:right .4s var(--t);box-shadow:-10px 0 40px rgba(0,0,0,.3);overflow-y:auto}
+.mobile-nav.open{right:0}
+.mobile-nav a{display:block;color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .3s}
+.mobile-nav a:hover{color:var(--yellow)}
+.mobile-nav .home-link{color:var(--yellow-soft);display:flex;align-items:center;gap:8px}
+.mobile-nav .home-link svg{width:14px;height:14px}
+.mobile-nav .mobile-cta{display:inline-flex;margin-top:24px;padding:14px 24px;background:var(--yellow);color:var(--navy);border-radius:24px;font-size:13px;font-weight:700;letter-spacing:.02em;border:none;align-items:center;gap:10px}
+.mobile-nav .mobile-cta:hover{background:#fff}
+.mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+
+/* RESPONSIVE — Tablet */
+@media(max-width:1000px){
+  .topnav{display:none}.menu-toggle{display:block}.topcta{display:none}
+  section.block{padding:72px 6vw}
+  .hero{padding:120px 6vw 60px;min-height:auto}
+  .hero-wrap{grid-template-columns:1fr;gap:48px}
+  .manifesto-grid,.criteria-grid{grid-template-columns:1fr;gap:40px}
+  .moment-grid{grid-template-columns:1fr;gap:28px}
+  .phases{grid-template-columns:1fr 1fr;gap:20px}
+  .phase-card::after{display:none}
+  .value-grid{grid-template-columns:1fr 1fr}
+  .deal-options{grid-template-columns:1fr}
+  .topbar{padding:12px 18px}
+  .moment-tabs{flex-direction:column}
+  .footer-wrap{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .footer-brand{align-items:center}.footer-info{text-align:center}
+  .footer-bottom{justify-content:center;text-align:center}
+}
+/* Mobile */
+@media(max-width:640px){
+  section.block{padding:56px 5vw}.hero{padding:100px 5vw 50px}
+  .hero h1{font-size:clamp(32px,9vw,48px)}
+  .phases,.value-grid{grid-template-columns:1fr;gap:14px}
+  .topbar-logo{height:34px}.topbar.scrolled .topbar-logo{height:28px}
+  .final{padding:70px 5vw}
+  .final-contacts{gap:22px;flex-direction:column;align-items:center}
+  .final-contacts>div{text-align:center}
+  .final-cta-group{flex-direction:column}
+  .btn-big{width:100%;justify-content:center}
+  .deal-callout{flex-direction:column;text-align:center;padding:22px}
+  .hero-card{padding:28px}
+  .moment-signals{padding:24px}
+  .value-card,.phase-card{padding:28px 22px}
+  .mobile-nav{padding:90px 24px 32px}.mobile-nav a{font-size:18px}
+  footer{padding:36px 5vw}.footer-logo{height:42px}
+  .footer-bottom{flex-direction:column;gap:8px}
+  .criteria-list{padding:28px}
+}
+@media(max-width:400px){
+  .hero h1,.section-title,.deal-title,.final-title{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar" id="topbar">
+  <a href="index.html" class="topbrand">
+    <img src="Images/logo-sfondo-blu.png" alt="Enterservice" class="topbar-logo">
+  </a>
+  <nav class="topnav">
+    <a href="index.html" class="home-link"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M10 13L5 8l5-5v10z"/></svg> Home</a>
+    <a href="#manifesto">Perché esistiamo</a>
+    <a href="#momenti">Per chi è</a>
+    <a href="#how">Come funziona</a>
+    <a href="#deal">L'accordo</a>
+    <a href="#contact">Candidati</a>
+  </nav>
+  <a href="https://www.enterservicegroup.com/helpdesk/programma-equity-2" target="_blank" rel="noopener" class="topcta">Candidati <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="index.html" class="home-link"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M10 13L5 8l5-5v10z"/></svg> Torna alla home</a>
+  <a href="#manifesto">Perché esistiamo</a>
+  <a href="#momenti">Per chi è</a>
+  <a href="#how">Come funziona</a>
+  <a href="#deal">L'accordo</a>
+  <a href="#contact">Candidati</a>
+  <a href="https://www.enterservicegroup.com/helpdesk/programma-equity-2" target="_blank" rel="noopener" class="mobile-cta">Candidati <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-badge">Programma Acceleration &amp; Equity</div>
+      <h1>Non vendiamo consulenza. <span class="u">Investiamo in te.</span></h1>
+      <p class="hero-lead">
+        Se hai un progetto solido ma liquidità limitata, il programma Enterservice Equity ti affianca <strong>come partner operativo</strong> — non come fornitore. In cambio di una quota societaria o di revenue sharing. I nostri interessi allineati ai tuoi.
+      </p>
+      <div class="hero-cta-row">
+        <a href="https://www.enterservicegroup.com/helpdesk/programma-equity-2" target="_blank" rel="noopener" class="btn-primary">
+          Candida la tua startup
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg>
+        </a>
+        <a href="#manifesto" class="btn-ghost">
+          Come funziona
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-tag">In sintesi</div>
+      <div class="hero-card-title">Tre cose che rendono Enterservice Equity diverso da un fondo VC.</div>
+      <div class="hero-deal-row">
+        <div class="hero-deal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg></div>
+        <div class="hero-deal-body"><strong>Non ti diamo soldi.</strong> Ti diamo competenze operative Finance + HR, che valgono quanto un round seed.</div>
+      </div>
+      <div class="hero-deal-row">
+        <div class="hero-deal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg></div>
+        <div class="hero-deal-body"><strong>Non ti investiamo a pioggia.</strong> Lavoriamo dentro il tuo progetto giorno per giorno.</div>
+      </div>
+      <div class="hero-deal-row">
+        <div class="hero-deal-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="10" r="2"/><path d="M15 18c0-2 2-3 4-3s3 1 3 3"/></svg></div>
+        <div class="hero-deal-body"><strong>Non ti chiediamo la maggioranza.</strong> Percentuali discusse caso per caso, bilanciate sul valore reale dello scambio.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="block manifesto" id="manifesto">
+  <div class="container">
+    <div class="manifesto-grid">
+      <div class="reveal">
+        <div class="eyebrow">Perché esiste questo programma</div>
+        <h2 class="section-title">Il momento più critico <span class="u">è anche il più sguarnito.</span></h2>
+        <p class="section-lead">
+          Nelle prime fasi di una startup serve <strong>tutto ciò che nessuno è disposto a darti gratis</strong>: un controllo di gestione serio, un modello finanziario credibile, una struttura HR embrionale, competenze per accedere a finanza agevolata e credito. Consulenza strategica vera, non slide di incubatore.
+        </p>
+        <p style="color:var(--gray);font-size:15px;line-height:1.75">
+          Ma <strong style="color:var(--navy)">chi ha bisogno di queste competenze in fase iniziale è anche chi non ha liquidità per pagarle</strong>. È il paradosso che ha ucciso più startup italiane del mercato, dei competitor e della cattiva sorte messi insieme. Enterservice Equity esiste per risolvere questo paradosso: tu fondi un'azienda, noi ti diamo la funzione CFO e HR che serve. Ognuno mette sul tavolo quello che ha.
+        </p>
+      </div>
+      <div class="manifesto-visual reveal reveal-d1">
+        <div class="manifesto-visual-head">Le 4 barriere della startup</div>
+        <div class="barrier-item">
+          <div class="barrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></div>
+          <div>
+            <div class="barrier-title">Nessuna liquidità per consulenza</div>
+            <div class="barrier-body">La cassa serve al prodotto e al go-to-market. La consulenza diventa un lusso — e un errore.</div>
+          </div>
+        </div>
+        <div class="barrier-item">
+          <div class="barrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+          <div>
+            <div class="barrier-title">Modelli finanziari improvvisati</div>
+            <div class="barrier-body">Excel in Drive, proiezioni ottimistiche, nessun controllo di gestione reale. E poi arriva il primo VC.</div>
+          </div>
+        </div>
+        <div class="barrier-item">
+          <div class="barrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/></svg></div>
+          <div>
+            <div class="barrier-title">Zero struttura HR</div>
+            <div class="barrier-body">Tutti fanno tutto. Funziona in 2, smette di funzionare in 5, è un disastro in 10. Tardi per costruire ruoli.</div>
+          </div>
+        </div>
+        <div class="barrier-item">
+          <div class="barrier-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4 12H2M22 12h-2"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <div>
+            <div class="barrier-title">Bandi &amp; finanza agevolata ignorati</div>
+            <div class="barrier-body">Esistono decine di misure PNRR e regionali per startup. Nessuno le applica perché nessuno le conosce.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTS -->
+<section class="block moments" id="momenti">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Per chi è il programma</div>
+      <h2 class="section-title">Due momenti diversi, <span class="u">stesso approccio.</span></h2>
+      <p class="section-lead">Enterservice Equity si adatta alla fase di vita del tuo progetto. <strong>Sei ancora all'idea</strong> con un team che si sta formando, o <strong>hai già i primi ricavi</strong> ma la cassa non basta a strutturarti? Due momenti, due letture diverse della stessa logica.</p>
+    </div>
+
+    <div class="moment-tabs reveal reveal-d1">
+      <button class="moment-tab active" data-panel="early">
+        <div class="moment-tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+        <div>
+          <div class="moment-tab-label">Early stage</div>
+          <div class="moment-tab-sub">Idea validata, team in formazione, zero o pochi ricavi</div>
+        </div>
+      </button>
+      <button class="moment-tab" data-panel="first-revenues">
+        <div class="moment-tab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <div>
+          <div class="moment-tab-label">Con primi ricavi</div>
+          <div class="moment-tab-sub">Attività avviata, cash flow limitato, bisogno di strutturarsi</div>
+        </div>
+      </button>
+    </div>
+
+    <!-- PANEL 1 — Early stage -->
+    <div class="moment-panel active" data-panel="early">
+      <div class="moment-grid">
+        <div class="moment-text reveal">
+          <h3>Hai un'idea. Hai un team. <span class="u">Serve il resto.</span></h3>
+          <p>
+            Sei nella fase più emozionante e più rischiosa: la validazione. Hai un'intuizione, un team che ci crede, magari i primi test di mercato. <strong>Quello che non hai è la struttura operativa che trasforma un'idea in un'azienda</strong>: modello finanziario credibile, business plan da banca, setup HR, pratiche di finanza agevolata.
+          </p>
+          <p>
+            Enterservice Equity entra ora. Costruiamo con te il <strong>modello economico sostenibile</strong>, la <strong>documentazione per il primo round di finanziamento</strong> (bancario, agevolato, o VC), la <strong>struttura organizzativa minima</strong> che regge la crescita senza rallentarla. Non ti diamo consigli: lavoriamo dentro.
+          </p>
+          <p>
+            In cambio, prendiamo una quota della società o un revenue share sulle vendite future. <strong>Interessi allineati dal primo giorno</strong>. Se la tua startup cresce, cresciamo. Se non funziona, perdiamo insieme.
+          </p>
+        </div>
+        <div class="moment-signals reveal reveal-d1">
+          <div class="moment-signals-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            Ti riconosci qui se
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text"><strong>Hai un prodotto/servizio validato</strong> ma ancora nessun modello finanziario serio per supportarlo.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Devi <strong>presentarti a banche, investitori o bandi</strong> e non hai la documentazione che serve.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Il tuo team sta crescendo: stai assumendo <strong>senza un piano HR strutturato</strong> che regga la scala.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Non hai liquidità per pagare una consulenza di qualità, ma <strong>credi nel tuo progetto</strong> e sei disposto a cedere una quota.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Vuoi un partner che <strong>non sparisca dopo il deal</strong>, che resti a lavorare con te mese dopo mese.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2 — First revenues -->
+    <div class="moment-panel" data-panel="first-revenues">
+      <div class="moment-grid">
+        <div class="moment-text reveal">
+          <h3>I primi ricavi arrivano. <span class="u">Ma il sistema non regge più.</span></h3>
+          <p>
+            Sei oltre la fase dell'idea: hai clienti, fattura il primo euro, stai crescendo. Ma stai gestendo un'azienda <strong>con strumenti da startup in garage</strong>: nessun controllo di gestione, nessun piano di cassa, HR improvvisata, zero attenzione a bandi e finanza agevolata. Ogni decisione si basa su sensazioni, non su numeri.
+          </p>
+          <p>
+            <strong>È il momento di strutturarsi, ma la cassa è stretta</strong>: ogni euro deve andare al prodotto, al marketing, al team. La consulenza tradizionale è inaccessibile proprio ora che servirebbe di più.
+          </p>
+          <p>
+            Enterservice Equity entra qui: costruiamo il controllo di gestione, attiviamo il <strong>primo accesso al credito strutturato</strong> (ordinario o agevolato), formalizziamo l'organizzazione, scoviamo bandi applicabili. In cambio di una quota proporzionale al lavoro o di revenue sharing. <strong>Tu non tocchi la cassa, noi guadagniamo solo se cresci</strong>.
+          </p>
+        </div>
+        <div class="moment-signals reveal reveal-d1">
+          <div class="moment-signals-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            Ti riconosci qui se
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text"><strong>I ricavi crescono</strong> ma il margine fatica, e non sai esattamente perché.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Stai per fare un <strong>salto di scala</strong> — nuove assunzioni, nuovo mercato, nuovo prodotto — e serve cassa.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Vuoi <strong>accedere a finanziamenti agevolati</strong> (PNRR, bandi regionali, garanzie MCC) ma non hai chi ti prepari.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Il ciclo di incasso e pagamento <strong>ti mette in difficoltà</strong> anche se fatturi bene.</div>
+          </div>
+          <div class="moment-signal">
+            <div class="moment-signal-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div>
+            <div class="moment-signal-text">Preferisci <strong>cedere una piccola quota societaria</strong> per avere una consulenza solida, piuttosto che andare in banca e non farcela.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="block how" id="how">
+  <div class="how-wrap container">
+    <div class="reveal">
+      <div class="eyebrow">Come funziona</div>
+      <h2 class="section-title">Quattro fasi, <span class="u">una sola logica.</span></h2>
+      <p class="section-lead">Dall'incontro iniziale al lavoro operativo quotidiano, il programma segue uno schema chiaro e replicabile. Nessun passaggio nascosto, nessuna clausola a sorpresa.</p>
+    </div>
+    <div class="phases">
+      <div class="phase-card reveal reveal-d1">
+        <div class="phase-badge">01</div>
+        <div class="phase-num">Fase 1</div>
+        <div class="phase-title">Valutazione</div>
+        <div class="phase-body">Assessment completo del tuo progetto: <strong>modello di business, team, mercato, potenziale di crescita</strong>. Verifichiamo la compatibilità con il programma. Se il fit è giusto, si procede. Se no, ti diciamo perché.</div>
+        <div class="phase-mini">Gratuita · Non vincolante</div>
+      </div>
+      <div class="phase-card reveal reveal-d2">
+        <div class="phase-badge">02</div>
+        <div class="phase-num">Fase 2</div>
+        <div class="phase-title">Accordo</div>
+        <div class="phase-body">Definiamo insieme la struttura del deal: <strong>tipo di compenso (equity, revenue share, misto), perimetro dei servizi, durata, obiettivi misurabili</strong>. Tutto messo per iscritto in modo trasparente.</div>
+        <div class="phase-mini">Contratto legale · Clausole chiare</div>
+      </div>
+      <div class="phase-card reveal reveal-d3">
+        <div class="phase-badge">03</div>
+        <div class="phase-num">Fase 3</div>
+        <div class="phase-title">Attivazione</div>
+        <div class="phase-body">Parte il lavoro operativo. A seconda delle tue esigenze, attiviamo i moduli di <strong>Corporate Finance, HR</strong>, o entrambi. Onboarding strutturato, primi strumenti consegnati in settimane, non mesi.</div>
+        <div class="phase-mini">Setup operativo · Dal day-one</div>
+      </div>
+      <div class="phase-card reveal reveal-d4">
+        <div class="phase-badge">04</div>
+        <div class="phase-num">Fase 4</div>
+        <div class="phase-title">Crescita</div>
+        <div class="phase-body">Accompagnamento continuativo fino al raggiungimento degli obiettivi. <strong>Revisione periodica dell'accordo</strong> in base ai risultati. Se le cose vanno bene, si prosegue; se serve rinegoziare, si rinegozia.</div>
+        <div class="phase-mini">Partnership ricorrente · Obiettivi condivisi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL STRUCTURE -->
+<section class="deal" id="deal">
+  <div class="deal-wrap">
+    <div class="reveal">
+      <div class="eyebrow">L'accordo</div>
+      <h2 class="deal-title">Due modelli di scambio. <span class="u">Nessun forfait.</span></h2>
+      <p class="deal-lead">
+        Non esiste una formula unica per tutti. <strong>La struttura del deal viene costruita sul tuo progetto</strong> — fase, potenziale, perimetro di servizi, durata. Questi sono i due modelli principali. Spesso si combinano.
+      </p>
+    </div>
+
+    <div class="deal-options">
+      <div class="deal-option reveal reveal-d1">
+        <div class="deal-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+        <div class="deal-option-title">Equity partnership</div>
+        <div class="deal-option-body">
+          Enterservice acquisisce <strong>una quota societaria</strong> in cambio dei servizi erogati. La percentuale si discute caso per caso, in funzione della fase del progetto, del valore dei servizi attivati e della durata dell'impegno. Non siamo un VC: <strong>non chiediamo la maggioranza</strong>, non imponiamo exit time, non sostituiamo il founder.
+        </div>
+      </div>
+      <div class="deal-option reveal reveal-d2">
+        <div class="deal-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg></div>
+        <div class="deal-option-title">Revenue sharing</div>
+        <div class="deal-option-body">
+          Alternativamente — o in combinazione — Enterservice partecipa con una <strong>percentuale sui ricavi</strong> futuri, per un periodo definito. Utile per startup che preferiscono non diluire subito il capitale, o per modelli di business dove l'equity è più complesso da strutturare. Tetto massimo e tempistiche sempre concordate.
+        </div>
+      </div>
+    </div>
+
+    <div class="deal-callout reveal reveal-d3">
+      <div class="deal-callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+      <div class="deal-callout-text">
+        <strong>I dettagli economici specifici</strong> (percentuali, soglie, durate) si costruiscono nell'incontro conoscitivo. Ogni progetto è diverso, ogni accordo è tarato sul valore reale dello scambio. <strong>Nessuna sorpresa, nessuna clausola nascosta.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE — What the startup gets -->
+<section class="block value">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Cosa ricevi</div>
+      <h2 class="section-title">Sei aree operative, <span class="u">dal day-one.</span></h2>
+      <p class="section-lead">Il programma attiva un set completo di servizi che normalmente una startup può permettersi solo dopo un round importante. Qui li hai prima — e li hai integrati.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal reveal-d1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10h10M7 14h6"/></svg></div>
+        <div class="value-title">Controllo di Gestione</div>
+        <div class="value-body">Cruscotto finanziario aggiornato mensilmente. CE, SP, cash flow, budget vs consuntivo. Dashboard KPI dedicate alla startup.</div>
+      </div>
+      <div class="value-card reveal reveal-d2">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <div class="value-title">Business Plan &amp; Modello Finanziario</div>
+        <div class="value-body">Documentazione credibile per banche, VC, bandi. Modelli proiettivi con scenari realistici, non finti ottimismi.</div>
+      </div>
+      <div class="value-card reveal reveal-d3">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/><circle cx="7" cy="15" r="1.5"/></svg></div>
+        <div class="value-title">Accesso al Credito</div>
+        <div class="value-body">Preparazione all'accesso al credito bancario e garantito. Strutturiamo il dossier, ti accompagniamo in banca, negoziamo le condizioni.</div>
+      </div>
+      <div class="value-card reveal reveal-d4">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4 12H2M22 12h-2"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="value-title">Finanza Agevolata</div>
+        <div class="value-body">Scouting di bandi attivi per startup (PNRR, ITA, regionali). Redazione domande, gestione istruttorie, rendicontazione post-vittoria.</div>
+      </div>
+      <div class="value-card reveal reveal-d1">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="10" r="2"/><path d="M15 18c0-2 2-3 4-3s3 1 3 3"/></svg></div>
+        <div class="value-title">HR &amp; Organizzazione</div>
+        <div class="value-body">Dalla definizione dei primi ruoli alla gestione payroll. Supporto alla selezione, setup contratti, compliance normativa.</div>
+      </div>
+      <div class="value-card reveal reveal-d2">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg></div>
+        <div class="value-title">Consulenza Strategica</div>
+        <div class="value-body">Affiancamento sulle decisioni chiave: pivot, go-to-market, operazioni straordinarie. <strong>Un interlocutore continuo</strong>, non consulenza spot.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRITERIA -->
+<section class="block criteria">
+  <div class="container">
+    <div class="criteria-grid">
+      <div class="reveal">
+        <div class="eyebrow">Chi stiamo cercando</div>
+        <h2 class="section-title">Il programma non è <span class="u">per tutti.</span></h2>
+        <p class="section-lead">
+          Enterservice Equity è <strong>una partnership di lungo periodo</strong>. Significa che non possiamo attivarlo con chiunque — serve un fit preciso. Questi sono i criteri di base che valutiamo in fase di assessment.
+        </p>
+        <p style="color:var(--gray);font-size:15px;line-height:1.7">
+          Non servono fatturati minimi, né investitori alle spalle, né uno status di "startup innovativa" formalizzato. Serve <strong style="color:var(--navy)">un progetto serio, un team capace, una disponibilità reale a costruire qualcosa di duraturo</strong> — non a fare exit veloci.
+        </p>
+      </div>
+      <div class="criteria-list reveal reveal-d1">
+        <div class="criteria-list-head">
+          <div class="criteria-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg></div>
+          <div>
+            <div class="criteria-list-title">Criteri di ammissione</div>
+            <div class="criteria-list-sub">Cosa guardiamo durante l'assessment</div>
+          </div>
+        </div>
+        <div class="criteria-items">
+          <div class="criteria-item"><div class="criteria-item-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Progetto chiaro</strong> — un'idea validata (anche solo con test di mercato), non un pitch generico</div></div>
+          <div class="criteria-item"><div class="criteria-item-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Team competente</strong> — almeno un fondatore dedicato full-time con competenze di dominio</div></div>
+          <div class="criteria-item"><div class="criteria-item-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Potenziale di crescita</strong> — mercato ampio o nicchia difendibile, scalabilità del modello</div></div>
+          <div class="criteria-item"><div class="criteria-item-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Disponibilità a strutturare</strong> — voglia di lavorare con metodo, non di improvvisare</div></div>
+          <div class="criteria-item"><div class="criteria-item-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Orizzonte di lungo periodo</strong> — partnership di almeno 18-24 mesi, non intervento spot</div></div>
+          <div class="criteria-item"><div class="criteria-item-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Trasparenza</strong> — apertura totale su numeri, cap table, accordi pregressi, rischi</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block faq">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Le domande più frequenti</div>
+      <h2 class="section-title" style="text-align:center">Chiariamo <span class="u">i dubbi.</span></h2>
+      <p class="section-lead" style="text-align:center;margin-left:auto;margin-right:auto">Le domande che riceviamo più spesso dai founder in fase di candidatura.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Che percentuale di equity prendete?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Non esiste una percentuale fissa. <strong>La quota dipende dalla fase del progetto, dal valore dei servizi erogati e dalla durata dell'accordo.</strong> Una startup early-stage che attiva il programma completo cede tipicamente una quota diversa rispetto a un'azienda con primi ricavi che usa solo il modulo Finance. Il dato concreto emerge dall'assessment iniziale, dove quantifichiamo insieme il valore operativo dello scambio. Non chiediamo mai la maggioranza, non imponiamo clausole di controllo, non sostituiamo il founder.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Devo avere già una Srl costituita per candidarmi?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Non necessariamente. <strong>Lavoriamo sia con progetti pre-costituzione</strong> (aiutandoti a scegliere la forma giuridica giusta) <strong>sia con aziende già attive</strong>. L'importante è che ci sia un progetto concreto, un team identificabile, e una volontà seria di strutturare l'attività. Se serve costituire la società, siamo tra i primi passi che facciamo insieme.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Siete un fondo di venture capital?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">No, <strong>siamo una società di consulenza strategica</strong>. Non portiamo capitali liquidi — portiamo competenze operative Finance + HR che hanno un valore economico misurabile. Siamo un partner operativo, non finanziario. Puoi combinarci benissimo con un futuro VC: molti dei nostri candidati usano Enterservice Equity <em>per prepararsi</em> a un round seed con documentazione e numeri credibili.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Cosa succede se voglio uscire dal programma?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">L'accordo prevede <strong>clausole di uscita chiare e concordate in fase di firma</strong>. Non siamo un contratto carcerario: se il rapporto non funziona, ci sono modalità definite per separarsi. L'unica cosa che non cambia è il principio alla base: i servizi già erogati hanno avuto un valore, e quel valore va riconosciuto. La forma — riacquisto quota, compenso residuo, altro — si stabilisce caso per caso.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>In quali settori lavorate?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Abbiamo esperienza trasversale su <strong>tech B2B, SaaS, marketplace, servizi professionali, food &amp; retail innovativo, real estate tech, consumer brand</strong>. La metodologia Finance + HR si applica praticamente ovunque — cambia il modo in cui la adattiamo al settore. Non lavoriamo su progetti fortemente capital-intensive (biotech, deep tech hardware) perché richiederebbero capitali che non portiamo.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Quanto dura tipicamente un accordo Equity?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">La durata minima è tipicamente <strong>18-24 mesi</strong>, per permettere un impatto reale. Per progetti early-stage può arrivare a 36 mesi. Dopo la fase iniziale, l'accordo può evolvere: a volte si trasforma in una consulenza tradizionale a fee (quando la startup ha ricavi strutturati), a volte Enterservice mantiene una quota minore in modalità advisory. Tutto si rinegozia sui risultati.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="contact">
+  <div class="final-wrap">
+    <div class="final-eyebrow">Candidati al programma</div>
+    <h2 class="final-title">Se hai un progetto serio,<br><span class="u">abbiamo un partner.</span></h2>
+    <p class="final-lead">
+      La candidatura parte dalla compilazione del modulo dedicato. <strong style="color:var(--yellow)">Le startup più interessanti le contattiamo entro pochi giorni</strong> per fissare un primo assessment gratuito.
+    </p>
+    <div class="final-cta-group">
+      <a href="https://www.enterservicegroup.com/helpdesk/programma-equity-2" target="_blank" rel="noopener" class="btn-big primary">
+        Candida la tua startup
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg>
+      </a>
+      <a href="index.html" class="btn-big secondary">
+        Torna alla home
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+    <div class="final-contacts">
+      <div><span class="label">Email generale</span><a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a></div>
+      <div><span class="label">Sito web</span><a href="https://www.enterservicegroup.com" target="_blank" rel="noopener">enterservicegroup.com</a></div>
+      <div><span class="label">Sede</span>Via Casilina, 3 · 00182 Roma</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <img src="Images/logo-sfondo-blu.png" alt="Enterservice" class="footer-logo">
+      <div class="footer-brand-tagline">THINKING DATA, ACTING STRATEGY</div>
+    </div>
+    <div class="footer-info">
+      <div><strong>Via Casilina, 3 · 00182 Roma</strong></div>
+      <div>P.IVA 15795691003 · REA RM 1614574</div>
+      <div>Capitale Sociale € 1.000,00 i.v.</div>
+      <div style="margin-top:8px">info@enterserviceholding.com · enterservicegroup.com</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Enterservice S.R.L.S. unipersonale · Tutti i diritti riservati</div>
+    <div><a href="index.html">Home</a> · <a href="clients.html">Consulenza PMI</a> · <a href="referral.html">Partner Referral</a></div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const topbar = document.getElementById('topbar');
+window.addEventListener('scroll', ()=>{if(window.scrollY > 50) topbar.classList.add('scrolled'); else topbar.classList.remove('scrolled');}, {passive:true});
+document.querySelectorAll('.moment-tab').forEach(tab=>{tab.addEventListener('click', ()=>{const p = tab.getAttribute('data-panel');document.querySelectorAll('.moment-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.moment-panel').forEach(x=>x.classList.remove('active'));tab.classList.add('active');document.querySelector('.moment-panel[data-panel="'+p+'"]').classList.add('active');});});
+document.querySelectorAll('.faq-item').forEach(item=>{const q=item.querySelector('.faq-q');q.addEventListener('click', ()=>{const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!wasOpen) item.classList.add('open');});});
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+function closeMenu(){mobileNav.classList.remove('open');mobileOverlay.classList.remove('open');mobileNav.setAttribute('aria-hidden','true');}
+function openMenu(){mobileNav.classList.add('open');mobileOverlay.classList.add('open');mobileNav.setAttribute('aria-hidden','false');}
+menuToggle.addEventListener('click', ()=>{mobileNav.classList.contains('open') ? closeMenu() : openMenu();});
+mobileOverlay.addEventListener('click', closeMenu);
+document.querySelectorAll('#mobileNav a').forEach(a=>a.addEventListener('click', closeMenu));
+</script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterservice · Partner Referral</title>
+<meta name="description" content="Il programma Partner Referral Enterservice per commercialisti. Offri ai tuoi clienti un servizio complementare di qualità — senza toccare la contabilità, senza conflitti di canale.">
+<link rel="icon" type="image/png" href="Images/logo-icona.png">
+<link rel="apple-touch-icon" href="Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#140C64;--navy-2:#1E1580;--navy-3:#0C0740;
+  --yellow:#FBA800;--yellow-soft:#FFD77A;--yellow-bg:#FFF8E7;
+  --gray:#727476;--gray-soft:#B8BABC;
+  --ink:#1B1B1F;--paper:#FAFAF7;--mist:#F3F2F8;--line:#E5E3EE;
+  --shadow:0 24px 60px -22px rgba(20,12,100,.28);
+  --t:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+button{font-family:inherit}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(20,12,100,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);transition:padding .3s var(--t)}
+.topbar.scrolled{padding:8px 32px}
+.topbrand{display:flex;align-items:center}
+.topbar-logo{height:44px;width:auto;max-width:240px;transition:height .3s var(--t);display:block}
+.topbar.scrolled .topbar-logo{height:34px}
+.topnav{display:flex;gap:24px;align-items:center}
+.topnav a{color:rgba(255,255,255,.75);font-size:13px;font-weight:500;transition:color .3s;letter-spacing:.01em;display:inline-flex;align-items:center;gap:6px}
+.topnav a:hover{color:var(--yellow)}
+.topnav .home-link{color:var(--yellow-soft)}
+.topnav .home-link svg{width:12px;height:12px}
+.topcta{background:var(--yellow);color:var(--navy);padding:10px 20px;border-radius:24px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:all .3s var(--t);cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;border:none}
+.topcta:hover{background:#fff;transform:translateY(-1px);box-shadow:0 10px 20px -5px rgba(251,168,0,.4)}
+.topcta svg{width:14px;height:14px}
+.menu-toggle{display:none;background:transparent;border:none;color:#fff;cursor:pointer;padding:8px}
+.menu-toggle svg{width:26px;height:26px}
+
+/* HERO */
+.hero{min-height:90vh;padding:140px 7vw 90px;position:relative;background:radial-gradient(1400px 900px at 85% -10%,#2A1E9E 0%,var(--navy) 50%,var(--navy-3) 100%);color:#fff;display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10vw;top:10vh;width:60vw;height:60vw;border-radius:50%;background:rgba(251,168,0,.1);filter:blur(40px);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-10vw;bottom:-20vh;width:50vw;height:50vw;border-radius:50%;background:rgba(30,21,128,.5);filter:blur(60px);pointer-events:none}
+.hero-wrap{max-width:1200px;margin:0 auto;position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1.5px solid rgba(251,168,0,.4);background:rgba(251,168,0,.08);color:var(--yellow);border-radius:30px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:32px}
+.hero-badge::before{content:"";width:7px;height:7px;background:var(--yellow);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(251,168,0,.5)}50%{box-shadow:0 0 0 8px rgba(251,168,0,0)}}
+.hero h1{font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(42px,5.6vw,78px);line-height:1.08;margin-bottom:28px;color:#fff;max-width:18ch}
+.hero h1 .u{display:inline-block;border-bottom:5px solid var(--yellow);padding-bottom:6px}
+.hero-lead{font-size:clamp(16px,1.3vw,20px);color:rgba(255,255,255,.85);line-height:1.65;max-width:720px;margin-bottom:40px;font-weight:300}
+.hero-lead strong{color:var(--yellow);font-weight:500}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--yellow);color:var(--navy);padding:17px 26px;border-radius:12px;font-weight:700;font-size:14px;transition:all .3s var(--t);display:inline-flex;align-items:center;gap:10px;border:none;cursor:pointer;letter-spacing:.02em}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 15px 30px -10px rgba(251,168,0,.5)}
+.btn-primary svg{width:16px;height:16px;transition:transform .3s}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{color:rgba(255,255,255,.75);padding:17px 20px;font-weight:500;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:color .3s}
+.btn-ghost:hover{color:var(--yellow)}
+.btn-ghost svg{width:14px;height:14px}
+
+/* Hero stats */
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1)}
+.hero-stat{display:flex;flex-direction:column;gap:6px;min-width:110px}
+.hero-stat-num{font-family:'Plus Jakarta Sans';font-weight:800;color:var(--yellow);font-size:32px;line-height:1}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:.05em;text-transform:uppercase;font-weight:500;line-height:1.45}
+
+/* SECTIONS */
+section.block{padding:100px 7vw;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:16px;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--yellow)}
+.section-title{font-family:'Plus Jakarta Sans';font-weight:800;color:var(--navy);font-size:clamp(30px,4.2vw,52px);line-height:1.15;margin-bottom:22px}
+.section-title .u{border-bottom:4px solid var(--yellow);padding-bottom:4px}
+.section-lead{font-size:clamp(15px,1.2vw,17px);color:var(--gray);line-height:1.7;max-width:780px;margin-bottom:56px}
+.section-lead strong{color:var(--navy);font-weight:600}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--t),transform .8s var(--t)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}.reveal-d4{transition-delay:.32s}
+
+/* POSITIONING — What Enterservice does vs what it doesn't do */
+.positioning{background:var(--paper)}
+.positioning-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
+.pos-card{padding:36px 32px;border-radius:20px;border:2px solid;transition:all .4s var(--t)}
+.pos-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pos-card.yes{background:#fff;border-color:var(--navy)}
+.pos-card.no{background:var(--paper);border-color:var(--line)}
+.pos-card-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid}
+.pos-card.yes .pos-card-head{border-bottom-color:var(--navy)}
+.pos-card.no .pos-card-head{border-bottom-color:var(--line)}
+.pos-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.pos-card.yes .pos-card-icon{background:var(--navy);color:var(--yellow)}
+.pos-card.no .pos-card-icon{background:#FFE5E5;color:#B83232}
+.pos-card-icon svg{width:22px;height:22px}
+.pos-card-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:19px;line-height:1.2}
+.pos-card-sub{font-size:12px;color:var(--gray);margin-top:2px;letter-spacing:.05em}
+.pos-list{display:flex;flex-direction:column;gap:12px}
+.pos-item{display:flex;gap:14px;align-items:flex-start;font-size:14px;color:var(--ink);line-height:1.5}
+.pos-item-mark{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+.pos-card.yes .pos-item-mark{background:var(--yellow-bg);color:var(--navy)}
+.pos-card.no .pos-item-mark{background:#FFE5E5;color:#B83232}
+.pos-item-mark svg{width:12px;height:12px}
+.pos-item strong{color:var(--navy);font-weight:600}
+
+/* WHY YOU — commercialista perspective */
+.whyyou{background:#fff}
+.whyyou-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:16px}
+.whyyou-card{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:32px 28px;transition:all .5s var(--t);position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column;gap:14px}
+.whyyou-card::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:0;background:var(--navy);transition:height .5s var(--t);z-index:0}
+.whyyou-card>*{position:relative;z-index:1;transition:color .3s}
+.whyyou-card:hover{border-color:var(--navy);transform:translateY(-6px);box-shadow:var(--shadow)}
+.whyyou-card:hover::after{height:100%}
+.whyyou-card:hover .wy-title,.whyyou-card:hover .wy-body{color:#fff}
+.whyyou-card:hover .wy-num{color:var(--yellow)}
+.wy-num{font-family:'Plus Jakarta Sans';font-weight:800;color:var(--yellow);font-size:13px;letter-spacing:.2em}
+.wy-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:20px;line-height:1.25}
+.wy-body{color:var(--gray);font-size:14px;line-height:1.65}
+.wy-body strong{color:var(--navy);transition:color .3s}
+.whyyou-card:hover .wy-body strong{color:var(--yellow)}
+
+/* HOW IT WORKS */
+.how{background:var(--mist);position:relative;overflow:hidden}
+.how::before{content:"";position:absolute;top:-20%;right:-15%;width:50vw;height:50vw;border-radius:50%;background:rgba(251,168,0,.06);filter:blur(50px);pointer-events:none}
+.how-wrap{position:relative;z-index:2}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:16px}
+.phase-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:32px 26px;position:relative;transition:all .4s var(--t);display:flex;flex-direction:column;gap:14px}
+.phase-card:hover{border-color:var(--yellow);box-shadow:var(--shadow);transform:translateY(-6px)}
+.phase-card:not(:last-child)::after{content:"";position:absolute;top:56px;right:-14px;width:12px;height:12px;border-top:2px solid var(--yellow);border-right:2px solid var(--yellow);transform:rotate(45deg);z-index:3}
+.phase-badge{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--navy);color:var(--yellow);border-radius:14px;font-family:'Plus Jakarta Sans';font-weight:800;font-size:22px}
+.phase-num{font-size:10px;color:var(--gray);letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.phase-title{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:19px;line-height:1.15}
+.phase-body{color:var(--gray);font-size:13.5px;line-height:1.65;flex:1}
+.phase-body strong{color:var(--navy);font-weight:600}
+
+/* COMMISSION — no percentages, just logic -->
+.commission{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.commission::before{content:"";position:absolute;right:-10vw;bottom:-30vh;width:60vw;height:60vw;border-radius:50%;background:rgba(251,168,0,.06);filter:blur(60px)}
+.commission-wrap{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.commission .eyebrow{color:var(--yellow)}
+.commission .eyebrow::before{background:var(--yellow)}
+.commission-title{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:clamp(28px,4.2vw,52px);line-height:1.15;margin-bottom:22px}
+.commission-title .u{border-bottom:4px solid var(--yellow);padding-bottom:4px}
+.commission-lead{color:rgba(255,255,255,.8);font-size:clamp(15px,1.2vw,17px);line-height:1.7;max-width:820px;margin-bottom:48px;font-weight:300}
+.commission-lead strong{color:var(--yellow);font-weight:500}
+.commission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
+.commission-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:30px 26px;transition:all .4s var(--t);backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:14px}
+.commission-card:hover{background:rgba(251,168,0,.08);border-color:var(--yellow);transform:translateY(-4px)}
+.commission-icon{width:44px;height:44px;background:rgba(251,168,0,.15);color:var(--yellow);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.commission-icon svg{width:22px;height:22px}
+.commission-card-title{font-family:'Plus Jakarta Sans';font-weight:700;color:#fff;font-size:18px;line-height:1.25}
+.commission-card-body{color:rgba(255,255,255,.75);font-size:13.5px;line-height:1.6;font-weight:300}
+.commission-card-body strong{color:var(--yellow);font-weight:500}
+.commission-callout{background:rgba(251,168,0,.1);border:1px solid rgba(251,168,0,.3);border-radius:14px;padding:26px 32px;display:flex;gap:20px;align-items:center}
+.commission-callout-icon{width:48px;height:48px;background:var(--yellow);color:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.commission-callout-icon svg{width:24px;height:24px}
+.commission-callout-text{color:#fff;font-size:clamp(14px,1.1vw,16px);line-height:1.55;font-weight:300}
+.commission-callout-text strong{color:var(--yellow);font-weight:600}
+
+/* FAQ */
+.faq{background:var(--paper)}
+.faq-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:880px;margin:16px auto 0}
+.faq-item{background:#fff;border:1.5px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:var(--yellow)}
+.faq-q{padding:22px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Plus Jakarta Sans';font-weight:700;color:var(--navy);font-size:15.5px;line-height:1.4;transition:all .3s;background:transparent;border:none;width:100%;text-align:left}
+.faq-q:hover{background:var(--yellow-bg)}
+.faq-toggle{width:32px;height:32px;background:var(--yellow-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;transition:transform .4s var(--t),background .3s;color:var(--navy)}
+.faq-item.open .faq-toggle{transform:rotate(45deg);background:var(--yellow)}
+.faq-toggle svg{width:14px;height:14px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--t);font-size:14px;color:var(--gray);line-height:1.7}
+.faq-item.open .faq-a{max-height:500px}
+.faq-a-inner{padding:0 28px 24px}
+.faq-a strong{color:var(--navy);font-weight:600}
+
+/* FINAL */
+.final{background:radial-gradient(1200px 700px at 50% 0%,#2A1E9E 0%,var(--navy) 50%,var(--navy-3) 100%);color:#fff;padding:120px 7vw;text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;bottom:-30%;left:50%;transform:translateX(-50%);width:80vw;height:80vw;border-radius:50%;background:rgba(251,168,0,.05);filter:blur(80px);pointer-events:none}
+.final-wrap{max-width:780px;margin:0 auto;position:relative;z-index:2}
+.final-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1.5px solid var(--yellow);border-radius:30px;color:var(--yellow);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:32px}
+.final-eyebrow::before{content:"→"}
+.final-title{font-family:'Plus Jakarta Sans';font-weight:800;color:#fff;font-size:clamp(36px,5vw,68px);line-height:1.08;margin-bottom:26px}
+.final-title .u{border-bottom:5px solid var(--yellow);padding-bottom:5px}
+.final-lead{color:rgba(255,255,255,.8);font-size:clamp(15px,1.3vw,18px);line-height:1.7;margin-bottom:42px;font-weight:300;max-width:600px;margin-left:auto;margin-right:auto}
+.final-cta-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-big{padding:20px 32px;border-radius:14px;font-weight:700;font-size:15px;transition:all .3s var(--t);display:inline-flex;align-items:center;gap:12px;letter-spacing:.01em}
+.btn-big svg{width:17px;height:17px;transition:transform .3s}
+.btn-big:hover svg{transform:translateX(5px)}
+.btn-big.primary{background:var(--yellow);color:var(--navy)}
+.btn-big.primary:hover{background:#fff;transform:translateY(-3px);box-shadow:0 20px 40px -10px rgba(251,168,0,.5)}
+.btn-big.secondary{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-big.secondary:hover{background:rgba(255,255,255,.2);border-color:var(--yellow);transform:translateY(-3px)}
+.final-contacts{padding-top:36px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:center;gap:36px;flex-wrap:wrap;color:rgba(255,255,255,.6);font-size:13px}
+.final-contacts a{color:var(--yellow-soft);transition:color .3s}
+.final-contacts a:hover{color:var(--yellow)}
+.final-contacts .label{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;font-weight:600}
+
+/* FOOTER */
+footer{background:var(--navy-3);color:rgba(255,255,255,.5);padding:48px 7vw;border-top:1px solid rgba(255,255,255,.08)}
+.footer-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start}
+.footer-brand{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.footer-logo{height:50px;width:auto;max-width:260px}
+.footer-brand-tagline{color:var(--yellow);font-family:'Plus Jakarta Sans';font-weight:700;font-size:11px;letter-spacing:.14em}
+.footer-info{font-size:12.5px;line-height:1.7;text-align:right}
+.footer-info strong{color:#fff;font-weight:600}
+.footer-bottom{max-width:1200px;margin:28px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.03em;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-bottom a{color:var(--yellow-soft);transition:color .3s}
+.footer-bottom a:hover{color:var(--yellow)}
+
+/* MOBILE NAV */
+.mobile-nav{position:fixed;top:0;right:-100%;width:85%;max-width:340px;height:100vh;z-index:60;background:var(--navy);padding:100px 32px 40px;transition:right .4s var(--t);box-shadow:-10px 0 40px rgba(0,0,0,.3);overflow-y:auto}
+.mobile-nav.open{right:0}
+.mobile-nav a{display:block;color:#fff;font-family:'Plus Jakarta Sans';font-weight:700;font-size:20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .3s}
+.mobile-nav a:hover{color:var(--yellow)}
+.mobile-nav .home-link{color:var(--yellow-soft);display:flex;align-items:center;gap:8px}
+.mobile-nav .home-link svg{width:14px;height:14px}
+.mobile-nav .mobile-cta{display:inline-flex;margin-top:24px;padding:14px 24px;background:var(--yellow);color:var(--navy);border-radius:24px;font-size:13px;font-weight:700;letter-spacing:.02em;border:none;align-items:center;gap:10px}
+.mobile-nav .mobile-cta:hover{background:#fff}
+.mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:55;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-overlay.open{opacity:1;pointer-events:auto}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .topnav{display:none}.menu-toggle{display:block}.topcta{display:none}
+  section.block{padding:72px 6vw}
+  .hero{padding:120px 6vw 60px;min-height:auto}
+  .positioning-grid{grid-template-columns:1fr}
+  .whyyou-grid{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr 1fr;gap:18px}
+  .phase-card::after{display:none}
+  .commission-grid{grid-template-columns:1fr}
+  .topbar{padding:12px 18px}
+  .hero-stats{gap:28px}
+  .footer-wrap{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .footer-brand{align-items:center}.footer-info{text-align:center}
+  .footer-bottom{justify-content:center;text-align:center}
+}
+@media(max-width:640px){
+  section.block{padding:56px 5vw}.hero{padding:100px 5vw 50px}
+  .hero h1{font-size:clamp(34px,9vw,50px);max-width:none}
+  .phases{grid-template-columns:1fr;gap:14px}
+  .whyyou-card{min-height:auto;padding:28px 24px}
+  .hero-stats{gap:20px}.hero-stat{min-width:calc(50% - 10px)}.hero-stat-num{font-size:26px}
+  .topbar-logo{height:34px}.topbar.scrolled .topbar-logo{height:28px}
+  .final{padding:70px 5vw}
+  .final-contacts{gap:22px;flex-direction:column;align-items:center}
+  .final-contacts>div{text-align:center}
+  .final-cta-group{flex-direction:column}
+  .btn-big{width:100%;justify-content:center}
+  .commission-callout{flex-direction:column;text-align:center;padding:22px}
+  .pos-card{padding:28px 24px}
+  .mobile-nav{padding:90px 24px 32px}.mobile-nav a{font-size:18px}
+  footer{padding:36px 5vw}.footer-logo{height:42px}
+  .footer-bottom{flex-direction:column;gap:8px}
+}
+@media(max-width:400px){
+  .hero h1,.section-title,.commission-title,.final-title{font-size:28px}
+  .hero-stats{flex-direction:column;gap:14px}
+  .hero-stat{min-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <a href="index.html" class="topbrand">
+    <img src="Images/logo-sfondo-blu.png" alt="Enterservice" class="topbar-logo">
+  </a>
+  <nav class="topnav">
+    <a href="index.html" class="home-link"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M10 13L5 8l5-5v10z"/></svg> Home</a>
+    <a href="#positioning">Il programma</a>
+    <a href="#whyyou">Perché aderire</a>
+    <a href="#how">Come funziona</a>
+    <a href="#commission">Commissioni</a>
+    <a href="#contact">Candidati</a>
+  </nav>
+  <a href="https://www.enterservicegroup.com/helpdesk/programma-referral-5" target="_blank" rel="noopener" class="topcta">Diventa Partner <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="index.html" class="home-link"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M10 13L5 8l5-5v10z"/></svg> Torna alla home</a>
+  <a href="#positioning">Il programma</a>
+  <a href="#whyyou">Perché aderire</a>
+  <a href="#how">Come funziona</a>
+  <a href="#commission">Commissioni</a>
+  <a href="#contact">Candidati</a>
+  <a href="https://www.enterservicegroup.com/helpdesk/programma-referral-5" target="_blank" rel="noopener" class="mobile-cta">Diventa Partner <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-wrap">
+    <div class="hero-badge">Programma Partner Referral · Solo per commercialisti</div>
+    <h1>Offri ai tuoi clienti <span class="u">ciò che tu non puoi fare.</span></h1>
+    <p class="hero-lead">
+      Il programma Enterservice Partner Referral è dedicato <strong>esclusivamente ai commercialisti</strong>. Ti permette di offrire ai tuoi clienti un servizio complementare di controllo di gestione, accesso al credito e HR — <strong>senza toccare la contabilità, senza conflitti</strong>. Tu resti il referente. Noi facciamo il lavoro specialistico.
+    </p>
+    <div class="hero-cta-row">
+      <a href="https://www.enterservicegroup.com/helpdesk/programma-referral-5" target="_blank" rel="noopener" class="btn-primary">
+        Diventa Partner
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg>
+      </a>
+      <a href="#positioning" class="btn-ghost">
+        Come funziona il programma
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">0 €</div><div class="hero-stat-label">Investimento<br>iniziale</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">Zero</div><div class="hero-stat-label">Conflitto<br>di canale</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Trasparenza<br>contrattuale</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">Tu</div><div class="hero-stat-label">Resti sempre<br>il referente</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING — Cosa facciamo vs Cosa NON facciamo -->
+<section class="block positioning" id="positioning">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Il confine è netto</div>
+      <h2 class="section-title">Cosa facciamo, <span class="u">cosa non tocchiamo.</span></h2>
+      <p class="section-lead">La premessa operativa del programma. <strong>Enterservice lavora dove tu non arrivi per competenza, tempo o perimetro</strong>. Ma non invade mai il tuo spazio. Le attività del commercialista restano intoccabili.</p>
+    </div>
+    <div class="positioning-grid">
+      <div class="pos-card yes reveal reveal-d1">
+        <div class="pos-card-head">
+          <div class="pos-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg></div>
+          <div>
+            <div class="pos-card-title">Quello che facciamo</div>
+            <div class="pos-card-sub">Servizi specialistici complementari</div>
+          </div>
+        </div>
+        <div class="pos-list">
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Controllo di gestione continuo</strong> — presidio mensile di CE, SP, cash flow, budget vs consuntivo</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Preparazione accesso al credito</strong> — dossier bancari, business plan, accompagnamento in banca</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Finanza agevolata</strong> — PNRR, bandi regionali, credito d'imposta, rendicontazione</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>HR &amp; payroll</strong> — selezione, gestione paghe, org design, formazione obbligatoria</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l3 3 7-7"/></svg></div><div><strong>Consulenza direzionale</strong> — supporto decisioni strategiche, operazioni straordinarie</div></div>
+        </div>
+      </div>
+      <div class="pos-card no reveal reveal-d2">
+        <div class="pos-card-head">
+          <div class="pos-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M6 18L18 6"/></svg></div>
+          <div>
+            <div class="pos-card-title">Quello che NON facciamo</div>
+            <div class="pos-card-sub">Il tuo perimetro professionale resta tuo</div>
+          </div>
+        </div>
+        <div class="pos-list">
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3l10 10M3 13L13 3"/></svg></div><div><strong>Contabilità ordinaria o semplificata</strong> — resta in toto nel tuo studio</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3l10 10M3 13L13 3"/></svg></div><div><strong>Dichiarazioni fiscali</strong> — redditi, IRAP, IVA, 770, CU non le tocchiamo</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3l10 10M3 13L13 3"/></svg></div><div><strong>Pareri fiscali o tributari</strong> — rimandiamo sempre al tuo studio per ogni questione fiscale</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3l10 10M3 13L13 3"/></svg></div><div><strong>Consulenza del lavoro</strong> — elaborazione paghe in carico tuo (se già la gestisci), noi ci integriamo</div></div>
+          <div class="pos-item"><div class="pos-item-mark"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3l10 10M3 13L13 3"/></svg></div><div><strong>Scavalcare il tuo rapporto col cliente</strong> — tu resti il referente, sempre</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY YOU -->
+<section class="block whyyou" id="whyyou">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Perché aderire</div>
+      <h2 class="section-title">Sei motivi <span class="u">per te.</span></h2>
+      <p class="section-lead">Non è un programma di <strong>segnalazione generica</strong>. È una partnership professionale costruita intorno a una logica precisa: valorizzare il tuo rapporto col cliente, non diluirlo.</p>
+    </div>
+    <div class="whyyou-grid">
+      <div class="whyyou-card reveal reveal-d1">
+        <div class="wy-num">01</div>
+        <div class="wy-title">Offri più valore al cliente</div>
+        <div class="wy-body">Il commercialista oggi <strong>non basta più</strong>: le PMI chiedono controllo di gestione, accesso al credito, HR. Tu puoi offrire tutto questo tramite Enterservice, senza dover assumere specialisti o aprire dipartimenti.</div>
+      </div>
+      <div class="whyyou-card reveal reveal-d2">
+        <div class="wy-num">02</div>
+        <div class="wy-title">Nessun investimento iniziale</div>
+        <div class="wy-body">Non devi comprare software, non devi fare formazione, non devi assumere. <strong>Il programma parte con zero costo per te</strong>. Firmi l'accordo, ci presenti i primi clienti, e basta.</div>
+      </div>
+      <div class="whyyou-card reveal reveal-d3">
+        <div class="wy-num">03</div>
+        <div class="wy-title">Commissioni su ogni contratto</div>
+        <div class="wy-body">Per ogni cliente che si trasforma in contratto Enterservice, ricevi una <strong>commissione ricorrente</strong> sul valore del contratto stesso. Le commissioni crescono con il numero di clienti attivati: più ne porti, più il rendimento migliora.</div>
+      </div>
+      <div class="whyyou-card reveal reveal-d4">
+        <div class="wy-num">04</div>
+        <div class="wy-title">Zero conflitti di canale</div>
+        <div class="wy-body">Non tocchiamo la contabilità. <strong>Non scavalchiamo mai il tuo rapporto col cliente.</strong> Ogni comunicazione ha te in copia, ogni decisione passa dal tuo studio. Sei il referente formale per sempre.</div>
+      </div>
+      <div class="whyyou-card reveal reveal-d1">
+        <div class="wy-num">05</div>
+        <div class="wy-title">Trattenimento clienti</div>
+        <div class="wy-body">Un cliente che ha controllo di gestione, credit advisory e HR strutturato <strong>non lascia mai il suo commercialista</strong>. Consolidi la relazione professionale attraverso servizi che altri studi non offrono.</div>
+      </div>
+      <div class="whyyou-card reveal reveal-d2">
+        <div class="wy-num">06</div>
+        <div class="wy-title">Contratto trasparente</div>
+        <div class="wy-body">Il regolamento del programma è interamente <strong>pubblicato online</strong>: commissioni, clausole, modalità di uscita. Nessuna area grigia, nessun accordo verbale, nessuna sorpresa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="block how" id="how">
+  <div class="how-wrap container">
+    <div class="reveal">
+      <div class="eyebrow">Come funziona</div>
+      <h2 class="section-title">Quattro passi, <span class="u">processo chiaro.</span></h2>
+      <p class="section-lead">Dal primo contatto alla commissione ricorrente, il flusso è semplice, documentato e replicabile. Ogni passaggio è tracciato sul nostro CRM Odoo.</p>
+    </div>
+    <div class="phases">
+      <div class="phase-card reveal reveal-d1">
+        <div class="phase-badge">01</div>
+        <div class="phase-num">Fase 1</div>
+        <div class="phase-title">Adesione</div>
+        <div class="phase-body">Firmi l'accordo di partnership. <strong>Zero investimento, zero vincoli.</strong> Ricevi il kit informativo e le brochure da usare con i tuoi clienti.</div>
+      </div>
+      <div class="phase-card reveal reveal-d2">
+        <div class="phase-badge">02</div>
+        <div class="phase-num">Fase 2</div>
+        <div class="phase-title">Segnalazione</div>
+        <div class="phase-body">Ci presenti un cliente che potrebbe beneficiare dei nostri servizi. <strong>Con una mail o una chiamata</strong>. Registriamo la segnalazione in Odoo, tu resti sempre in copia.</div>
+      </div>
+      <div class="phase-card reveal reveal-d3">
+        <div class="phase-badge">03</div>
+        <div class="phase-num">Fase 3</div>
+        <div class="phase-title">Consulenza iniziale gratuita</div>
+        <div class="phase-body">Incontriamo il cliente (con te se vuoi) e <strong>produciamo un'analisi preliminare gratuita</strong>. Se il cliente decide di procedere, si firma il contratto Enterservice.</div>
+      </div>
+      <div class="phase-card reveal reveal-d4">
+        <div class="phase-badge">04</div>
+        <div class="phase-num">Fase 4</div>
+        <div class="phase-title">Commissione ricorrente</div>
+        <div class="phase-body">Dal momento della firma, ricevi una commissione sul valore del contratto <strong>per tutta la durata del rapporto</strong>. Report dettagliato trimestrale con saldo maturato.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSION — No percentages, just logic -->
+<section class="commission" id="commission">
+  <div class="commission-wrap">
+    <div class="reveal">
+      <div class="eyebrow">Le commissioni</div>
+      <h2 class="commission-title">Più clienti porti, <span class="u">più cresce la commissione.</span></h2>
+      <p class="commission-lead">
+        Il meccanismo è costruito per <strong>premiare la fiducia</strong>. Non ti diamo commissioni una tantum: ricevi una percentuale ricorrente su tutta la durata del contratto Enterservice con il tuo cliente. E la percentuale aumenta progressivamente con il numero di clienti attivati.
+      </p>
+    </div>
+    <div class="commission-grid">
+      <div class="commission-card reveal reveal-d1">
+        <div class="commission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div class="commission-card-title">Commissione ricorrente</div>
+        <div class="commission-card-body">Non è un pagamento una tantum al primo contratto. <strong>Maturi commissioni ogni mese</strong> in cui il cliente è attivo con Enterservice. Se il cliente resta con noi 5 anni, tu ricevi commissioni per 5 anni.</div>
+      </div>
+      <div class="commission-card reveal reveal-d2">
+        <div class="commission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <div class="commission-card-title">Tier progressivi</div>
+        <div class="commission-card-body">Il rendimento <strong>cresce con il numero di clienti attivati</strong>. Più ne porti, più aumenta la percentuale che ricevi — e si applica retroattivamente anche sui clienti già in portafoglio.</div>
+      </div>
+      <div class="commission-card reveal reveal-d3">
+        <div class="commission-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div>
+        <div class="commission-card-title">Report trimestrale</div>
+        <div class="commission-card-body">Ogni tre mesi ricevi un <strong>prospetto dettagliato</strong>: clienti segnalati, clienti attivati, commissione maturata per ciascuno, totale liquidato. Zero opacità, zero calcoli da fare a mano.</div>
+      </div>
+    </div>
+    <div class="commission-callout reveal reveal-d4">
+      <div class="commission-callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+      <div class="commission-callout-text">
+        <strong>Le percentuali specifiche</strong> — tier, soglie di attivazione, durate — sono documentate nel regolamento completo del programma, consegnato in fase di adesione. <strong>Ogni clausola è trasparente, nessuna sorpresa, nessun accordo verbale.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block faq">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Le domande più frequenti</div>
+      <h2 class="section-title" style="text-align:center">Chiariamo <span class="u">i dubbi.</span></h2>
+      <p class="section-lead" style="text-align:center;margin-left:auto;margin-right:auto">Le domande che ci fanno più spesso i commercialisti in fase di adesione al programma.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Il programma è aperto solo ai commercialisti?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner"><strong>Sì, esclusivamente.</strong> Il programma Partner Referral è dedicato a commercialisti e studi associati iscritti all'albo. Non accettiamo segnalatori generici, consulenti di altre categorie o intermediari. Questa scelta è voluta: il commercialista è l'unico professionista che ha già una relazione fiduciaria strutturata con il cliente PMI, e quindi l'unico in grado di trasferire questa fiducia a Enterservice in modo sano.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Ci sono rischi di conflitto con la mia attività?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Nessuno. Enterservice opera <strong>in aree completamente complementari</strong> alla tua: controllo di gestione, credit advisory, HR, finanza agevolata. Non tocchiamo contabilità, dichiarativi, fiscalità o consulenza tributaria. <strong>Tu resti il referente formale del cliente</strong>, siamo sempre in copia sulle comunicazioni, nessuna decisione passa senza di te.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Quanto tempo devo dedicare al programma?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Praticamente nessuno. <strong>Il tuo ruolo è di segnalazione</strong>: quando incontri un cliente che potrebbe beneficiare dei nostri servizi, ci mandi una mail o ci chiami. Noi ci occupiamo di tutto il resto — contatto, analisi preliminare, offerta, contrattualizzazione. Puoi decidere tu quanto essere presente: alcuni partner ci seguono in ogni meeting, altri delegano completamente.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Cosa succede se il cliente smette di lavorare con Enterservice?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">La commissione si interrompe insieme al contratto. <strong>È un meccanismo equo in entrambe le direzioni</strong>: Enterservice guadagna fino a quando genera valore al cliente, e tu guadagni fino a quando il cliente riconosce quel valore. Se il cliente esce (solo a scadenze trimestrali con preavviso), sia noi che te smettiamo di incassare su di lui. Non ci sono clausole penalizzanti.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Posso uscire dal programma quando voglio?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Sì. Il recesso è libero, con <strong>30 giorni di preavviso</strong>. Dopo l'uscita continui comunque a percepire le commissioni maturate sui clienti già attivati, per tutta la durata dei loro contratti. Ti viene solo sospesa la possibilità di segnalare nuovi clienti futuri.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Quali garanzie di qualità avete?</span><div class="faq-toggle"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></div></button>
+        <div class="faq-a"><div class="faq-a-inner">Enterservice è una <strong>S.r.l.s. operativa dal 2020</strong>, affiliata a Confcommercio Roma, CAT Tutela Fiscale, A.I.F.E.C.S., partner tecnologico JetHR e Cloud Finance. Il CEO è certificato <strong>OAM</strong> per la mediazione creditizia. Operiamo con contratti standard trasparenti, fatturazione elettronica, tracciamento completo su CRM Odoo. Se ti serve la visura camerale o i riferimenti dei nostri clienti, te li passiamo volentieri in fase di adesione.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" id="contact">
+  <div class="final-wrap">
+    <div class="final-eyebrow">Unisciti al programma</div>
+    <h2 class="final-title">Un nuovo servizio<br><span class="u">per i tuoi clienti.</span></h2>
+    <p class="final-lead">
+      Il primo passo è compilare il modulo di interesse. Ti ricontattiamo entro 48 ore per un incontro conoscitivo, presentare il programma in dettaglio e <strong style="color:var(--yellow)">farti firmare l'accordo di partnership</strong>.
+    </p>
+    <div class="final-cta-group">
+      <a href="https://www.enterservicegroup.com/helpdesk/programma-referral-5" target="_blank" rel="noopener" class="btn-big primary">
+        Diventa Partner
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 3l5 5-5 5V3z"/></svg>
+      </a>
+      <a href="index.html" class="btn-big secondary">
+        Torna alla home
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+      </a>
+    </div>
+    <div class="final-contacts">
+      <div><span class="label">Email generale</span><a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a></div>
+      <div><span class="label">Sito web</span><a href="https://www.enterservicegroup.com" target="_blank" rel="noopener">enterservicegroup.com</a></div>
+      <div><span class="label">Sede</span>Via Casilina, 3 · 00182 Roma</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-brand">
+      <img src="Images/logo-sfondo-blu.png" alt="Enterservice" class="footer-logo">
+      <div class="footer-brand-tagline">THINKING DATA, ACTING STRATEGY</div>
+    </div>
+    <div class="footer-info">
+      <div><strong>Via Casilina, 3 · 00182 Roma</strong></div>
+      <div>P.IVA 15795691003 · REA RM 1614574</div>
+      <div>Capitale Sociale € 1.000,00 i.v.</div>
+      <div style="margin-top:8px">info@enterserviceholding.com · enterservicegroup.com</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Enterservice S.R.L.S. unipersonale · Tutti i diritti riservati</div>
+    <div><a href="index.html">Home</a> · <a href="clients.html">Consulenza PMI</a> · <a href="equity.html">Acceleration &amp; Equity</a></div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const topbar = document.getElementById('topbar');
+window.addEventListener('scroll', ()=>{if(window.scrollY > 50) topbar.classList.add('scrolled'); else topbar.classList.remove('scrolled');}, {passive:true});
+document.querySelectorAll('.faq-item').forEach(item=>{const q=item.querySelector('.faq-q');q.addEventListener('click', ()=>{const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!wasOpen) item.classList.add('open');});});
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+function closeMenu(){mobileNav.classList.remove('open');mobileOverlay.classList.remove('open');mobileNav.setAttribute('aria-hidden','true');}
+function openMenu(){mobileNav.classList.add('open');mobileOverlay.classList.add('open');mobileNav.setAttribute('aria-hidden','false');}
+menuToggle.addEventListener('click', ()=>{mobileNav.classList.contains('open') ? closeMenu() : openMenu();});
+mobileOverlay.addEventListener('click', closeMenu);
+document.querySelectorAll('#mobileNav a').forEach(a=>a.addEventListener('click', closeMenu));
+</script>
+</body>
+</html>
