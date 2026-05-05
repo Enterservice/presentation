@@ -796,16 +796,230 @@ button { font-family: inherit; }
   </div>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
+<!-- ===== FINAL CTA + FORM CONTATTI ===== -->
 <section class="final-cta" id="contact">
   <div class="final-cta-inner">
     <h2>Premi Invio.<br><em>Inizia a crescere.</em></h2>
     <p>Una call di 30 minuti. Capiamo se possiamo esserti utili. Senza impegno, senza presentazioni preconfezionate, senza bullshit.</p>
-    <div class="final-cta-btns">
-      <a href="mailto:info@enterserviceholding.com" class="btn btn-primary">Scrivici a info@enterserviceholding.com</a>
-      <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener" class="btn btn-light">Area riservata</a>
-    </div>
   </div>
+
+  <!-- Form embed (snippet autocontenuto: HTML+CSS+JS+POST a /api/public/leads) -->
+  <div id="es-contact-form-root"
+       data-origine-form="enterserviceholding.com"
+       data-link-privacy="/privacy"
+       data-versione-informativa="v1.0-2026-05-02">
+  <style>
+    #es-contact-form-root {
+      --es-navy: #140C64;
+      --es-yellow: #FBA800;
+      --es-bg-light: #F5F5FA;
+      --es-border: #E5E5EE;
+      --es-gray: #6B6B85;
+      --es-text: #2A2A3E;
+      --es-radius: 12px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--es-text);
+      max-width: 640px;
+      margin: 32px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+    .es-cf {
+      background: white;
+      border-radius: var(--es-radius);
+      padding: 32px;
+      box-shadow: 0 24px 60px -22px rgba(0, 0, 0, 0.4);
+    }
+    .es-cf h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; color: var(--es-navy); margin: 0 0 4px; font-weight: 800; letter-spacing: -0.015em; }
+    .es-cf p.es-cf-sub { color: var(--es-gray); font-size: 0.92rem; margin: 0 0 22px; }
+    .es-cf .es-cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .es-cf .es-cf-row.es-cf-full { grid-template-columns: 1fr; }
+    .es-cf label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--es-navy); margin-bottom: 4px; }
+    .es-cf .es-required { color: #b00020; }
+    .es-cf input, .es-cf select, .es-cf textarea {
+      width: 100%; padding: 10px 12px;
+      border: 1px solid var(--es-border); border-radius: 8px;
+      font-family: inherit; font-size: 0.92rem;
+      background: white; color: var(--es-text);
+      box-sizing: border-box;
+    }
+    .es-cf input:focus, .es-cf select:focus, .es-cf textarea:focus {
+      outline: none; border-color: var(--es-navy);
+      box-shadow: 0 0 0 3px rgba(20,12,100,.1);
+    }
+    .es-cf textarea { resize: vertical; min-height: 110px; }
+    .es-cf .es-cf-honeypot { position: absolute; left: -9999px; top: -9999px; height: 0; width: 0; opacity: 0; }
+    .es-cf .es-cf-consent { display: flex; align-items: flex-start; gap: 10px; margin: 14px 0 4px; font-size: 0.86rem; color: var(--es-text); }
+    .es-cf .es-cf-consent input { width: auto; margin-top: 3px; flex-shrink: 0; }
+    .es-cf .es-cf-consent label { font-weight: 400; color: var(--es-text); margin: 0; cursor: pointer; line-height: 1.5; }
+    .es-cf .es-cf-consent a { color: var(--es-navy); text-decoration: underline; }
+    .es-cf button {
+      width: 100%; padding: 14px 24px; margin-top: 18px;
+      background: var(--es-yellow); color: var(--es-navy);
+      border: none; border-radius: 10px;
+      font-family: inherit; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .es-cf button:hover:not(:disabled) { background: #FFB820; transform: translateY(-1px); box-shadow: 0 10px 20px -8px rgba(251, 168, 0, 0.5); }
+    .es-cf button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .es-cf .es-cf-feedback { padding: 14px 18px; border-radius: 8px; margin-top: 14px; font-size: 0.9rem; font-weight: 600; }
+    .es-cf .es-cf-feedback.es-success { background: #d4edda; color: #155724; }
+    .es-cf .es-cf-feedback.es-error { background: #f8d7da; color: #721c24; }
+    @media (max-width: 600px) {
+      .es-cf .es-cf-row { grid-template-columns: 1fr; }
+      .es-cf { padding: 24px 20px; }
+    }
+  </style>
+
+  <form class="es-cf" id="es-cf-form" novalidate>
+    <h2>Contattaci</h2>
+    <p class="es-cf-sub">Compila il form e ti ricontatteremo entro un giorno lavorativo.</p>
+
+    <div class="es-cf-row">
+      <div>
+        <label>Nome <span class="es-required">*</span></label>
+        <input type="text" name="nome" required maxlength="80" autocomplete="given-name">
+      </div>
+      <div>
+        <label>Cognome</label>
+        <input type="text" name="cognome" maxlength="80" autocomplete="family-name">
+      </div>
+    </div>
+
+    <div class="es-cf-row">
+      <div>
+        <label>Email <span class="es-required">*</span></label>
+        <input type="email" name="email" required maxlength="120" autocomplete="email">
+      </div>
+      <div>
+        <label>Telefono</label>
+        <input type="tel" name="telefono" maxlength="30" autocomplete="tel">
+      </div>
+    </div>
+
+    <div class="es-cf-row">
+      <div>
+        <label>Azienda</label>
+        <input type="text" name="azienda" maxlength="120" autocomplete="organization">
+      </div>
+      <div>
+        <label>Linea di interesse <span class="es-required">*</span></label>
+        <select name="linea_business" required>
+          <option value="">Seleziona…</option>
+          <option value="finance">🔵 Finance — analisi bilancio, CFO</option>
+          <option value="hr">🟢 HR — gestione personale</option>
+          <option value="mutui">🏠 Mutui — mediazione bancaria</option>
+          <option value="equity">🚀 Equity &amp; Acceleration — startup</option>
+          <option value="enterhouse">🏡 EnterHouse — beauty &amp; wellness</option>
+          <option value="altro">💼 Altro / Generico</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="es-cf-row es-cf-full">
+      <div>
+        <label>Messaggio</label>
+        <textarea name="messaggio" maxlength="5000" placeholder="Raccontaci la tua esigenza..."></textarea>
+      </div>
+    </div>
+
+    <div class="es-cf-honeypot" aria-hidden="true">
+      <label>Lascia vuoto</label>
+      <input type="text" name="hp_field" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="es-cf-consent">
+      <input type="checkbox" id="es-cf-priv" name="consenso_privacy" required>
+      <label for="es-cf-priv">
+        Ho letto e accetto l'<a href="" id="es-cf-privlink" target="_blank" rel="noopener">informativa privacy</a> <span class="es-required">*</span>
+      </label>
+    </div>
+
+    <div class="es-cf-consent">
+      <input type="checkbox" id="es-cf-mkt" name="consenso_marketing">
+      <label for="es-cf-mkt">
+        Voglio ricevere newsletter, novità e offerte commerciali (opzionale)
+      </label>
+    </div>
+
+    <button type="submit" id="es-cf-submit">Invia richiesta</button>
+    <div id="es-cf-feedback"></div>
+  </form>
+
+  <script>
+  (function() {
+    var root = document.getElementById('es-contact-form-root');
+    var form = document.getElementById('es-cf-form');
+    var feedback = document.getElementById('es-cf-feedback');
+    var btn = document.getElementById('es-cf-submit');
+    var privLink = document.getElementById('es-cf-privlink');
+
+    var origineForm = root.dataset.origineForm || 'form-web';
+    var linkPrivacy = root.dataset.linkPrivacy || '/privacy';
+    var versioneInformativa = root.dataset.versioneInformativa || null;
+    privLink.href = linkPrivacy;
+
+    var API_URL = 'https://app.enterserviceholding.com/api/public/leads';
+
+    function showFb(msg, kind) {
+      feedback.className = 'es-cf-feedback es-' + kind;
+      feedback.textContent = msg;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      feedback.className = '';
+      feedback.textContent = '';
+      if (!form.consenso_privacy.checked) {
+        showFb("Devi accettare l'informativa privacy per inviare il form.", 'error');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Invio in corso…';
+
+      var data = {
+        nome: form.nome.value,
+        cognome: form.cognome.value,
+        email: form.email.value,
+        telefono: form.telefono.value,
+        azienda: form.azienda.value,
+        linea_business: form.linea_business.value,
+        messaggio: form.messaggio.value,
+        consenso_privacy: form.consenso_privacy.checked,
+        consenso_marketing: form.consenso_marketing.checked,
+        versione_informativa: versioneInformativa,
+        origine_form: origineForm,
+        hp_field: form.hp_field.value
+      };
+
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function(r) { return r.json().then(function(j) { return { status: r.status, json: j }; }); })
+      .then(function(res) {
+        if (res.json && res.json.success) {
+          showFb('✅ ' + (res.json.data && res.json.data.message ? res.json.data.message : 'Richiesta inviata. Ti contatteremo presto.'), 'success');
+          form.reset();
+        } else {
+          var msg = res.json && res.json.error ? res.json.error : 'Errore invio. Riprova.';
+          showFb('❌ ' + msg, 'error');
+        }
+      })
+      .catch(function(err) {
+        showFb('❌ Errore di rete: ' + err.message, 'error');
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.textContent = 'Invia richiesta';
+      });
+    });
+  })();
+  </script>
+
+  </div>
+  <!-- ====== FINE SNIPPET CONTATTACI ENTERSERVICE ====== -->
 </section>
 
 <!-- ===== FOOTER ===== -->
