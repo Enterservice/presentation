@@ -778,8 +778,8 @@ button { font-family: inherit; }
             <span>📍 SPACES EUR-Arte, Roma</span>
           </div>
           <div class="evento-partner">
+            <span class="evento-partner-tag">Co-organizzato con Scale-up Facilitation</span>
             <span class="evento-partner-tag">Patrocinio Confcommercio Roma Giovani</span>
-            <span class="evento-partner-tag">Partner Scale-up Facilitation</span>
           </div>
           <div class="evento-cta">
             <span class="evento-cta-link">Iscriviti gratis →</span>
@@ -1184,7 +1184,12 @@ function renderEventoCard(e) {
   const luogoLabel = e.luogo + (e.citta ? ', ' + e.citta : '');
   const partnerHtml = (e.partner || [])
     .filter(p => p.ruolo !== 'organizzatore')
-    .map(p => `<span class="evento-partner-tag">${p.ruolo === 'patrocinio' ? 'Patrocinio ' : 'Partner '}${escapeHtml(p.nome)}</span>`)
+    .map(p => {
+      let prefix = 'Partner ';
+      if (p.ruolo === 'patrocinio') prefix = 'Patrocinio ';
+      else if (p.ruolo === 'co_organizzatore') prefix = 'Co-organizzato con ';
+      return `<span class="evento-partner-tag">${prefix}${escapeHtml(p.nome)}</span>`;
+    })
     .join('');
   const featured = e.partner && e.partner.length > 1 ? 'evento-card-featured' : '';
   const tagHtml = e.posti_rimasti != null && e.posti_rimasti < 10
