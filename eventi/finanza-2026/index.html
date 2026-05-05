@@ -73,16 +73,17 @@ a { color: inherit; text-decoration: none; }
 
 /* Sezione co-organizzatore con CTA */
 .co-org-card {
-  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  display: grid; grid-template-columns: 100px 1fr auto; gap: 28px; align-items: center;
   background: var(--white); border: 1px solid var(--line);
   border-radius: var(--radius-lg); padding: 32px;
-  max-width: 800px; margin: 0 auto;
+  max-width: 860px; margin: 0 auto;
   box-shadow: var(--shadow);
 }
+.co-org-logo { width: 110px; height: auto; max-height: 110px; object-fit: contain; flex-shrink: 0; }
 .co-org-card .co-org-text h3 { font-size: 18px; color: var(--navy); margin-bottom: 8px; font-weight: 700; }
 .co-org-card .co-org-text p { font-size: 14.5px; color: var(--gray); line-height: 1.55; margin: 0; }
 .co-org-card .co-org-text .co-org-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green); background: var(--green-soft); padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
-@media (max-width: 600px) { .co-org-card { grid-template-columns: 1fr; gap: 18px; padding: 24px; text-align: center; } }
+@media (max-width: 700px) { .co-org-card { grid-template-columns: 1fr; gap: 18px; padding: 24px; text-align: center; justify-items: center; } .co-org-logo { width: 80px; height: 80px; } }
 
 .hero-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 28px 0 32px; max-width: 540px; }
 .meta-item { display: flex; gap: 12px; align-items: flex-start; }
@@ -302,6 +303,7 @@ a { color: inherit; text-decoration: none; }
     </div>
 
     <div class="co-org-card">
+      <img src="/Images/Scaleup-logo.jpeg" alt="Logo Scaleup Facilitation" class="co-org-logo" onerror="this.style.display='none';">
       <div class="co-org-text">
         <span class="co-org-tag">Co-organizzatore</span>
         <h3>Scaleup Facilitation</h3>
