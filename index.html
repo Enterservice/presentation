@@ -514,6 +514,40 @@ button { font-family: inherit; }
   font-size: 12px; color: rgba(255, 255, 255, 0.5);
 }
 
+/* ===== Eventi card ===== */
+.eventi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.evento-card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); padding: 28px;
+  display: grid; grid-template-columns: 90px 1fr; gap: 24px;
+  transition: all 0.3s var(--t); text-decoration: none; color: inherit;
+  position: relative; overflow: hidden;
+}
+.evento-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--yellow); }
+.evento-card-featured { background: linear-gradient(180deg, var(--white) 0%, var(--yellow-bg) 100%); border-color: var(--yellow); }
+.evento-tag {
+  position: absolute; top: 12px; right: 14px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--navy); background: var(--yellow); padding: 4px 10px; border-radius: 999px;
+}
+.evento-data {
+  background: var(--navy); color: var(--white);
+  border-radius: var(--radius); padding: 18px 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: fit-content; min-width: 80px;
+}
+.evento-data-giorno { font-family: 'Plus Jakarta Sans'; font-size: 32px; font-weight: 800; line-height: 1; }
+.evento-data-mese { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; margin-top: 2px; opacity: 0.85; }
+.evento-body h3 { font-size: 22px; color: var(--navy); font-weight: 700; margin-bottom: 8px; line-height: 1.2; }
+.evento-sottotitolo { font-size: 14.5px; color: var(--gray); line-height: 1.55; margin-bottom: 14px; }
+.evento-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13.5px; color: var(--ink); margin-bottom: 14px; }
+.evento-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.evento-partner { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.evento-partner-tag { font-size: 11px; color: var(--navy); background: var(--white); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; font-weight: 500; }
+.evento-cta-link { font-size: 14px; font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+.evento-card:hover .evento-cta-link { gap: 10px; color: var(--navy-soft); }
+.evento-empty { padding: 40px; text-align: center; color: var(--gray); border: 1px dashed var(--line); border-radius: var(--radius-lg); grid-column: 1 / -1; }
+
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .lines-grid { grid-template-columns: 1fr 1fr; }
@@ -534,6 +568,9 @@ button { font-family: inherit; }
   .section { padding: 70px 6vw; }
   .identity { padding: 70px 6vw; }
   .eh-promo, .final-cta { padding: 70px 6vw; }
+  .evento-card { grid-template-columns: 70px 1fr; gap: 16px; padding: 20px; }
+  .evento-data { padding: 14px 10px; min-width: 60px; }
+  .evento-data-giorno { font-size: 26px; }
   .lines-grid { grid-template-columns: 1fr; }
   .lines-grid .line-card:last-child { grid-column: auto; }
   .programs-grid { grid-template-columns: 1fr; }
@@ -556,6 +593,7 @@ button { font-family: inherit; }
       <a href="#identity">Chi siamo</a>
       <a href="#services">Servizi</a>
       <a href="/enterhouse/" class="is-eh">EnterHouse</a>
+      <a href="#eventi">Eventi</a>
       <a href="#programs">Programmi</a>
       <a href="#group">Il gruppo</a>
       <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener" class="topnav-reserved">Area riservata</a>
@@ -570,6 +608,7 @@ button { font-family: inherit; }
   <a href="#identity">Chi siamo</a>
   <a href="#services">Servizi</a>
   <a href="/enterhouse/">EnterHouse</a>
+  <a href="#eventi">Eventi</a>
   <a href="#programs">Programmi</a>
   <a href="#group">Il gruppo</a>
   <a href="#contact">Contatti</a>
@@ -710,6 +749,43 @@ button { font-family: inherit; }
           <div class="eh-mock-row"><span class="eh-mock-time">11:30</span><span class="eh-mock-cell">Giulia Neri · Ceretta gambe</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROSSIMI EVENTI ===== -->
+<section class="section section-bg" id="eventi">
+  <div class="section-inner section-head-center">
+    <span class="section-eyebrow is-navy">Prossimi eventi</span>
+    <h2 class="section-title">Confronti dal vivo <em>tra imprenditori.</em></h2>
+    <p class="section-lead">Workshop, panel, presentazioni. Niente slide preconfezionate, sempre un metodo applicabile dal lunedì successivo. Iscrizione gratuita, posti limitati.</p>
+  </div>
+  <div class="section-inner">
+    <div id="eventi-grid" class="eventi-grid">
+      <!-- Card iniettate via JS dall'API /api/public/eventi -->
+      <!-- Fallback statico: l'evento principale del 27 maggio -->
+      <a class="evento-card evento-card-featured" href="/eventi/finanza-2026/">
+        <div class="evento-tag">⚡ Imminente · Roma</div>
+        <div class="evento-data">
+          <span class="evento-data-giorno">27</span>
+          <span class="evento-data-mese">MAG</span>
+        </div>
+        <div class="evento-body">
+          <h3>Sai come chiuderai il 2026?</h3>
+          <p class="evento-sottotitolo">Confronto interattivo su Financial Forecast e Pianificazione Strategica.</p>
+          <div class="evento-meta">
+            <span>🕐 17:30 — 19:30</span>
+            <span>📍 SPACES EUR-Arte, Roma</span>
+          </div>
+          <div class="evento-partner">
+            <span class="evento-partner-tag">Patrocinio Confcommercio Roma Giovani</span>
+            <span class="evento-partner-tag">Partner Scale-up Facilitation</span>
+          </div>
+          <div class="evento-cta">
+            <span class="evento-cta-link">Iscriviti gratis →</span>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1079,6 +1155,63 @@ mobileOverlay.addEventListener('click', toggleMobileNav);
 mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   if (mobileNav.classList.contains('active')) toggleMobileNav();
 }));
+
+// ===== Eventi: fetch lista pubblica e renderizza grid =====
+// Se l'API risponde con almeno un evento, sostituisce la card statica fallback.
+// Se l'API è giù o non ci sono eventi, lascia il contenuto hardcoded.
+(async function loadEventi() {
+  const grid = document.getElementById('eventi-grid');
+  if (!grid) return;
+  try {
+    const res = await fetch('https://app.enterserviceholding.com/api/public/eventi');
+    if (!res.ok) return;
+    const json = await res.json().catch(() => null);
+    const items = json?.data?.items || [];
+    if (items.length === 0) return; // mantieni fallback statico
+    grid.innerHTML = items.map(renderEventoCard).join('');
+  } catch (err) {
+    // Mantieni fallback statico
+    console.warn('[loadEventi] fetch failed, using static fallback', err.message);
+  }
+})();
+
+function renderEventoCard(e) {
+  const dt = new Date(e.data_inizio);
+  const giorno = String(dt.getDate()).padStart(2, '0');
+  const mese = ['GEN','FEB','MAR','APR','MAG','GIU','LUG','AGO','SET','OTT','NOV','DIC'][dt.getMonth()];
+  const oraStart = dt.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+  const oraEnd = e.data_fine ? new Date(e.data_fine).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) : '';
+  const luogoLabel = e.luogo + (e.citta ? ', ' + e.citta : '');
+  const partnerHtml = (e.partner || [])
+    .filter(p => p.ruolo !== 'organizzatore')
+    .map(p => `<span class="evento-partner-tag">${p.ruolo === 'patrocinio' ? 'Patrocinio ' : 'Partner '}${escapeHtml(p.nome)}</span>`)
+    .join('');
+  const featured = e.partner && e.partner.length > 1 ? 'evento-card-featured' : '';
+  const tagHtml = e.posti_rimasti != null && e.posti_rimasti < 10
+    ? `<div class="evento-tag">⚡ ${e.posti_rimasti} posti rimasti</div>`
+    : `<div class="evento-tag">⚡ Imminente${e.citta ? ' · ' + escapeHtml(e.citta) : ''}</div>`;
+  return `<a class="evento-card ${featured}" href="${escapeAttr(e.url)}">
+    ${tagHtml}
+    <div class="evento-data">
+      <span class="evento-data-giorno">${giorno}</span>
+      <span class="evento-data-mese">${mese}</span>
+    </div>
+    <div class="evento-body">
+      <h3>${escapeHtml(e.titolo)}</h3>
+      ${e.sottotitolo ? `<p class="evento-sottotitolo">${escapeHtml(e.sottotitolo)}</p>` : ''}
+      <div class="evento-meta">
+        <span>🕐 ${oraStart}${oraEnd ? ' — ' + oraEnd : ''}</span>
+        ${luogoLabel ? `<span>📍 ${escapeHtml(luogoLabel)}</span>` : ''}
+      </div>
+      ${partnerHtml ? `<div class="evento-partner">${partnerHtml}</div>` : ''}
+      <div class="evento-cta"><span class="evento-cta-link">Iscriviti gratis →</span></div>
+    </div>
+  </a>`;
+}
+function escapeAttr(s) { return String(s ?? '').replace(/"/g, '&quot;'); }
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 </script>
 
 </body>

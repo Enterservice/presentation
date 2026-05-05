@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai come chiuderai il 2026? · Evento Enterservice + Confcommercio + Scaleup Facilitation</title>
+<meta name="description" content="Mercoledì 27 maggio 2026 · 17:30-19:30 · SPACES EUR-Arte, Roma. Confronto interattivo su Financial Forecast e Pianificazione Strategica. Patrocinio Confcommercio Roma Giovani, partner Scaleup Facilitation.">
+<link rel="icon" type="image/png" href="/Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #140C64;
+  --navy-soft: #2A1E9E;
+  --navy-ink: #0C0740;
+  --yellow: #FBA800;
+  --yellow-bg: #FFF8E7;
+  --green: #1F6E47;        /* Confcommercio-style verde scuro per richiamo grafico locandina */
+  --green-soft: #E0F2EA;
+  --gray: #6B6E76;
+  --line: #E8E6F0;
+  --ink: #1B1B1F;
+  --paper: #FAFAF7;
+  --white: #FFFFFF;
+  --shadow: 0 4px 16px -4px rgba(20, 12, 100, 0.10);
+  --shadow-lg: 0 24px 60px -22px rgba(20, 12, 100, 0.20);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --t: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden; }
+h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.015em; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+
+/* Topbar light */
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 14px 32px; background: rgba(250, 250, 247, 0.88); backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line); }
+.topbar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.topbar-logo { height: 38px; max-width: 220px; object-fit: contain; }
+.topbar-back { font-size: 13.5px; color: var(--gray); display: inline-flex; align-items: center; gap: 6px; }
+.topbar-back:hover { color: var(--navy); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: var(--radius); font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.25s var(--t); border: 1px solid transparent; }
+.btn-primary { background: var(--yellow); color: var(--navy); }
+.btn-primary:hover { background: #FFB820; transform: translateY(-1px); box-shadow: 0 10px 20px -8px rgba(251, 168, 0, 0.5); }
+.btn-ghost { background: transparent; color: var(--navy); border-color: var(--line); }
+.btn-ghost:hover { background: var(--white); border-color: var(--navy); }
+.btn-lg { padding: 16px 36px; font-size: 16px; }
+
+/* Hero */
+.hero { padding: 120px 7vw 60px; background: linear-gradient(180deg, var(--paper) 0%, var(--white) 100%); position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; right: -10vw; top: 5vh; width: 60vw; height: 60vw; max-width: 900px; max-height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(251, 168, 0, 0.10) 0%, rgba(251, 168, 0, 0) 70%); pointer-events: none; }
+.hero-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border-radius: 30px; background: var(--green-soft); color: var(--green); border: 1px solid rgba(31, 110, 71, 0.25); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 24px; }
+.hero-eyebrow::before { content: ""; width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(31, 110, 71, 0.5); } 50% { box-shadow: 0 0 0 8px rgba(31, 110, 71, 0); } }
+.hero h1 { font-size: clamp(38px, 5.5vw, 68px); color: var(--green); margin-bottom: 22px; font-weight: 800; line-height: 1.05; }
+.hero h1 .accent { color: var(--green); position: relative; }
+.hero-lead { font-size: clamp(16px, 1.4vw, 19px); color: var(--gray); line-height: 1.55; margin-bottom: 28px; max-width: 620px; }
+.hero-lead strong { color: var(--ink); font-weight: 600; }
+
+.hero-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 28px 0 32px; max-width: 540px; }
+.meta-item { display: flex; gap: 12px; align-items: flex-start; }
+.meta-ico { width: 38px; height: 38px; flex-shrink: 0; background: var(--yellow-bg); color: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.meta-label { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 2px; }
+.meta-value { font-size: 14.5px; color: var(--navy); font-weight: 600; line-height: 1.35; }
+
+.hero-cta-row { display: inline-flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* Card form */
+.form-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--line); padding: 36px; box-shadow: var(--shadow-lg); position: sticky; top: 100px; }
+.form-card h3 { font-size: 22px; color: var(--navy); margin-bottom: 6px; }
+.form-card .form-sub { font-size: 14px; color: var(--gray); margin-bottom: 24px; }
+.form-card .field { margin-bottom: 14px; }
+.form-card .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-card label { display: block; font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+.form-card .req { color: #b00020; }
+.form-card input, .form-card select, .form-card textarea { width: 100%; padding: 11px 13px; font-family: inherit; font-size: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); color: var(--ink); box-sizing: border-box; transition: border-color 0.2s, box-shadow 0.2s; }
+.form-card input:focus, .form-card select:focus, .form-card textarea:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(20,12,100,0.08); }
+.form-card textarea { resize: vertical; min-height: 80px; }
+.form-card .consent { display: flex; align-items: flex-start; gap: 10px; margin: 14px 0 4px; font-size: 13px; color: var(--ink); line-height: 1.45; }
+.form-card .consent input { width: auto; margin-top: 2px; flex-shrink: 0; }
+.form-card .consent a { color: var(--navy); text-decoration: underline; }
+.form-card .consent label { font-weight: 400; margin: 0; cursor: pointer; }
+.form-card button[type="submit"] { width: 100%; padding: 15px 24px; margin-top: 20px; background: var(--yellow); color: var(--navy); border: none; border-radius: 10px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.form-card button[type="submit"]:hover:not(:disabled) { background: #FFB820; transform: translateY(-1px); box-shadow: 0 10px 20px -8px rgba(251, 168, 0, 0.4); }
+.form-card button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-feedback { padding: 14px 18px; border-radius: 10px; margin-top: 14px; font-size: 14px; font-weight: 500; }
+.form-feedback.success { background: rgba(31,110,71,0.10); color: var(--green); border-left: 4px solid var(--green); }
+.form-feedback.error { background: rgba(176,0,32,0.10); color: #b00020; border-left: 4px solid #b00020; }
+.form-honeypot { position: absolute; left: -9999px; width: 0; height: 0; opacity: 0; }
+
+/* Sezioni */
+.section { padding: 70px 7vw; }
+.section-bg { background: var(--white); }
+.section-inner { max-width: 1180px; margin: 0 auto; }
+.section-head { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+.section-eyebrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
+.section-eyebrow.green { color: var(--green); }
+.section-title { font-size: clamp(28px, 3.5vw, 40px); color: var(--navy); font-weight: 800; margin-bottom: 16px; }
+.section-lead { font-size: clamp(15px, 1.2vw, 17px); color: var(--gray); line-height: 1.65; }
+
+/* Highlights bullet list */
+.highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.highlight-item { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px; transition: all 0.25s var(--t); }
+.highlight-item:hover { box-shadow: var(--shadow); border-color: var(--green); }
+.highlight-ico { font-size: 28px; margin-bottom: 12px; }
+.highlight-item h3 { font-size: 17px; color: var(--navy); font-weight: 700; margin-bottom: 8px; }
+.highlight-item p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* Partner */
+.partners-strip { display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center; justify-content: center; padding: 32px; background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--line); }
+.partner-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.partner-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+.partner-role { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+
+/* Footer */
+.footer { background: var(--navy-ink); color: rgba(255,255,255,0.7); padding: 36px 7vw; text-align: center; font-size: 13px; }
+.footer a { color: var(--yellow); }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .form-card { position: static; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 100px 6vw 40px; }
+  .section { padding: 50px 6vw; }
+  .form-card { padding: 24px; }
+  .form-card .field-row { grid-template-columns: 1fr; }
+  .hero-meta { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="topbar-back">← Torna a enterserviceholding.com</a>
+    <a href="/" style="display:flex;align-items:center;">
+      <img src="/Images/logo-sfondo-bianco.png" alt="Enterservice" class="topbar-logo">
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">Mercoledì 27 maggio · Roma</span>
+      <h1>Sai come chiuderai <span class="accent">il 2026?</span></h1>
+      <p class="hero-lead">
+        Vieni a scoprirlo in un confronto interattivo su <strong>Financial Forecast</strong> e <strong>Pianificazione Strategica</strong>. Niente slide preconfezionate, solo un metodo che puoi applicare dal lunedì successivo. Patrocinio <strong>Confcommercio Roma Giovani</strong>, partner <strong>Scale-up Facilitation</strong>.
+      </p>
+
+      <div class="hero-meta">
+        <div class="meta-item"><div class="meta-ico">📅</div><div><div class="meta-label">Quando</div><div class="meta-value">Mercoledì 27 maggio<br>17:30 — 19:30</div></div></div>
+        <div class="meta-item"><div class="meta-ico">📍</div><div><div class="meta-label">Dove</div><div class="meta-value">SPACES EUR-Arte<br>Roma</div></div></div>
+        <div class="meta-item"><div class="meta-ico">👥</div><div><div class="meta-label">Format</div><div class="meta-value">In presenza<br>Confronto interattivo</div></div></div>
+        <div class="meta-item"><div class="meta-ico">🎫</div><div><div class="meta-label">Iscrizione</div><div class="meta-value">Gratuita<br>Posti limitati</div></div></div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#iscrizione" class="btn btn-primary btn-lg">Iscriviti gratis →</a>
+        <a href="#cosa-porti-a-casa" class="btn btn-ghost btn-lg">Cosa porti a casa</a>
+      </div>
+    </div>
+
+    <!-- Form iscrizione (sticky desktop) -->
+    <div class="form-card" id="iscrizione">
+      <h3>Iscrizione gratuita</h3>
+      <p class="form-sub">Confermi la tua presenza in 30 secondi. Riceverai un'email con i dettagli.</p>
+      <form id="form-iscrizione" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label>Nome <span class="req">*</span></label>
+            <input type="text" name="nome" required maxlength="80" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label>Cognome</label>
+            <input type="text" name="cognome" maxlength="80" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" required maxlength="120" autocomplete="email">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Telefono</label>
+            <input type="tel" name="telefono" maxlength="30" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label>Azienda</label>
+            <input type="text" name="azienda" maxlength="120" autocomplete="organization">
+          </div>
+        </div>
+        <div class="field">
+          <label>Ruolo aziendale</label>
+          <input type="text" name="ruolo_aziendale" maxlength="80" placeholder="Es. CEO, CFO, Controller...">
+        </div>
+        <div class="field">
+          <label>Cosa ti aspetti dall'evento? <span style="color:var(--gray);font-weight:400;">(opzionale)</span></label>
+          <textarea name="note" maxlength="2000" placeholder="Una frase ci aiuta a personalizzare la conversazione..."></textarea>
+        </div>
+
+        <div class="form-honeypot" aria-hidden="true">
+          <label>Lascia vuoto</label>
+          <input type="text" name="hp_field" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="cf-priv" name="consenso_privacy" required>
+          <label for="cf-priv">Ho letto e accetto l'<a href="/privacy" target="_blank" rel="noopener">informativa privacy</a> <span class="req">*</span></label>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="cf-mkt" name="consenso_marketing">
+          <label for="cf-mkt">Voglio ricevere newsletter, novità su prossimi eventi e contenuti formativi <span style="color:var(--gray);">(opzionale)</span></label>
+        </div>
+
+        <button type="submit" id="btn-submit">Conferma iscrizione</button>
+        <div id="form-feedback"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg" id="cosa-porti-a-casa">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-eyebrow green">Programma serata · 2 ore</span>
+      <h2 class="section-title">Cosa porti a casa</h2>
+      <p class="section-lead">Due ore concentrate, formato interattivo. Un confronto diretto col team Enterservice e con altri imprenditori che stanno chiudendo il loro 2026.</p>
+    </div>
+    <div class="highlights">
+      <div class="highlight-item">
+        <div class="highlight-ico">📊</div>
+        <h3>Metodo di Financial Forecast</h3>
+        <p>Una framework pratica per stimare la chiusura d'anno con dati reali e ipotesi esplicite, non con stime ottimistiche. Applicabile dal lunedì successivo.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-ico">🎯</div>
+        <h3>Pianificazione strategica</h3>
+        <p>Esempi reali di come tradurre il forecast in azioni concrete trimestrali. Cosa misurare, cosa correggere, cosa lasciar perdere.</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-ico">💬</div>
+        <h3>Q&amp;A diretto col team</h3>
+        <p>Domande aperte al team Enterservice e a Scale-up Facilitation. Niente slide, niente panel. Solo conversazione tra imprenditori.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-eyebrow">A chi è dedicato</span>
+      <h2 class="section-title">Per chi vuole chiudere il 2026 <em>con i numeri sotto controllo</em></h2>
+      <p class="section-lead">Imprenditori, CFO, controller, responsabili amministrativi di PMI e startup italiane. Il taglio è pratico: parliamo di numeri reali, decisioni reali, scenari reali.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="section-eyebrow green">Partnership</span>
+      <h2 class="section-title">Organizzato insieme a</h2>
+    </div>
+    <div class="partners-strip">
+      <div class="partner-item"><span class="partner-name">Enterservice</span><span class="partner-role">Organizzatore</span></div>
+      <div class="partner-item"><span class="partner-name">Scale-up Facilitation</span><span class="partner-role">Partner</span></div>
+      <div class="partner-item"><span class="partner-name">Confcommercio Roma Giovani</span><span class="partner-role">Patrocinio</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner" style="text-align:center;max-width:680px;">
+    <h2 class="section-title">Pronto a iscriverti?</h2>
+    <p class="section-lead" style="margin-bottom:28px;">Posti limitati. Conferma la tua presenza adesso.</p>
+    <a href="#iscrizione" class="btn btn-primary btn-lg">Vai al form di iscrizione →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Evento organizzato da <a href="/">Enterservice S.r.l.s.</a> · Domande? <a href="mailto:eventi@enterserviceholding.com">eventi@enterserviceholding.com</a></p>
+</footer>
+
+<script>
+const form = document.getElementById('form-iscrizione');
+const btn = document.getElementById('btn-submit');
+const fb = document.getElementById('form-feedback');
+const API_URL = 'https://app.enterserviceholding.com/api/public/eventi/finanza-2026';
+
+function showFb(msg, kind) {
+  fb.className = 'form-feedback ' + kind;
+  fb.textContent = msg;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  fb.textContent = ''; fb.className = '';
+  if (!form.consenso_privacy.checked) {
+    showFb("Devi accettare l'informativa privacy per iscriverti.", 'error');
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso…';
+
+  const data = {
+    nome: form.nome.value.trim(),
+    cognome: form.cognome.value.trim(),
+    email: form.email.value.trim().toLowerCase(),
+    telefono: form.telefono.value.trim(),
+    azienda: form.azienda.value.trim(),
+    ruolo_aziendale: form.ruolo_aziendale.value.trim(),
+    note: form.note.value.trim(),
+    consenso_privacy: form.consenso_privacy.checked,
+    consenso_marketing: form.consenso_marketing.checked,
+    versione_informativa: 'v1.0-2026-05-05',
+    source: 'enterserviceholding.com/eventi/finanza-2026',
+    hp_field: form.hp_field.value,
+  };
+
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.ok && json.success) {
+      const msg = json.data?.already_registered
+        ? '✓ ' + (json.data.message || 'Sei già iscritto. Ti aspettiamo!')
+        : '✅ ' + (json.data?.message || 'Iscrizione confermata. Controlla la tua email.');
+      showFb(msg, 'success');
+      form.reset();
+    } else {
+      const errMsg = json.error || `Errore (${res.status}). Riprova.`;
+      showFb('❌ ' + errMsg, 'error');
+    }
+  } catch (err) {
+    showFb('❌ Errore di rete: ' + err.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Conferma iscrizione';
+  }
+});
+</script>
+
+</body>
+</html>
