@@ -1,0 +1,13 @@
+.git
+.git/*
+.git/**
+.wrangler
+.wrangler/*
+.wrangler/**
+node_modules
+node_modules/**
+.DS_Store
+*.md
+.gitignore
+.assetsignore
+wrangler.toml
