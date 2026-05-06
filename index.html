@@ -67,7 +67,7 @@ button { font-family: inherit; }
 
 /* ===== Topbar ===== */
 .topbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 70;
   padding: 14px 32px;
   background: rgba(250, 250, 247, 0.85);
   backdrop-filter: saturate(180%) blur(14px);
@@ -110,7 +110,8 @@ button { font-family: inherit; }
 .topcta svg { width: 14px; height: 14px; }
 .menu-toggle {
   display: none; background: transparent; border: none;
-  color: var(--navy); cursor: pointer; padding: 8px;
+  color: var(--navy); cursor: pointer; padding: 12px;
+  min-width: 48px; min-height: 48px;
 }
 .menu-toggle svg { width: 26px; height: 26px; }
 
@@ -563,8 +564,8 @@ button { font-family: inherit; }
   .topbar.scrolled { padding: 8px 20px; }
   .topnav { display: none; }
   .topcta { display: none; }
-  .menu-toggle { display: block; }
-  .hero { padding: 110px 6vw 60px; }
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .hero { padding: 96px 6vw 56px; }
   .section { padding: 70px 6vw; }
   .identity { padding: 70px 6vw; }
   .eh-promo, .final-cta { padding: 70px 6vw; }
@@ -579,6 +580,33 @@ button { font-family: inherit; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .hero-stats { gap: 32px; }
   .hero-stat-num { font-size: 28px; }
+  .hero h1 { max-width: none; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 86px 5vw 44px; }
+  .section { padding: 56px 5vw; }
+  .identity, .eh-promo, .final-cta { padding: 56px 5vw; }
+  .hero h1 { font-size: clamp(32px, 9vw, 42px); margin-bottom: 20px; }
+  .hero-eyebrow { margin-bottom: 20px; font-size: 10px; }
+  .hero-lead { font-size: 15.5px; margin-bottom: 28px; }
+  .hero-stats { gap: 22px; margin-top: 40px; padding-top: 26px; }
+  .hero-stat-num { font-size: 24px; }
+  .hero-cta { width: 100%; }
+  .hero-cta .btn, .hero-cta .btn-primary, .hero-cta .btn-secondary { width: 100%; justify-content: center; }
+  .section-title { font-size: clamp(26px, 7vw, 34px); }
+  .line-card { padding: 24px; }
+  .evento-card { grid-template-columns: 1fr; gap: 12px; padding: 18px; }
+  .evento-data { flex-direction: row; align-items: center; gap: 10px; min-width: auto; padding: 8px 12px; justify-self: flex-start; }
+  .footer { padding: 48px 6vw 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; font-size: 11.5px; }
+  .mobile-nav { padding: 90px 22px 32px; }
+  .mobile-nav a { font-size: 16px; padding: 13px 0; }
+}
+@media (max-width: 380px) {
+  .hero h1 { font-size: clamp(26px, 8.6vw, 32px); }
+  .section-title { font-size: 24px; }
+  .topbar { padding: 10px 14px; }
+  .topbar-logo { height: 34px; }
 }
 </style>
 </head>
