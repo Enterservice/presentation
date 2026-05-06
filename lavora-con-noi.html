@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavora con noi · Enterservice</title>
+<meta name="description" content="Posizioni aperte in Enterservice S.r.l.s. — entra nel team che aiuta PMI e startup italiane a crescere con metodo, dati e visione.">
+<link rel="icon" type="image/png" href="Images/logo-icona.png">
+<link rel="apple-touch-icon" href="Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #140C64;
+  --navy-soft: #2A1E9E;
+  --navy-ink: #0C0740;
+  --yellow: #FBA800;
+  --yellow-soft: #FFD77A;
+  --yellow-bg: #FFF8E7;
+  --gray: #6B6E76;
+  --gray-soft: #B8BABC;
+  --line: #E8E6F0;
+  --ink: #1B1B1F;
+  --paper: #FAFAF7;
+  --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(20, 12, 100, 0.06);
+  --shadow: 0 4px 16px -4px rgba(20, 12, 100, 0.10);
+  --shadow-lg: 0 24px 60px -22px rgba(20, 12, 100, 0.20);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --t: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink); background: var(--paper);
+  -webkit-font-smoothing: antialiased; line-height: 1.6; overflow-x: hidden;
+}
+.display, h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.015em; line-height: 1.15; }
+a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; display: block; }
+button { font-family: inherit; }
+
+/* Topbar */
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 14px 32px;
+  background: rgba(250, 250, 247, 0.85); backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line);
+  transition: padding 0.3s var(--t); }
+.topbar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.topbar.scrolled { padding: 8px 32px; box-shadow: var(--shadow-sm); }
+.topbrand { display: flex; align-items: center; }
+.topbar-logo { height: 40px; width: auto; max-width: 220px; transition: height 0.3s var(--t); display: block; }
+.topbar.scrolled .topbar-logo { height: 32px; }
+.topnav { display: flex; gap: 28px; align-items: center; }
+.topnav a { color: var(--ink); font-size: 14px; font-weight: 500; transition: color 0.25s; }
+.topnav a:hover { color: var(--navy); }
+.topnav-reserved { border: 1px solid var(--line); padding: 7px 14px; border-radius: 8px; font-size: 13px; color: var(--gray); transition: all 0.25s var(--t); }
+.topnav-reserved:hover { border-color: var(--navy); color: var(--navy); }
+.menu-toggle { display: none; background: transparent; border: none; padding: 8px; cursor: pointer; color: var(--ink); }
+@media (max-width: 980px) { .topnav { display: none; } .menu-toggle { display: block; } }
+
+/* Mobile nav */
+.mobile-overlay { position: fixed; inset: 0; background: rgba(20,12,100,.4); z-index: 55; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.mobile-overlay.active { opacity: 1; pointer-events: auto; }
+.mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; z-index: 60; background: var(--navy); padding: 100px 32px 40px; transition: right .4s var(--t); box-shadow: -10px 0 40px rgba(0,0,0,.3); overflow-y: auto; }
+.mobile-nav.active { right: 0; }
+.mobile-nav a { color: white; font-size: 17px; padding: 12px 0; display: block; border-bottom: 1px solid rgba(255,255,255,.12); }
+
+/* Hero */
+.hero { padding: 140px 24px 60px; background: linear-gradient(180deg, var(--paper) 0%, var(--white) 100%); }
+.hero-inner { max-width: 1100px; margin: 0 auto; }
+.hero h1 { font-size: clamp(38px, 5.5vw, 60px); color: var(--navy); margin-bottom: 16px; }
+.hero .lead { font-size: 18px; color: var(--gray); max-width: 640px; line-height: 1.55; }
+.hero .badge-tag { display: inline-block; background: var(--yellow-bg); color: var(--navy); border: 1px solid rgba(251, 168, 0, 0.25); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; }
+
+/* Cards */
+.section { padding: 40px 24px 100px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-title { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); font-size: 22px; margin-bottom: 24px; }
+
+.pos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+.pos-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 26px;
+  box-shadow: var(--shadow); border: 1px solid transparent;
+  transition: all 0.25s var(--t); display: flex; flex-direction: column; gap: 10px; cursor: pointer;
+  text-decoration: none; color: inherit;
+}
+.pos-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(251,168,0,.4); }
+.pos-card .ufficio { font-size: 12px; color: var(--yellow); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.pos-card h3 { color: var(--navy); font-size: 19px; margin: 4px 0 6px; }
+.pos-card .meta { font-size: 13.5px; color: var(--gray); margin-bottom: 4px; }
+.pos-card .preview { font-size: 14px; color: #4a4d57; line-height: 1.55; min-height: 64px; }
+.pos-card .cta { color: var(--navy); font-weight: 600; font-size: 14px; margin-top: 6px; }
+.pos-card .cta::after { content: ' →'; transition: margin-left 0.2s; }
+.pos-card:hover .cta::after { margin-left: 4px; }
+
+.empty {
+  background: var(--white); border-radius: var(--radius-lg); padding: 60px 30px;
+  text-align: center; box-shadow: var(--shadow); color: var(--gray);
+}
+.empty h3 { color: var(--navy); margin-bottom: 10px; }
+.empty p { max-width: 480px; margin: 0 auto; }
+.empty a { color: var(--yellow); font-weight: 600; }
+
+/* Detail view */
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--gray); font-size: 14px; margin-bottom: 18px; cursor: pointer; }
+.back-link:hover { color: var(--navy); }
+.detail-head { background: var(--white); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); margin-bottom: 22px; }
+.detail-head .ufficio { font-size: 12px; color: var(--yellow); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.detail-head h1 { color: var(--navy); font-size: clamp(28px, 4vw, 40px); margin: 8px 0 14px; }
+.detail-head .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.badge-info { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--yellow-bg); color: var(--navy); font-size: 13px; font-weight: 600; }
+.badge-info svg { width: 14px; height: 14px; }
+
+.detail-body { background: var(--white); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); margin-bottom: 22px; }
+.detail-body h2 { color: var(--navy); font-size: 20px; margin: 24px 0 12px; }
+.detail-body h2:first-child { margin-top: 0; }
+.detail-body p, .detail-body li { color: #383942; font-size: 15px; line-height: 1.7; }
+.detail-body .md-content { white-space: pre-wrap; }
+
+/* Form */
+.form-card { background: var(--white); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); }
+.form-card h2 { color: var(--navy); font-size: 22px; margin-bottom: 8px; }
+.form-card .subtitle { color: var(--gray); font-size: 14px; margin-bottom: 22px; }
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; font-size: 13px; color: var(--gray); font-weight: 600; margin-bottom: 6px; }
+.form-row label .req { color: var(--yellow); }
+.form-row input[type="text"], .form-row input[type="email"], .form-row input[type="tel"],
+.form-row input[type="url"], .form-row input[type="number"], .form-row input[type="file"],
+.form-row textarea {
+  width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: var(--radius);
+  font-family: inherit; font-size: 15px; background: var(--paper); color: var(--ink);
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-row input:focus, .form-row textarea:focus { outline: none; border-color: var(--navy); background: var(--white); }
+.form-row textarea { min-height: 110px; resize: vertical; }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .form-grid-2 { grid-template-columns: 1fr; } }
+.form-row.checkbox { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; }
+.form-row.checkbox input { margin-top: 4px; flex-shrink: 0; }
+.form-row.checkbox label { margin-bottom: 0; font-weight: 400; color: var(--ink); font-size: 13.5px; line-height: 1.5; }
+.form-row.honeypot { position: absolute; left: -10000px; visibility: hidden; }
+
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.25s var(--t); border: 1px solid transparent; }
+.btn-primary { background: var(--yellow); color: var(--navy); }
+.btn-primary:hover { background: #FFB820; transform: translateY(-1px); box-shadow: 0 10px 20px -8px rgba(251, 168, 0, 0.5); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.alert { padding: 14px 18px; border-radius: var(--radius); margin-bottom: 16px; font-size: 14px; }
+.alert.error { background: #FEE2E2; color: #B91C1C; }
+.alert.success { background: #D1FAE5; color: #047857; }
+
+/* Footer */
+.footer { background: var(--navy-ink); color: rgba(255, 255, 255, 0.75); padding: 60px 32px 28px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; margin-bottom: 40px; }
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+.footer-brand img { height: 32px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+.footer-brand p { font-size: 13px; line-height: 1.6; max-width: 320px; }
+.footer-col h5 { color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13.5px; color: rgba(255, 255, 255, 0.65); padding: 4px 0; transition: color 0.25s; }
+.footer-col a:hover { color: var(--yellow); }
+.footer-legal { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 22px; margin-bottom: 16px; font-size: 12px; color: rgba(255, 255, 255, 0.55); line-height: 1.7; }
+.footer-legal strong { color: rgba(255, 255, 255, 0.85); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255, 255, 255, 0.45); }
+
+.skel { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: skel 1.4s linear infinite; border-radius: var(--radius-lg); height: 180px; }
+@keyframes skel { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="topbrand">
+      <img src="Images/logo-sfondo-bianco.png" alt="Enterservice" class="topbar-logo">
+    </a>
+    <nav class="topnav">
+      <a href="index.html#identity">Chi siamo</a>
+      <a href="index.html#services">Servizi</a>
+      <a href="/enterhouse/">EnterHouse</a>
+      <a href="index.html#eventi">Eventi</a>
+      <a href="lavora-con-noi.html" style="color: var(--navy); font-weight: 600;">Lavora con noi</a>
+      <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener" class="topnav-reserved">Area riservata</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="26" height="26"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="index.html#identity">Chi siamo</a>
+  <a href="index.html#services">Servizi</a>
+  <a href="/enterhouse/">EnterHouse</a>
+  <a href="index.html#eventi">Eventi</a>
+  <a href="lavora-con-noi.html">Lavora con noi</a>
+  <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener">Area riservata</a>
+</nav>
+
+<!-- Lista posizioni -->
+<section id="view-list">
+  <div class="hero">
+    <div class="hero-inner">
+      <span class="badge-tag">Lavora con noi</span>
+      <h1>Aiutaci a portare ordine, dati e visione nelle PMI italiane.</h1>
+      <p class="lead">In Enterservice trasformiamo numeri complessi in decisioni chiare. Cerchiamo persone curiose, rigorose e collaborative — finance, HR, prodotto, technology — che vogliono lavorare con metodo e impatto reale sui clienti.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-title">Posizioni aperte</div>
+      <div id="posizioni-list" class="pos-grid">
+        <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dettaglio + form -->
+<section id="view-detail" style="display:none;">
+  <div class="hero" style="padding-bottom: 24px;">
+    <div class="hero-inner">
+      <a class="back-link" id="back-link">← Torna alle posizioni aperte</a>
+      <div id="detail-head" class="detail-head">
+        <div class="skel" style="height: 100px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div id="detail-body" class="detail-body" style="display:none;"></div>
+
+      <div class="form-card" id="form-card" style="display:none;">
+        <h2>Candidati ora</h2>
+        <p class="subtitle">Compila il modulo per inviare la tua candidatura. I campi con <span style="color:var(--yellow)">*</span> sono obbligatori.</p>
+        <div id="form-alert"></div>
+        <form id="cand-form" onsubmit="return submitCandidatura(event)">
+          <input type="hidden" id="f-posizione-slug">
+          <div class="form-row honeypot" aria-hidden="true">
+            <label for="f-hp">Lascia vuoto</label>
+            <input type="text" id="f-hp" name="hp_field" autocomplete="off" tabindex="-1">
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="f-nome">Nome <span class="req">*</span></label>
+              <input type="text" id="f-nome" required maxlength="80">
+            </div>
+            <div class="form-row">
+              <label for="f-cognome">Cognome</label>
+              <input type="text" id="f-cognome" maxlength="80">
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="f-email">Email <span class="req">*</span></label>
+              <input type="email" id="f-email" required maxlength="160">
+            </div>
+            <div class="form-row">
+              <label for="f-telefono">Telefono</label>
+              <input type="tel" id="f-telefono" maxlength="40">
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-row">
+              <label for="f-citta">Città di residenza</label>
+              <input type="text" id="f-citta" maxlength="80">
+            </div>
+            <div class="form-row">
+              <label for="f-anni">Anni di esperienza</label>
+              <input type="number" id="f-anni" min="0" max="60" step="1">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="f-linkedin">LinkedIn (URL)</label>
+            <input type="url" id="f-linkedin" placeholder="https://linkedin.com/in/…" maxlength="240">
+          </div>
+          <div class="form-row">
+            <label for="f-cv">Allega il tuo CV (PDF, DOC o DOCX)</label>
+            <input type="file" id="f-cv" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+          </div>
+          <div class="form-row">
+            <label for="f-messaggio">Cover letter / motivazione</label>
+            <textarea id="f-messaggio" placeholder="Raccontaci brevemente perché vorresti unirti a Enterservice e cosa ti ha colpito di questa posizione." maxlength="5000"></textarea>
+          </div>
+          <div class="form-row checkbox">
+            <input type="checkbox" id="f-privacy" required>
+            <label for="f-privacy">Ho letto l'<a href="https://enterservicegroup.com/privacy" target="_blank" rel="noopener" style="color:var(--yellow)">informativa privacy</a> e acconsento al trattamento dei miei dati personali per finalità di selezione del personale (obbligatorio) <span class="req">*</span></label>
+          </div>
+          <div class="form-row checkbox">
+            <input type="checkbox" id="f-marketing">
+            <label for="f-marketing">Acconsento al trattamento dei miei dati anche per future selezioni e comunicazioni Enterservice (opzionale)</label>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;">
+            <button type="submit" class="btn btn-primary" id="btn-submit">Invia candidatura</button>
+            <span id="form-loading" style="display:none;font-size:13px;color:var(--gray);">Invio in corso…</span>
+          </div>
+        </form>
+      </div>
+
+      <div id="success-card" style="display:none;background:var(--white);border-radius:var(--radius-lg);padding:48px;box-shadow:var(--shadow);text-align:center;">
+        <div style="font-size:44px;margin-bottom:14px;">✓</div>
+        <h2 style="color:var(--navy);font-size:24px;margin-bottom:10px;">Candidatura inviata</h2>
+        <p style="color:var(--gray);max-width:520px;margin:0 auto 22px;">Grazie. Esamineremo il tuo profilo e ti contatteremo via email in caso di interesse. In media rispondiamo entro 10-14 giorni.</p>
+        <a href="lavora-con-noi.html" class="btn btn-primary">Vedi altre posizioni</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Images/logo-sfondo-blu.png" alt="Enterservice">
+        <p>Enterservice S.r.l.s. — consulenza strategica, finanziaria e organizzativa per PMI e startup italiane.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servizi</h5>
+        <a href="index.html#services">Finance &amp; Control</a>
+        <a href="index.html#services">HR &amp; Organization</a>
+        <a href="/enterhouse/">EnterHouse SaaS</a>
+        <a href="https://www.enterfinance.it" target="_blank" rel="noopener">Enterfinance</a>
+      </div>
+      <div class="footer-col">
+        <h5>Lavora con noi</h5>
+        <a href="lavora-con-noi.html">Posizioni aperte</a>
+        <a href="index.html#identity">Chi siamo</a>
+        <a href="clients.html">I nostri clienti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contatti</h5>
+        <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a>
+        <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener">Area riservata</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <strong>Enterservice S.R.L.S. unipersonale</strong> · Sede legale: Via Casilina 3, 00182 Roma (RM) · C.F./P.IVA 15795691003 · REA RM-1614574 · Capitale sociale € 1.000,00 i.v. · PEC: enterservicesrls@namirialpec.it
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Enterservice S.R.L.S. — Tutti i diritti riservati</span>
+      <span>Privacy · Cookie · Termini</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const API_BASE = 'https://app.enterserviceholding.com';
+let CURRENT_POSIZIONE = null;
+
+// Topbar scroll
+const topbar = document.getElementById('topbar');
+window.addEventListener('scroll', () => {
+  topbar.classList.toggle('scrolled', window.scrollY > 16);
+}, { passive: true });
+
+// Mobile nav
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+function toggleMobileNav() {
+  const open = mobileNav.classList.toggle('active');
+  mobileOverlay.classList.toggle('active', open);
+  mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+menuToggle.addEventListener('click', toggleMobileNav);
+mobileOverlay.addEventListener('click', toggleMobileNav);
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  if (mobileNav.classList.contains('active')) toggleMobileNav();
+}));
+
+// Router minimale via querystring
+function router() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('pos');
+  if (slug) showDetail(slug);
+  else showList();
+}
+
+function showList() {
+  document.getElementById('view-list').style.display = '';
+  document.getElementById('view-detail').style.display = 'none';
+  document.title = 'Lavora con noi · Enterservice';
+  loadPosizioni();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function loadPosizioni() {
+  const list = document.getElementById('posizioni-list');
+  try {
+    const res = await fetch(`${API_BASE}/api/public/posizioni`);
+    const j = await res.json();
+    const items = (j.success && j.data && j.data.items) || [];
+    if (items.length === 0) {
+      list.innerHTML = `
+        <div class="empty" style="grid-column: 1 / -1;">
+          <h3>Nessuna posizione aperta al momento</h3>
+          <p>Non ci sono ricerche in corso, ma il team Enterservice cresce in continuazione. Lasciaci comunque il tuo CV scrivendo a <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a> e ti contatteremo quando si aprirà un ruolo in linea con il tuo profilo.</p>
+        </div>`;
+      return;
+    }
+    list.innerHTML = items.map(renderCard).join('');
+  } catch (err) {
+    console.error('loadPosizioni failed', err);
+    list.innerHTML = `<div class="empty" style="grid-column: 1 / -1;"><h3>Errore di caricamento</h3><p>Riprova tra qualche istante o scrivi a <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a>.</p></div>`;
+  }
+}
+
+function renderCard(p) {
+  const meta = [p.sede, p.modalita ? p.modalita.replace(/_/g, ' ') : null, p.tipo_contratto ? p.tipo_contratto.replace(/_/g, ' ') : null].filter(Boolean).join(' · ');
+  return `
+    <a class="pos-card" href="?pos=${encodeURIComponent(p.slug)}" onclick="event.preventDefault(); navigateTo('${escapeAttr(p.slug)}');">
+      ${p.ufficio_nome ? `<span class="ufficio">${escapeHtml(p.ufficio_nome)}</span>` : ''}
+      <h3>${escapeHtml(p.titolo)}</h3>
+      ${meta ? `<div class="meta">${escapeHtml(meta)}</div>` : ''}
+      <div class="preview">${escapeHtml(p.descrizione_preview || '')}${p.descrizione_preview && p.descrizione_preview.length >= 240 ? '…' : ''}</div>
+      <span class="cta">Scopri di più</span>
+    </a>
+  `;
+}
+
+function navigateTo(slug) {
+  const url = new URL(window.location);
+  url.searchParams.set('pos', slug);
+  window.history.pushState({}, '', url);
+  showDetail(slug);
+}
+
+function navigateBack() {
+  const url = new URL(window.location);
+  url.searchParams.delete('pos');
+  window.history.pushState({}, '', url);
+  showList();
+}
+
+document.getElementById('back-link').addEventListener('click', navigateBack);
+window.addEventListener('popstate', router);
+window.navigateTo = navigateTo;
+
+async function showDetail(slug) {
+  document.getElementById('view-list').style.display = 'none';
+  document.getElementById('view-detail').style.display = '';
+  document.getElementById('detail-head').innerHTML = '<div class="skel" style="height: 100px;"></div>';
+  document.getElementById('detail-body').style.display = 'none';
+  document.getElementById('form-card').style.display = 'none';
+  document.getElementById('success-card').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  try {
+    const res = await fetch(`${API_BASE}/api/public/posizioni/${encodeURIComponent(slug)}`);
+    if (res.status === 404) {
+      document.getElementById('detail-head').innerHTML = '<h2 style="color:var(--navy);">Posizione non trovata</h2><p style="color:var(--gray);margin-top:8px;">Questa ricerca potrebbe essere stata chiusa. Torna alle posizioni aperte.</p>';
+      return;
+    }
+    const j = await res.json();
+    if (!j.success) throw new Error(j.error || 'errore');
+    const p = j.data;
+    CURRENT_POSIZIONE = p;
+    document.title = `${p.titolo} · Lavora con noi · Enterservice`;
+    renderDetail(p);
+  } catch (err) {
+    console.error('showDetail failed', err);
+    document.getElementById('detail-head').innerHTML = `<h2 style="color:var(--navy);">Errore di caricamento</h2><p style="color:var(--gray);margin-top:8px;">${escapeHtml(err.message)}</p>`;
+  }
+}
+
+function renderDetail(p) {
+  const badges = [
+    p.sede ? `<span class="badge-info">📍 ${escapeHtml(p.sede)}</span>` : '',
+    p.modalita ? `<span class="badge-info">💻 ${escapeHtml(p.modalita.replace(/_/g, ' '))}</span>` : '',
+    p.tipo_contratto ? `<span class="badge-info">📄 ${escapeHtml(p.tipo_contratto.replace(/_/g, ' '))}</span>` : '',
+    p.ral_range ? `<span class="badge-info">💼 RAL ${escapeHtml(p.ral_range)}</span>` : '',
+  ].filter(Boolean).join('');
+
+  document.getElementById('detail-head').innerHTML = `
+    ${p.ufficio_nome ? `<span class="ufficio">${escapeHtml(p.ufficio_nome)}</span>` : ''}
+    <h1>${escapeHtml(p.titolo)}</h1>
+    <div class="badges">${badges}</div>
+  `;
+
+  const body = document.getElementById('detail-body');
+  let bodyHtml = '';
+  if (p.descrizione_md) bodyHtml += `<h2>La posizione</h2><div class="md-content">${escapeHtml(p.descrizione_md)}</div>`;
+  if (p.requisiti_md) bodyHtml += `<h2>Requisiti</h2><div class="md-content">${escapeHtml(p.requisiti_md)}</div>`;
+  if (p.offriamo_md) bodyHtml += `<h2>Cosa offriamo</h2><div class="md-content">${escapeHtml(p.offriamo_md)}</div>`;
+  body.innerHTML = bodyHtml;
+  body.style.display = bodyHtml ? '' : 'none';
+
+  document.getElementById('f-posizione-slug').value = p.slug;
+  document.getElementById('form-card').style.display = '';
+}
+
+window.submitCandidatura = async function(e) {
+  e.preventDefault();
+  const alertBox = document.getElementById('form-alert');
+  alertBox.innerHTML = '';
+
+  const fd = new FormData();
+  fd.set('posizione_slug', document.getElementById('f-posizione-slug').value);
+  fd.set('nome', document.getElementById('f-nome').value.trim());
+  fd.set('cognome', document.getElementById('f-cognome').value.trim());
+  fd.set('email', document.getElementById('f-email').value.trim());
+  fd.set('telefono', document.getElementById('f-telefono').value.trim());
+  fd.set('citta', document.getElementById('f-citta').value.trim());
+  const anni = document.getElementById('f-anni').value;
+  if (anni) fd.set('anni_esperienza', anni);
+  fd.set('linkedin_url', document.getElementById('f-linkedin').value.trim());
+  fd.set('messaggio', document.getElementById('f-messaggio').value.trim());
+  fd.set('consenso_privacy', document.getElementById('f-privacy').checked ? 'true' : 'false');
+  fd.set('consenso_marketing', document.getElementById('f-marketing').checked ? 'true' : 'false');
+  fd.set('versione_informativa', 'v1.0-2026-05-06');
+  fd.set('origine_form', 'enterserviceholding.com');
+  fd.set('hp_field', document.getElementById('f-hp').value);
+  const cv = document.getElementById('f-cv').files[0];
+  if (cv) fd.set('cv', cv);
+
+  const btn = document.getElementById('btn-submit');
+  const loading = document.getElementById('form-loading');
+  btn.disabled = true; loading.style.display = '';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/public/candidature`, { method: 'POST', body: fd });
+    const j = await res.json();
+    if (!j.success) {
+      alertBox.innerHTML = `<div class="alert error">${escapeHtml(j.error || 'Errore invio. Riprova.')}</div>`;
+      window.scrollTo({ top: alertBox.offsetTop - 100, behavior: 'smooth' });
+      return false;
+    }
+    document.getElementById('form-card').style.display = 'none';
+    document.getElementById('detail-body').style.display = 'none';
+    document.getElementById('success-card').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    alertBox.innerHTML = `<div class="alert error">Errore di rete. Verifica la connessione e riprova.</div>`;
+  } finally {
+    btn.disabled = false; loading.style.display = 'none';
+  }
+  return false;
+};
+
+function escapeAttr(s) { return String(s ?? '').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+router();
+</script>
+
+</body>
+</html>
