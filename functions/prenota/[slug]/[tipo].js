@@ -1,28 +1,22 @@
 /**
- * Presentation Worker — gestisce routing dinamico e fall-through agli assets statici.
+ * Cloudflare Pages Function — route /prenota/<slug>/<tipo>
  *
- * Routing:
- *   /prenota/<slug>/<tipo>  → render pagina prenotazione (calendario pubblico Calendly-like)
- *   altri path              → static assets (fall-through ad env.ASSETS)
+ * Renderizza la pagina pubblica di prenotazione (calendario Calendly-like).
+ * I file statici (index.html, lavora-con-noi.html, ecc.) sono serviti
+ * direttamente dal layer Pages senza passare da qui.
+ *
+ * I dati (user, tipo, slot disponibili) vengono fetched lato client tramite
+ * https://app.enterserviceholding.com/api/public/prenota/<slug>/<tipo>
+ * (CORS aperto per enterserviceholding.com).
  */
 
-const API_BASE = 'https://app.enterserviceholding.com';
-
-export default {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-
-    // /prenota/<slug>/<tipo>  (no trailing path)
-    const m = /^\/prenota\/([a-z0-9-]+)\/([a-z0-9-]+)\/?$/.exec(url.pathname);
-    if (m) {
-      const [, slug, tipo] = m;
-      return renderPrenotaPage(slug, tipo);
-    }
-
-    // Fallback: static assets
-    return env.ASSETS.fetch(request);
-  },
-};
+export async function onRequest(context) {
+  const { slug, tipo } = context.params;
+  if (!/^[a-z0-9-]+$/.test(slug) || !/^[a-z0-9-]+$/.test(tipo)) {
+    return new Response('Not found', { status: 404 });
+  }
+  return renderPrenotaPage(slug, tipo);
+}
 
 /**
  * Renderizza la pagina pubblica di prenotazione.
