@@ -288,9 +288,50 @@ function renderSuccess(slotScelto, invito, meetLink) {
       <p style="margin-bottom:8px;">Durata prevista: ${invito.durata_min} minuti</p>
       ${meetBlock}
       <p style="margin-top:22px;">Ti abbiamo inviato anche un'email di conferma con tutti i dettagli e (per la modalità online) l'invito Google Calendar. Riceverai un promemoria 24 ore prima del colloquio.</p>
+
+      <div style="border-top:1px solid var(--line);margin-top:30px;padding-top:22px;">
+        <p style="font-size:14px;color:var(--gray);margin-bottom:14px;">Hai un imprevisto?</p>
+        <button class="btn btn-ghost" onclick="cambiaSlot()" style="margin-right:8px;">↻ Cambia slot</button>
+        <button class="btn btn-ghost" onclick="cancellaPrenotazione()" style="color:#B91C1C;border-color:#FEE2E2;">✕ Cancella prenotazione</button>
+      </div>
     </div>
   `;
 }
+
+window.cambiaSlot = function() {
+  // Torna alla lista slot: forziamo lo stato candidato a non-scelto a livello UI
+  // mostrando direttamente i bottoni. La scelta nuova fa già release del vecchio
+  // lato server (vedi /scegli.js).
+  if (!DATA || !DATA.candidato) { load(); return; }
+  // Costringiamo il render in modalità "scelta" anche se il backend dice 'scelto'
+  DATA.candidato._cambioInCorso = true;
+  DATA.candidato.stato = 'invitato';  // override visivo per re-rendering
+  SELECTED_SLOT = null;
+  render();
+  // Banner informativo
+  const head = document.querySelector('.card.head');
+  if (head) {
+    const note = document.createElement('div');
+    note.style.cssText = 'background:#FFF8E7;border:1px solid rgba(251,168,0,0.4);padding:12px 16px;border-radius:10px;margin-top:14px;font-size:14px;color:#140C64;';
+    note.innerHTML = '↻ <strong>Stai cambiando slot.</strong> Il nuovo orario sostituirà quello già confermato. Riceverai una nuova email con i dettagli aggiornati.';
+    head.appendChild(note);
+  }
+};
+
+window.cancellaPrenotazione = async function() {
+  if (!confirm('Cancellare la prenotazione? Lo slot tornerà libero e l\'evento sul calendario verrà rimosso. Potrai poi sceglierne un altro dallo stesso link.')) return;
+  const token = new URL(window.location).searchParams.get('token');
+  try {
+    const res = await fetch(`${API_BASE}/api/public/colloqui/${encodeURIComponent(token)}/cancella`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const j = await res.json();
+    if (!j.success) { alert('Errore: ' + (j.error || res.status)); return; }
+    // Ricarica → mostrerà form di scelta nuovamente
+    await load();
+  } catch (err) { alert('Errore di rete: ' + err.message); }
+};
 
 function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
