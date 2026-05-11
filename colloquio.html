@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scegli lo slot del colloquio · Enterservice</title>
+<meta name="description" content="Scegli lo slot più comodo per il tuo colloquio di selezione con Enterservice.">
+<link rel="icon" type="image/png" href="Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #140C64; --navy-soft: #2A1E9E; --navy-ink: #0C0740;
+  --yellow: #FBA800; --yellow-bg: #FFF8E7;
+  --gray: #6B6E76; --line: #E8E6F0;
+  --ink: #1B1B1F; --paper: #FAFAF7; --white: #FFFFFF;
+  --shadow: 0 4px 16px -4px rgba(20, 12, 100, 0.10);
+  --shadow-lg: 0 24px 60px -22px rgba(20, 12, 100, 0.20);
+  --radius: 10px; --radius-lg: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; line-height: 1.55; min-height: 100vh; }
+h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.015em; line-height: 1.18; color: var(--navy); }
+a { color: var(--navy); text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.topbar { padding: 18px 24px; background: var(--white); border-bottom: 1px solid var(--line); }
+.topbar-inner { max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.topbar-logo { height: 36px; }
+.topbar a { color: var(--gray); font-size: 13px; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 80px; }
+.card { background: var(--white); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow); margin-bottom: 18px; }
+
+.badge { display: inline-block; background: var(--yellow-bg); color: var(--navy); border: 1px solid rgba(251,168,0,0.3); padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+.head h1 { font-size: clamp(24px, 4vw, 32px); margin-bottom: 8px; }
+.head .pos { color: var(--yellow); font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+.head .lead { color: var(--gray); font-size: 15px; margin-top: 14px; line-height: 1.6; }
+
+.meta { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 0; }
+.meta span { display: inline-flex; align-items: center; gap: 6px; background: var(--paper); padding: 7px 14px; border-radius: 999px; font-size: 13px; color: var(--ink); font-weight: 500; }
+
+.scaduto, .gia-scelto, .declinato {
+  background: var(--white); border-radius: var(--radius-lg); padding: 36px 24px; text-align: center;
+  box-shadow: var(--shadow); margin-bottom: 18px;
+}
+.scaduto h2, .gia-scelto h2, .declinato h2 { font-size: 22px; margin-bottom: 10px; }
+.scaduto p, .gia-scelto p, .declinato p { color: var(--gray); max-width: 480px; margin: 0 auto; }
+
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin: 14px 0 6px; }
+.slot {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+  padding: 16px 18px; border: 2px solid var(--line); border-radius: var(--radius);
+  background: var(--white); cursor: pointer; transition: all 0.18s;
+  text-align: left;
+}
+.slot:hover:not(.disabled) { border-color: var(--yellow); transform: translateY(-2px); box-shadow: var(--shadow); }
+.slot.selected { border-color: var(--navy); background: var(--paper); }
+.slot.disabled { opacity: 0.45; cursor: not-allowed; }
+.slot .day { font-size: 12px; color: var(--yellow); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.slot .date { font-size: 17px; font-weight: 700; color: var(--navy); }
+.slot .time { font-size: 14px; color: var(--gray); }
+.slot .badge-presa { font-size: 10px; background: #FEE2E2; color: #B91C1C; padding: 2px 8px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 4px; }
+
+.actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.btn { padding: 12px 24px; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.18s; font-family: inherit; }
+.btn-primary { background: var(--yellow); color: var(--navy); }
+.btn-primary:hover:not(:disabled) { background: #FFB820; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--gray); border-color: var(--line); }
+.btn-ghost:hover { color: var(--navy); border-color: var(--navy); }
+
+.alert { padding: 14px 18px; border-radius: var(--radius); margin: 14px 0; font-size: 14px; }
+.alert.error { background: #FEE2E2; color: #B91C1C; }
+.alert.success { background: #D1FAE5; color: #047857; }
+
+.success-card { background: var(--white); border-radius: var(--radius-lg); padding: 44px 28px; text-align: center; box-shadow: var(--shadow); }
+.success-card .check { font-size: 56px; color: var(--yellow); margin-bottom: 10px; line-height: 1; }
+.success-card h2 { font-size: 26px; margin-bottom: 10px; }
+.success-card .meet { margin: 22px 0 6px; }
+.success-card .meet a { background: var(--yellow); color: var(--navy); padding: 13px 28px; border-radius: var(--radius); font-weight: 700; display: inline-block; }
+.success-card p { color: var(--gray); max-width: 520px; margin: 0 auto; }
+
+.footer { padding: 28px 20px; text-align: center; color: var(--gray); font-size: 12px; border-top: 1px solid var(--line); margin-top: 40px; }
+
+.skel { background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%); background-size: 200% 100%; animation: skel 1.4s linear infinite; border-radius: var(--radius); height: 100px; }
+@keyframes skel { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+@media (max-width: 480px) {
+  .wrap { padding: 18px 14px 60px; }
+  .card { padding: 22px 18px; }
+  .slots { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://enterserviceholding.com"><img src="Images/logo-sfondo-bianco.png" alt="Enterservice" class="topbar-logo"></a>
+    <a href="https://enterserviceholding.com">enterserviceholding.com</a>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <div class="skel"></div>
+  <div class="skel" style="margin-top:14px;height:200px;"></div>
+</main>
+
+<footer class="footer">
+  Enterservice S.R.L.S. unipersonale · Sede legale Via Casilina 3, 00182 Roma · C.F./P.IVA 15795691003 · REA RM-1614574
+</footer>
+
+<script>
+const API_BASE = 'https://app.enterserviceholding.com';
+const main = document.getElementById('main');
+let DATA = null;
+let SELECTED_SLOT = null;
+
+async function load() {
+  const url = new URL(window.location);
+  const token = url.searchParams.get('token');
+  if (!token) {
+    renderError('Token mancante. Apri il link che hai ricevuto via email.');
+    return;
+  }
+  try {
+    const res = await fetch(`${API_BASE}/api/public/colloqui/${encodeURIComponent(token)}`);
+    if (res.status === 404) {
+      renderError('Link non valido o scaduto. Contatta info@enterserviceholding.com per assistenza.');
+      return;
+    }
+    const j = await res.json();
+    if (!j.success) throw new Error(j.error || 'Errore');
+    DATA = j.data;
+    render();
+  } catch (err) {
+    renderError(`Errore di caricamento: ${escapeHtml(err.message)}`);
+  }
+}
+
+function renderError(msg) {
+  main.innerHTML = `<div class="card declinato"><h2>Ops</h2><p>${msg}</p></div>`;
+}
+
+function formatDate(local) {
+  const [date, time] = local.split(/[ T]/);
+  const [Y, M, D] = date.split('-').map(n => parseInt(n, 10));
+  const t = (time || '00:00').slice(0, 5);
+  const giorni = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
+  const mesi = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+  const dt = new Date(Date.UTC(Y, M - 1, D));
+  return { giorno: giorni[dt.getUTCDay()], data: `${dt.getUTCDate()} ${mesi[dt.getUTCMonth()]}`, ora: t };
+}
+
+function modalitaLabel(m, luogo) {
+  if (m === 'online') return '🎥 Videocall (Google Meet)';
+  if (m === 'presenza') return `🏢 In sede${luogo ? ` · ${luogo}` : ''}`;
+  if (m === 'telefono') return '📞 Telefonica';
+  return m;
+}
+
+function render() {
+  const { invito, candidato, slot, scaduto } = DATA;
+  const nomeFull = [candidato.nome, candidato.cognome].filter(Boolean).join(' ');
+
+  // Stato terminale
+  if (candidato.stato === 'scelto') {
+    const slotScelto = slot.find(s => s.id === candidato.slot_scelto_id);
+    renderSuccess(slotScelto, invito, candidato.meet_link);
+    return;
+  }
+  if (candidato.stato === 'declinato') {
+    main.innerHTML = `<div class="card declinato"><h2>Hai declinato l'invito</h2><p>Grazie del feedback. Resteremo in contatto per eventuali future opportunità.</p></div>`;
+    return;
+  }
+  if (candidato.stato === 'scaduto' || candidato.stato === 'annullato' || scaduto) {
+    main.innerHTML = `<div class="card declinato"><h2>Termine scaduto</h2><p>Il termine per scegliere uno slot è purtroppo passato. Se sei ancora interessato/a, scrivi a <a href="mailto:info@enterserviceholding.com" style="color:var(--yellow);">info@enterserviceholding.com</a> e ti proporremo nuovi orari.</p></div>`;
+    return;
+  }
+
+  // Form scelta
+  const allTaken = slot.every(s => s.presa);
+  main.innerHTML = `
+    <div class="card head">
+      <div class="badge">Invito al colloquio</div>
+      ${invito.posizione_titolo ? `<div class="pos">${escapeHtml(invito.posizione_titolo)}</div>` : ''}
+      <h1>${escapeHtml(invito.titolo)}</h1>
+      <div class="lead">Ciao ${escapeHtml(nomeFull || '')}, ${invito.recruiter_nome ? escapeHtml(invito.recruiter_nome) + ' ti' : 'ti'} ha invitato a un colloquio di selezione. Scegli lo slot più comodo per te tra quelli proposti.</div>
+      <div class="meta">
+        <span>⏱ ${invito.durata_min} min</span>
+        <span>${modalitaLabel(invito.modalita, invito.luogo)}</span>
+      </div>
+      ${invito.descrizione_md ? `<div style="margin-top:18px;white-space:pre-wrap;color:#383942;font-size:14.5px;line-height:1.6;">${escapeHtml(invito.descrizione_md)}</div>` : ''}
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:18px;margin-bottom:14px;">${allTaken ? 'Slot esauriti' : 'Scegli uno slot'}</h2>
+      <div id="alert-box"></div>
+      ${allTaken
+        ? '<p style="color:var(--gray);">Tutti gli slot proposti sono stati scelti da altri candidati. Scrivi a <a href="mailto:info@enterserviceholding.com" style="color:var(--yellow);">info@enterserviceholding.com</a> per concordare un\'alternativa.</p>'
+        : `<div class="slots">${slot.map(renderSlotCard).join('')}</div>`}
+      <div class="actions">
+        <button class="btn btn-primary" id="btn-conferma" onclick="conferma()" disabled${allTaken ? ' style="display:none;"' : ''}>Conferma slot</button>
+        <button class="btn btn-ghost" onclick="declina()">Non posso, declina invito</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderSlotCard(s) {
+  const f = formatDate(s.data_inizio);
+  return `
+    <div class="slot ${s.presa ? 'disabled' : ''}" data-slot-id="${s.id}" onclick="${s.presa ? '' : `selectSlot(${s.id})`}">
+      <div class="day">${f.giorno}</div>
+      <div class="date">${f.data}</div>
+      <div class="time">ore ${f.ora}</div>
+      ${s.presa ? '<div class="badge-presa">Già preso</div>' : ''}
+    </div>
+  `;
+}
+
+window.selectSlot = function(id) {
+  SELECTED_SLOT = id;
+  document.querySelectorAll('.slot').forEach(el => el.classList.toggle('selected', parseInt(el.dataset.slotId, 10) === id));
+  document.getElementById('btn-conferma').disabled = false;
+};
+
+window.conferma = async function() {
+  if (!SELECTED_SLOT) return;
+  const btn = document.getElementById('btn-conferma');
+  const alertBox = document.getElementById('alert-box');
+  btn.disabled = true; btn.textContent = 'Confermo…';
+  alertBox.innerHTML = '';
+  const token = new URL(window.location).searchParams.get('token');
+  try {
+    const res = await fetch(`${API_BASE}/api/public/colloqui/${encodeURIComponent(token)}/scegli`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slot_id: SELECTED_SLOT }),
+    });
+    const j = await res.json();
+    if (!j.success) {
+      alertBox.innerHTML = `<div class="alert error">${escapeHtml(j.error || 'Errore conferma')}</div>`;
+      btn.disabled = false; btn.textContent = 'Conferma slot';
+      return;
+    }
+    // Ricarica per mostrare success card
+    await load();
+  } catch (err) {
+    alertBox.innerHTML = `<div class="alert error">Errore di rete: ${escapeHtml(err.message)}</div>`;
+    btn.disabled = false; btn.textContent = 'Conferma slot';
+  }
+};
+
+window.declina = async function() {
+  if (!confirm('Confermare di non poter partecipare? Questa azione non è reversibile.')) return;
+  const token = new URL(window.location).searchParams.get('token');
+  try {
+    const res = await fetch(`${API_BASE}/api/public/colloqui/${encodeURIComponent(token)}/scegli`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ decline: true }),
+    });
+    const j = await res.json();
+    if (!j.success) { alert('Errore: ' + (j.error || res.status)); return; }
+    await load();
+  } catch (err) { alert('Errore di rete: ' + err.message); }
+};
+
+function renderSuccess(slotScelto, invito, meetLink) {
+  const f = slotScelto ? formatDate(slotScelto.data_inizio) : null;
+  let meetBlock = '';
+  if (invito.modalita === 'online' && meetLink) {
+    meetBlock = `<div class="meet"><a href="${meetLink}" target="_blank" rel="noopener">🎥 Apri Google Meet →</a></div><p style="font-size:13px;margin-top:6px;">Link: <a href="${meetLink}">${meetLink}</a></p>`;
+  } else if (invito.modalita === 'presenza') {
+    meetBlock = `<p style="margin-top:10px;">📍 Ti aspettiamo a <strong>${escapeHtml(invito.luogo || 'Viale Scalo San Lorenzo 10, Roma')}</strong></p>`;
+  } else if (invito.modalita === 'telefono') {
+    meetBlock = `<p style="margin-top:10px;">📞 ${escapeHtml(invito.recruiter_nome || 'Il recruiter')} ti chiamerà al numero indicato in candidatura.</p>`;
+  }
+  main.innerHTML = `
+    <div class="success-card">
+      <div class="check">✓</div>
+      <h2>Slot confermato</h2>
+      ${f ? `<p style="font-size:18px;color:var(--navy);font-weight:600;margin:14px 0 4px;">${f.giorno} ${f.data} · ore ${f.ora}</p>` : ''}
+      <p style="margin-bottom:8px;">Durata prevista: ${invito.durata_min} minuti</p>
+      ${meetBlock}
+      <p style="margin-top:22px;">Ti abbiamo inviato anche un'email di conferma con tutti i dettagli e (per la modalità online) l'invito Google Calendar. Riceverai un promemoria 24 ore prima del colloquio.</p>
+    </div>
+  `;
+}
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+load();
+</script>
+
+</body>
+</html>
