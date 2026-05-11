@@ -23,7 +23,7 @@ export async function onRequest(context) {
  * I dati (user, tipo, slot disponibili) vengono fetched lato client tramite
  * /api/public/prenota/:slug/:tipo (l'API ha CORS aperto per enterserviceholding.com).
  */
-function renderPrenotaPage(slug, tipo) {
+export function renderPrenotaPage(slug, tipo) {
   const html = `<!DOCTYPE html>
 <html lang="it">
 <head>
