@@ -1,0 +1,8 @@
+# Redirect 301 per pagine pubbliche dell'app interna
+# Le email generate prima del fix puntavano a enterserviceholding.com/<page>,
+# ma le pagine fisiche sono su app.enterserviceholding.com (es-internal repo).
+# Questi redirect salvano i link già spediti + sono no-op per le email future.
+# La query string (?token=...) viene preservata automaticamente da Cloudflare Pages.
+
+/firma.html       https://app.enterserviceholding.com/firma.html       301
+/upload-doc.html  https://app.enterserviceholding.com/upload-doc.html  301
