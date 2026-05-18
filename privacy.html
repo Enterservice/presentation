@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · Enterservice</title>
+<meta name="description" content="Informativa privacy del Gruppo Enterservice ai sensi degli artt. 13 e 14 GDPR — sito vetrina enterserviceholding.com e servizi di consulenza Finance / HR.">
+<link rel="icon" type="image/png" href="Images/logo-icona.png">
+<link rel="apple-touch-icon" href="Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #140C64; --navy-soft: #2A1E9E; --navy-ink: #0C0740;
+  --yellow: #FBA800; --yellow-soft: #FFD77A; --yellow-bg: #FFF8E7;
+  --gray: #6B6E76; --gray-soft: #B8BABC; --line: #E8E6F0;
+  --ink: #1B1B1F; --paper: #FAFAF7; --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(20, 12, 100, 0.06);
+  --shadow: 0 4px 16px -4px rgba(20, 12, 100, 0.10);
+  --radius: 10px; --radius-lg: 16px;
+  --t: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; line-height: 1.65; overflow-x: hidden; }
+.display, h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.015em; line-height: 1.2; }
+a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; display: block; }
+button { font-family: inherit; }
+
+/* Topbar */
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 14px 32px; background: rgba(250, 250, 247, 0.85); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line); transition: padding 0.3s var(--t); }
+.topbar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.topbar.scrolled { padding: 8px 32px; box-shadow: var(--shadow-sm); }
+.topbrand { display: flex; align-items: center; }
+.topbar-logo { height: 40px; width: auto; max-width: 220px; transition: height 0.3s var(--t); display: block; }
+.topbar.scrolled .topbar-logo { height: 32px; }
+.topnav { display: flex; gap: 28px; align-items: center; }
+.topnav a { color: var(--ink); font-size: 14px; font-weight: 500; transition: color 0.25s; }
+.topnav a:hover { color: var(--navy); }
+.topnav-reserved { border: 1px solid var(--line); padding: 7px 14px; border-radius: 8px; font-size: 13px; color: var(--gray); transition: all 0.25s var(--t); }
+.topnav-reserved:hover { border-color: var(--navy); color: var(--navy); }
+.menu-toggle { display: none; background: transparent; border: none; padding: 8px; cursor: pointer; color: var(--ink); }
+@media (max-width: 980px) { .topnav { display: none; } .menu-toggle { display: block; } }
+
+/* Mobile nav */
+.mobile-overlay { position: fixed; inset: 0; background: rgba(20,12,100,.4); z-index: 55; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.mobile-overlay.active { opacity: 1; pointer-events: auto; }
+.mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; z-index: 60; background: var(--navy); padding: 100px 32px 40px; transition: right .4s var(--t); box-shadow: -10px 0 40px rgba(0,0,0,.3); overflow-y: auto; }
+.mobile-nav.active { right: 0; }
+.mobile-nav a { color: white; font-size: 17px; padding: 12px 0; display: block; border-bottom: 1px solid rgba(255,255,255,.12); }
+
+/* Hero */
+.hero { padding: 140px 24px 50px; background: linear-gradient(180deg, var(--paper) 0%, var(--white) 100%); }
+.hero-inner { max-width: 880px; margin: 0 auto; }
+.hero .badge-tag { display: inline-block; background: var(--yellow-bg); color: var(--navy); border: 1px solid rgba(251, 168, 0, 0.25); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; }
+.hero h1 { font-size: clamp(32px, 4.5vw, 48px); color: var(--navy); margin-bottom: 12px; }
+.hero .lead { font-size: 17px; color: var(--gray); line-height: 1.55; }
+.hero .last-update { display: inline-block; margin-top: 18px; font-size: 13px; color: var(--gray); background: var(--white); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; }
+.hero .pdf-link { display: inline-flex; align-items: center; gap: 6px; margin-left: 10px; margin-top: 18px; font-size: 13px; color: var(--navy); border: 1px solid var(--navy); padding: 6px 12px; border-radius: 999px; font-weight: 600; transition: all .25s var(--t); }
+.hero .pdf-link:hover { background: var(--navy); color: var(--white); }
+
+/* Body */
+.legal-body { padding: 20px 24px 100px; }
+.legal-inner { max-width: 880px; margin: 0 auto; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(28px, 5vw, 56px); }
+
+.legal-toc { background: var(--yellow-bg); border: 1px solid rgba(251, 168, 0, 0.2); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 36px; }
+.legal-toc h3 { font-size: 13px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; }
+.legal-toc ol { padding-left: 22px; column-count: 2; column-gap: 24px; }
+@media (max-width: 600px) { .legal-toc ol { column-count: 1; } }
+.legal-toc li { font-size: 13.5px; padding: 3px 0; color: var(--ink); break-inside: avoid; }
+.legal-toc a { color: var(--ink); transition: color .2s; }
+.legal-toc a:hover { color: var(--navy); text-decoration: underline; }
+
+.legal-body h2 { font-size: 22px; color: var(--navy); margin: 38px 0 14px; padding-top: 18px; border-top: 2px solid var(--yellow); display: inline-block; padding-right: 24px; }
+.legal-body h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.legal-body h3 { font-size: 17px; color: var(--navy); margin: 26px 0 10px; font-weight: 700; }
+.legal-body h4 { font-size: 14px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; margin: 18px 0 8px; }
+.legal-body p { font-size: 15px; color: #2D2E36; line-height: 1.7; margin-bottom: 14px; }
+.legal-body ul, .legal-body ol { padding-left: 24px; margin-bottom: 16px; }
+.legal-body li { font-size: 15px; color: #2D2E36; line-height: 1.7; margin-bottom: 6px; }
+.legal-body li strong { color: var(--navy); }
+.legal-body a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--yellow); text-underline-offset: 3px; }
+.legal-body a:hover { color: var(--yellow); }
+.legal-body strong { color: var(--navy-ink); }
+.legal-body code { background: var(--yellow-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Menlo', 'Consolas', monospace; font-size: 13px; color: var(--navy); }
+
+.callout { background: #F3F5FB; border-left: 4px solid var(--navy); padding: 16px 20px; border-radius: 6px; margin: 18px 0; }
+.callout p { margin-bottom: 0; }
+
+/* Tabella */
+.legal-table-wrap { overflow-x: auto; margin: 14px 0 24px; border-radius: var(--radius); border: 1px solid var(--line); }
+.legal-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.legal-table th { background: var(--navy); color: var(--white); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.legal-table td { padding: 12px 14px; border-top: 1px solid var(--line); vertical-align: top; color: #2D2E36; }
+.legal-table tr:nth-child(even) td { background: #FAFAFB; }
+.legal-table strong { color: var(--navy); }
+
+.contact-card { background: var(--navy-ink); color: var(--white); border-radius: var(--radius); padding: 26px 28px; margin-top: 36px; }
+.contact-card h3 { color: var(--white); font-size: 18px; margin-bottom: 12px; }
+.contact-card p, .contact-card li { color: rgba(255,255,255,0.85); font-size: 14.5px; }
+.contact-card a { color: var(--yellow); text-decoration-color: var(--yellow); }
+.contact-card a:hover { color: var(--yellow-soft); }
+
+/* Footer */
+.footer { background: var(--navy-ink); color: rgba(255, 255, 255, 0.75); padding: 60px 32px 28px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; margin-bottom: 40px; }
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+.footer-brand img { height: 32px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+.footer-brand p { font-size: 13px; line-height: 1.6; max-width: 320px; }
+.footer-col h5 { color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13.5px; color: rgba(255, 255, 255, 0.65); padding: 4px 0; transition: color 0.25s; }
+.footer-col a:hover { color: var(--yellow); }
+.footer-legal { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 22px; margin-bottom: 16px; font-size: 12px; color: rgba(255, 255, 255, 0.55); line-height: 1.7; }
+.footer-legal strong { color: rgba(255, 255, 255, 0.85); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255, 255, 255, 0.45); }
+.footer-bottom a { color: rgba(255, 255, 255, 0.45); transition: color 0.25s; }
+.footer-bottom a:hover { color: var(--yellow); }
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="topbrand">
+      <img src="Images/logo-sfondo-bianco.png" alt="Enterservice" class="topbar-logo">
+    </a>
+    <nav class="topnav">
+      <a href="index.html#identity">Chi siamo</a>
+      <a href="index.html#services">Servizi</a>
+      <a href="/enterhouse/">EnterHouse</a>
+      <a href="index.html#eventi">Eventi</a>
+      <a href="lavora-con-noi.html">Lavora con noi</a>
+      <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener" class="topnav-reserved">Area riservata</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="26" height="26"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="index.html#identity">Chi siamo</a>
+  <a href="index.html#services">Servizi</a>
+  <a href="/enterhouse/">EnterHouse</a>
+  <a href="index.html#eventi">Eventi</a>
+  <a href="lavora-con-noi.html">Lavora con noi</a>
+  <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener">Area riservata</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="badge-tag">Documento legale</span>
+    <h1>Informativa Privacy</h1>
+    <p class="lead">Ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 (GDPR) — Gruppo Enterservice, sito vetrina <code style="background:transparent;color:inherit;padding:0;font-size:inherit;font-family:inherit;">enterserviceholding.com</code> e servizi di consulenza Finance / HR.</p>
+    <div>
+      <span class="last-update">Ultimo aggiornamento: 18 maggio 2026</span>
+    </div>
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="legal-inner">
+
+    <nav class="legal-toc" aria-label="Indice">
+      <h3>Indice</h3>
+      <ol>
+        <li><a href="#sez-1">Titolare del trattamento</a></li>
+        <li><a href="#sez-2">Ambito di applicazione</a></li>
+        <li><a href="#sez-3">Categorie di dati personali trattati</a></li>
+        <li><a href="#sez-4">Finalità e basi giuridiche del trattamento</a></li>
+        <li><a href="#sez-5">Cookie e tecnologie simili</a></li>
+        <li><a href="#sez-6">Periodi di conservazione dei dati</a></li>
+        <li><a href="#sez-7">Destinatari dei dati e sub-responsabili</a></li>
+        <li><a href="#sez-8">Trasferimenti verso Paesi extra-UE</a></li>
+        <li><a href="#sez-9">Diritti dell'interessato</a></li>
+        <li><a href="#sez-10">Misure di sicurezza tecniche e organizzative</a></li>
+        <li><a href="#sez-11">Data breach</a></li>
+        <li><a href="#sez-12">Modifiche e aggiornamenti</a></li>
+        <li><a href="#sez-13">Distinzione tra Titolari del trattamento</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="sez-1">1. Titolare del trattamento</h2>
+    <p>Il titolare del trattamento dei dati personali è:</p>
+    <ul>
+      <li><strong>Ragione sociale:</strong> Enterservice S.r.l.s. unipersonale</li>
+      <li><strong>Sede legale:</strong> Via Casilina 3, 00182 Roma (RM), Italia</li>
+      <li><strong>C.F. / P.IVA:</strong> 15795691003</li>
+      <li><strong>REA:</strong> RM-1614574</li>
+      <li><strong>Legale rappresentante:</strong> Marius Veronesi (Amministratore Unico)</li>
+      <li><strong>Email contatto privacy:</strong> <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a> (in alternativa: <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a>)</li>
+      <li><strong>PEC:</strong> <a href="mailto:enterservicesrls@namirialpec.it">enterservicesrls@namirialpec.it</a></li>
+    </ul>
+    <p>Il Titolare non ha nominato un Responsabile della Protezione dei Dati (DPO), non risultando obbligatoria tale figura in relazione alle dimensioni e alla natura dell'attività svolta. Per ogni questione inerente al trattamento dei dati personali è possibile contattare il Titolare agli indirizzi sopra indicati.</p>
+
+    <h2 id="sez-2">2. Ambito di applicazione</h2>
+    <p>La presente informativa descrive le modalità di trattamento dei dati personali effettuati da Enterservice S.r.l.s. in qualità di Titolare nell'ambito delle seguenti attività:</p>
+    <ul>
+      <li>gestione e consultazione del <strong>sito vetrina</strong>: <a href="https://enterserviceholding.com">enterserviceholding.com</a> e relative sottopagine;</li>
+      <li>gestione e utilizzo del <strong>portale interno</strong>: <a href="https://app.enterserviceholding.com">app.enterserviceholding.com</a> (accessibile tramite Cloudflare Access);</li>
+      <li>gestione delle comunicazioni tramite <strong>email professionali</strong> del Gruppo su dominio <code>enterserviceholding.com</code> (Google Workspace);</li>
+      <li>erogazione dei servizi di consulenza <strong>Corporate Finance &amp; Control</strong> e <strong>HR &amp; Organization</strong>.</li>
+    </ul>
+
+    <h3>Categorie di interessati</h3>
+    <p>La presente informativa si applica alle seguenti categorie di interessati:</p>
+    <ol>
+      <li>Visitatori del sito web;</li>
+      <li>Lead (richiedenti informazioni e/o preventivi, compilazione form di contatto);</li>
+      <li>Clienti imprese B2B (servizi Finance e HR);</li>
+      <li>Referenti dei clienti (dipendenti, collaboratori, rappresentanti dei clienti);</li>
+      <li>Candidati coinvolti nei servizi di ricerca e selezione del personale;</li>
+      <li>Partner commerciali e fornitori;</li>
+      <li>Dipendenti, collaboratori e soci di Enterservice (per questi ultimi si rinvia a specifica informativa interna).</li>
+    </ol>
+
+    <h3>Trattamenti esclusi</h3>
+    <p>Sono espressamente esclusi dall'ambito della presente informativa i seguenti trattamenti:</p>
+    <ul>
+      <li>trattamenti relativi ai dati dei clienti finali dei centri che utilizzano il SaaS <strong>EnterHouse</strong>, disciplinati da Privacy Policy EnterHouse distinta;</li>
+      <li>trattamenti relativi ai clienti dei servizi di mediazione creditizia svolti da <strong>Marius Veronesi</strong> quale libero professionista iscritto OAM (insegna Enterfinance), disciplinati da informativa privacy separata e autonoma.</li>
+    </ul>
+
+    <h2 id="sez-3">3. Categorie di dati personali trattati</h2>
+
+    <h3>3.1 Visitatori del sito enterserviceholding.com</h3>
+    <p>Nel corso della navigazione possono essere trattate le seguenti categorie di dati:</p>
+    <ul>
+      <li><strong>Dati tecnici di navigazione:</strong> indirizzo IP, user-agent del browser, pagine visitate, data e ora della visita (timestamp), pagina di provenienza (referrer), log tecnici di sicurezza;</li>
+      <li><strong>Cookie tecnici:</strong> cookie di sessione, cookie per la sicurezza, cookie per memorizzazione di preferenze tecniche;</li>
+      <li><strong>Eventuali cookie analitici</strong> (se e quando attivati): identificatori anonimizzati, eventi di navigazione in forma aggregata, nel rispetto della disciplina applicabile.</li>
+    </ul>
+
+    <h3>3.2 Lead (form di contatto e richieste di preventivo)</h3>
+    <p>In caso di compilazione dei form di contatto o di richieste di informazioni/preventivi sono trattati:</p>
+    <ul>
+      <li><strong>Dati identificativi:</strong> nome, cognome, ragione sociale dell'azienda di appartenenza;</li>
+      <li><strong>Dati di contatto:</strong> email aziendale, numero di telefono;</li>
+      <li><strong>Dati commerciali:</strong> settore di attività, esigenza espressa, tipologia di servizio richiesto (Finance, HR, altro ambito di consulenza gestito dal Gruppo);</li>
+      <li><strong>Dati relativi ai consensi:</strong> espressione del consenso privacy (obbligatorio per l'invio del form) e consenso per finalità di marketing (opzionale, ove previsto).</li>
+    </ul>
+
+    <h3>3.3 Clienti (imprese) e loro referenti</h3>
+    <p>Nel contesto dell'esecuzione dei servizi di consulenza Finance/HR:</p>
+    <ul>
+      <li><strong>Dati identificativi aziendali:</strong> ragione sociale, partita IVA, codice fiscale, codice SDI, indirizzo della sede legale, PEC;</li>
+      <li><strong>Dati identificativi dei referenti:</strong> nome, cognome, ruolo/posizione, indirizzo email, numero di telefono;</li>
+      <li><strong>Dati fiscali e amministrativi:</strong> dati di fatturazione, recapiti amministrativi, coordinate e modalità di pagamento;</li>
+      <li><strong>Dati economico-finanziari</strong> (consulenza Finance): bilanci, business plan, budget, rendiconti, flussi finanziari, KPI gestionali, dati gestionali interni forniti dal Cliente per gli incarichi di consulenza;</li>
+      <li><strong>Dati relativi ai pagamenti:</strong> riferimenti e token di pagamento gestiti dai provider di pagamento utilizzati (es. Revolut, Stripe), senza che Enterservice memorizzi dati completi di carte;</li>
+      <li><strong>Documentazione di progetto:</strong> deliverable, report, analisi, presentazioni e ogni altro documento elaborato o scambiato nell'ambito del rapporto contrattuale.</li>
+    </ul>
+
+    <h3>3.4 Candidati per servizi di ricerca e selezione del personale (HR)</h3>
+    <p>Nell'ambito dei servizi di ricerca e selezione del personale richiesti dalle aziende clienti, Enterservice S.r.l.s. agisce in qualità di <strong>Titolare</strong> del trattamento dei dati dei candidati.</p>
+    <p>Le categorie di dati trattati sono:</p>
+    <ul>
+      <li><strong>Dati identificativi:</strong> nome, cognome, data di nascita, eventuale indicazione del sesso qualora rilevante per la specifica posizione (nei limiti di legge);</li>
+      <li><strong>Dati di contatto:</strong> indirizzo email, numero di telefono, indirizzo di residenza/domicilio;</li>
+      <li><strong>Dati contenuti nel curriculum vitae:</strong> esperienze professionali, formazione, competenze, lingue conosciute, eventuali referenze, nonché l'eventuale formula di autorizzazione al trattamento dei dati personali;</li>
+      <li><strong>Eventuali categorie particolari di dati (art. 9):</strong> esclusivamente se volontariamente e spontaneamente forniti dal candidato (ad es. appartenenza a categorie protette ai sensi della L. 68/1999); in tali casi il trattamento avviene sulla base di consenso esplicito del candidato;</li>
+      <li><strong>Valutazioni interne di selezione:</strong> note del recruiter, punteggi, giudizi, esiti dei colloqui, riscontri rispetto alla posizione oggetto di ricerca.</li>
+    </ul>
+
+    <h3>3.5 Partner commerciali e fornitori</h3>
+    <p>Per la gestione dei rapporti con partner e fornitori vengono trattati:</p>
+    <ul>
+      <li><strong>Dati identificativi aziendali:</strong> ragione sociale, partita IVA, recapiti societari;</li>
+      <li><strong>Dati identificativi del referente:</strong> nome, cognome, email, telefono;</li>
+      <li><strong>Dati amministrativi e contabili:</strong> dati necessari alla fatturazione, pagamenti e adempimenti conseguenti.</li>
+    </ul>
+
+    <h2 id="sez-4">4. Finalità e basi giuridiche del trattamento</h2>
+    <p>I dati personali sono trattati da Enterservice S.r.l.s. per le seguenti finalità e in base alle correlate basi giuridiche:</p>
+
+    <div class="legal-table-wrap">
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Finalità del trattamento</th>
+            <th>Base giuridica</th>
+            <th>Categorie di interessati</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gestione tecnica del sito, risposta a contatti e manutenzione delle piattaforme</td><td>Necessità di dare esecuzione a misure precontrattuali e interesse legittimo del Titolare (artt. 6.1.b, 6.1.f)</td><td>Visitatori, Lead</td></tr>
+          <tr><td>Gestione dei lead e predisposizione di offerte e preventivi</td><td>Esecuzione di misure precontrattuali richieste dall'interessato (art. 6.1.b)</td><td>Lead</td></tr>
+          <tr><td>Erogazione dei servizi di consulenza Finance e HR e gestione del rapporto contrattuale</td><td>Necessità di esecuzione del contratto (art. 6.1.b)</td><td>Clienti, referenti dei clienti</td></tr>
+          <tr><td>Gestione della fatturazione e degli adempimenti fiscali e contabili</td><td>Adempimento di obblighi legali in materia fiscale e civilistica (art. 6.1.c)</td><td>Clienti, fornitori, partner</td></tr>
+          <tr><td>Ricerca e selezione del personale su incarico del Cliente azienda</td><td>Esecuzione di misure precontrattuali e contratto con il candidato, nonché consenso ove richiesto (artt. 6.1.b, 6.1.a)</td><td>Candidati</td></tr>
+          <tr><td>Gestione operativa dei pagamenti e riconciliazioni</td><td>Esecuzione del contratto e adempimento di obblighi legali (artt. 6.1.b, 6.1.c)</td><td>Clienti, fornitori</td></tr>
+          <tr><td>Sicurezza informatica, prevenzione abusi e frodi, audit e log di sicurezza</td><td>Interesse legittimo del Titolare alla tutela dell'infrastruttura e dei propri diritti (art. 6.1.f)</td><td>Tutte le categorie di interessati, nei limiti di pertinenza</td></tr>
+          <tr><td>Invio di comunicazioni operative e transazionali connesse ai servizi erogati</td><td>Necessità di esecuzione del contratto (art. 6.1.b)</td><td>Clienti, candidati</td></tr>
+          <tr><td>Marketing diretto in ambito B2B (newsletter, invito ad eventi, invio di comunicazioni commerciali)</td><td>Consenso dell'interessato, ove richiesto (art. 6.1.a)</td><td>Lead e Clienti che abbiano prestato consenso</td></tr>
+          <tr><td>Analisi statistica in forma aggregata e anonimizzata per finalità di miglioramento dei servizi</td><td>Interesse legittimo del Titolare, con dati non riconducibili ai singoli interessati</td><td>Tutte le categorie (in forma aggregata)</td></tr>
+          <tr><td>Tutela giudiziale e stragiudiziale dei diritti del Titolare in caso di contenziosi</td><td>Interesse legittimo del Titolare (art. 6.1.f)</td><td>Tutte le categorie, se e nella misura in cui necessario</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Nei casi in cui il trattamento si basi sul consenso, l'interessato ha facoltà di revocarlo in qualsiasi momento, senza pregiudicare la liceità dei trattamenti effettuati prima della revoca.</p>
+
+    <h2 id="sez-5">5. Cookie e tecnologie simili</h2>
+    <p>Le modalità di utilizzo di cookie e strumenti analoghi da parte di Enterservice S.r.l.s. sono descritte in un documento separato, disponibile all'indirizzo: <a href="/cookie">enterserviceholding.com/cookie</a></p>
+    <p>In sintesi:</p>
+    <ul>
+      <li>sono utilizzati <strong>cookie tecnici strettamente necessari</strong> al corretto funzionamento del sito e per garantire la sicurezza della navigazione;</li>
+      <li><strong>non sono attualmente utilizzati cookie di profilazione o di marketing</strong>;</li>
+      <li>eventuali strumenti di web analytics orientati alla tutela della privacy (ad esempio soluzioni "privacy-first" e/o cookie-less come Cloudflare Web Analytics o Plausible) sono configurati in modo da non comportare la profilazione dell'utente.</li>
+    </ul>
+    <p>Per maggiori dettagli si invita a consultare la <a href="/cookie">Cookie Policy del Gruppo</a>, che costituisce parte integrante della presente informativa.</p>
+
+    <h2 id="sez-6">6. Periodi di conservazione dei dati</h2>
+    <p>I dati personali sono conservati per il tempo strettamente necessario al conseguimento delle finalità per le quali sono raccolti e trattati, nel rispetto del principio di minimizzazione e delle norme applicabili. In particolare:</p>
+
+    <div class="legal-table-wrap">
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Tipologia di dati</th>
+            <th>Periodo di conservazione indicativo</th>
+            <th>Criterio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dati dei lead non convertiti (richieste di contatto e preventivi)</td><td>24 mesi dall'ultimo contatto utile</td><td>Interesse legittimo alla gestione commerciale, nel rispetto dei provvedimenti dell'Autorità Garante</td></tr>
+          <tr><td>Dati relativi a Clienti con rapporto contrattuale in essere</td><td>Per l'intera durata del contratto e del rapporto commerciale</td><td>Necessità di esecuzione del contratto</td></tr>
+          <tr><td>Dati relativi a Clienti a rapporto concluso</td><td>10 anni dalla cessazione per la documentazione rilevante</td><td>Obblighi civilistici e fiscali (conservazione documentale)</td></tr>
+          <tr><td>Dati dei candidati raccolti per ricerca e selezione</td><td>24 mesi dalla raccolta o dall'ultimo aggiornamento, salvo consenso espresso per conservazione più lunga</td><td>Equilibrio tra esigenze di selezione e legittima aspettativa del candidato</td></tr>
+          <tr><td>Dati fiscali, contabili e fatture</td><td>10 anni</td><td>Obblighi di legge in materia contabile e fiscale</td></tr>
+          <tr><td>Audit log del portale interno</td><td>24 mesi con meccanismo "rolling"</td><td>Esigenze di sicurezza e tracciabilità degli accessi</td></tr>
+          <tr><td>Backup di sistema</td><td>30 giorni con meccanismo "rolling"</td><td>Esigenze di sicurezza e ripristino dei sistemi</td></tr>
+          <tr><td>Registro dei consensi (es. marketing)</td><td>10 anni</td><td>Esigenze di prova del consenso e gestione di eventuali contestazioni</td></tr>
+          <tr><td>Cookie tecnici</td><td>Per la durata della sessione o fino a un massimo di 12 mesi</td><td>Necessità tecnica e disciplina ePrivacy</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Decorso il periodo di conservazione, i dati saranno cancellati, anonimizzati in modo irreversibile oppure, ove tecnicamente possibile, archiviati con accesso limitato per il solo assolvimento di specifici obblighi di legge o per la tutela giudiziaria.</p>
+
+    <h2 id="sez-7">7. Destinatari dei dati e sub-responsabili del trattamento</h2>
+    <p>I dati personali potranno essere comunicati a soggetti terzi che agiscono in qualità di Responsabili del trattamento (sub-responsabili) per conto di Enterservice S.r.l.s., sulla base di specifici accordi contrattuali che disciplinano le modalità e i limiti del trattamento. Tra questi si segnalano:</p>
+
+    <div class="legal-table-wrap">
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Soggetto / Fornitore</th>
+            <th>Ruolo nel trattamento</th>
+            <th>Sede</th>
+            <th>Trasferimenti extra-UE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Cloudflare, Inc.</strong></td><td>Hosting del sito e del portale interno, servizi di rete e sicurezza, storage (es. R2)</td><td>Infrastrutture server in UE</td><td>SCC 2021 e DPA</td></tr>
+          <tr><td><strong>Google Ireland Ltd.</strong></td><td>Suite Google Workspace (email, Drive, calendario, Meet)</td><td>Irlanda e altre regioni UE/SEE</td><td>SCC e adesione a Data Privacy Framework, ove applicabile</td></tr>
+          <tr><td><strong>Namirial S.p.A.</strong></td><td>Gestione casella PEC del Titolare</td><td>Italia (UE)</td><td>Nessun trasferimento extra-UE noto</td></tr>
+          <tr><td><strong>Studio commercialista esterno</strong></td><td>Adempimenti contabili, fiscali, predisposizione bilanci e dichiarazioni</td><td>Italia (UE)</td><td>Nessun trasferimento extra-UE, nominato responsabile per iscritto</td></tr>
+          <tr><td><strong>Consulente del lavoro esterno</strong></td><td>Gestione payroll, contrattualistica del personale, adempimenti in materia di lavoro</td><td>Italia (UE)</td><td>Nessun trasferimento extra-UE, nominato responsabile per iscritto</td></tr>
+          <tr><td><strong>Eventuale CRM SaaS</strong> (da confermare)</td><td>Gestione dei lead, attività commerciali, ticketing</td><td>Sede variabile, anche extra-UE (es. USA con SCC)</td><td>SCC 2021 e specifico DPA, se situato fuori dallo SEE</td></tr>
+          <tr><td><strong>Provider di pagamento</strong> (es. Revolut, Stripe)</td><td>Gestione e processazione dei pagamenti elettronici</td><td>Paesi UE e/o extra-UE (es. USA con SCC)</td><td>SCC 2021 e specifico DPA</td></tr>
+          <tr><td><strong>Banche e istituti di pagamento</strong></td><td>Gestione incassi e pagamenti del Gruppo</td><td>Italia / UE</td><td>Nessun trasferimento extra-UE noto</td></tr>
+          <tr><td><strong>Studi legali esterni</strong> (eventuali)</td><td>Assistenza legale, contenziosi giudiziali o stragiudiziali</td><td>Italia (UE)</td><td>Nessun trasferimento extra-UE noto, nei limiti dell'incarico conferito</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>L'elenco aggiornato dei Responsabili del trattamento e dei principali sub-responsabili potrà essere richiesto in qualsiasi momento al Titolare scrivendo a <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a>.</p>
+    <p>Per i servizi di ricerca e selezione del personale, eventuali piattaforme di job posting e social network professionali (quali, a titolo esemplificativo, LinkedIn, Indeed, Monster) operano normalmente in qualità di <strong>Titolari autonomi</strong> con le proprie informative privacy.</p>
+
+    <h2 id="sez-8">8. Trasferimenti di dati personali verso Paesi extra-UE</h2>
+    <p>Alcuni dei fornitori sopra indicati potrebbero avere sede o infrastrutture di trattamento situate in Paesi non appartenenti all'Unione Europea o allo Spazio Economico Europeo, in particolare negli Stati Uniti.</p>
+    <p>In tali casi, il trasferimento dei dati personali avviene nel rispetto della normativa applicabile in materia di trasferimenti internazionali, avvalendosi in particolare di:</p>
+    <ol>
+      <li><strong>Clausole contrattuali standard (Standard Contractual Clauses – SCC)</strong> versione 2021 adottate dalla Commissione europea con i fornitori extra-UE;</li>
+      <li><strong>Meccanismi di adeguatezza</strong> e schemi di certificazione validi per i trasferimenti UE-USA (es. Data Privacy Framework) per i fornitori che vi abbiano formalmente aderito;</li>
+      <li><strong>Misure tecniche e organizzative supplementari</strong>, quali la cifratura dei dati in transito e a riposo, politiche di minimizzazione e controlli di accesso rigorosi.</li>
+    </ol>
+    <p>Copia delle clausole contrattuali standard e/o informazioni di dettaglio sulle misure di garanzia adottate possono essere richieste scrivendo all'indirizzo: <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a>.</p>
+
+    <h2 id="sez-9">9. Diritti dell'interessato</h2>
+    <p>Gli interessati ai quali si riferiscono i dati personali trattati hanno diritto di esercitare in qualsiasi momento, nei confronti di Enterservice S.r.l.s., i diritti riconosciuti dalla normativa applicabile in materia di protezione dei dati personali, tra cui:</p>
+    <ul>
+      <li>diritto di ottenere conferma che sia o meno in corso un trattamento di dati personali che li riguarda e, in tal caso, di ottenere accesso ai dati e alle informazioni correlate;</li>
+      <li>diritto di ottenere la <strong>rettifica</strong> dei dati personali inesatti o l'integrazione di quelli incompleti;</li>
+      <li>diritto di ottenere la <strong>cancellazione</strong> dei dati personali (c.d. "diritto all'oblio"), nei casi previsti dalla normativa applicabile;</li>
+      <li>diritto di ottenere la <strong>limitazione</strong> del trattamento quando ricorrono le ipotesi previste dalla legge;</li>
+      <li>diritto di ricevere in formato strutturato, di uso comune e leggibile da dispositivo automatico i dati personali forniti, nonché di trasmetterli a un altro titolare (c.d. <strong>diritto alla portabilità</strong>), laddove tecnicamente fattibile e nei limiti previsti;</li>
+      <li>diritto di <strong>opporsi</strong>, in tutto o in parte, al trattamento dei dati personali basato su interesse legittimo del Titolare, per motivi connessi alla propria situazione particolare; in caso di marketing diretto, l'interessato potrà opporsi in qualsiasi momento senza necessità di motivare;</li>
+      <li>diritto di <strong>revocare in qualsiasi momento il consenso</strong> eventualmente prestato, fermo restando che la revoca non pregiudica la liceità del trattamento effettuato prima di tale revoca;</li>
+      <li>diritto di <strong>proporre reclamo</strong> all'Autorità di controllo competente qualora ritenga che il trattamento dei propri dati personali sia effettuato in violazione della normativa applicabile.</li>
+    </ul>
+
+    <h3>Modalità di esercizio dei diritti</h3>
+    <p>Per esercitare i propri diritti o per ottenere qualsiasi chiarimento in merito al trattamento dei dati personali, l'interessato può utilizzare i seguenti canali:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a></li>
+      <li><strong>PEC:</strong> <a href="mailto:enterservicesrls@namirialpec.it">enterservicesrls@namirialpec.it</a></li>
+      <li><strong>Raccomandata A/R</strong> indirizzata a: Enterservice S.r.l.s., Via Casilina 3, 00182 Roma (RM), Italia</li>
+    </ul>
+    <p>Enterservice S.r.l.s. si impegna a dare riscontro alle richieste degli interessati entro <strong>30 giorni</strong> dal ricevimento, salvo casi di particolare complessità che potrebbero comportare una proroga fino a 60 giorni ulteriori, nel rispetto delle condizioni previste dalla normativa applicabile.</p>
+
+    <h3>Specifiche per i candidati (ricerca e selezione)</h3>
+    <p>Per quanto riguarda i candidati coinvolti nei processi di ricerca e selezione del personale:</p>
+    <ul>
+      <li>i dati sono trattati da Enterservice S.r.l.s. in qualità di <strong>Titolare</strong>, secondo le modalità e per i tempi indicati nella presente informativa;</li>
+      <li>una volta che il candidato venga assunto dall'azienda cliente, il successivo trattamento dei dati personali avverrà direttamente da parte del nuovo datore di lavoro, sulla base delle informazioni e delle informative rese da quest'ultimo.</li>
+    </ul>
+
+    <h2 id="sez-10">10. Misure di sicurezza tecniche e organizzative</h2>
+    <p>Enterservice S.r.l.s. adotta misure tecniche e organizzative adeguate per garantire un livello di sicurezza dei dati personali proporzionato al rischio, con particolare riguardo alla riservatezza, all'integrità e alla disponibilità delle informazioni trattate.</p>
+
+    <h3>Misure tecniche</h3>
+    <p>Tra le principali misure tecniche implementate si segnalano:</p>
+    <ul>
+      <li>cifratura delle comunicazioni e dei dati in transito tramite protocolli <strong>TLS 1.2 o superiori</strong>;</li>
+      <li>cifratura dei dati a riposo ("at-rest") nelle infrastrutture di storage utilizzate (es. Cloudflare D1 / R2), ove messo a disposizione dal fornitore;</li>
+      <li>sistemi di <strong>autenticazione sicura</strong> (comprensivi di meccanismi passwordless tramite magic link) per l'accesso al portale interno;</li>
+      <li>protezione degli accessi al portale interno mediante <strong>Cloudflare Access</strong> e meccanismi di controllo degli accessi basati su identità;</li>
+      <li>utilizzo di cookie di sicurezza <code>HttpOnly</code>, <code>Secure</code> e con <code>SameSite=Lax</code>, laddove tecnicamente applicabile;</li>
+      <li>tracciamento degli accessi e delle operazioni principali tramite <strong>audit log</strong> con conservazione per 24 mesi;</li>
+      <li>sistemi di <strong>backup giornaliero</strong> con politiche di retention impostate su 30 giorni;</li>
+      <li>protezioni contro attacchi informatici (inclusi sistemi di rate limiting e protezione DDoS forniti dal provider di rete).</li>
+    </ul>
+
+    <h3>Misure organizzative</h3>
+    <p>Sotto il profilo organizzativo, Enterservice S.r.l.s. ha adottato, tra l'altro:</p>
+    <ul>
+      <li>procedure interne che disciplinano l'accesso ai dati, limitandolo al solo personale autorizzato in base a ruoli e necessità operative;</li>
+      <li>politiche di <strong>formazione e sensibilizzazione</strong> del personale autorizzato sui temi della protezione dei dati personali e della sicurezza informatica;</li>
+      <li>procedure per la <strong>gestione di incidenti di sicurezza e data breach</strong>, comprese le modalità di valutazione del rischio e di eventuale notifica alle Autorità competenti e agli interessati;</li>
+      <li>nomina per iscritto dei Responsabili esterni e dei sub-responsabili, con istruzioni specifiche sul trattamento dei dati;</li>
+      <li>tenuta e aggiornamento di un <strong>Registro dei trattamenti</strong> ai sensi dell'art. 30 del GDPR, come strumento di accountability e mappatura dei processi di trattamento del Gruppo.</li>
+    </ul>
+
+    <h2 id="sez-11">11. Data breach</h2>
+    <p>In caso di violazione dei dati personali (c.d. <strong>data breach</strong>) che comporti un rischio per i diritti e le libertà delle persone fisiche, Enterservice S.r.l.s. ha predisposto procedure interne che prevedono:</p>
+    <ul>
+      <li>la tempestiva individuazione e classificazione dell'incidente;</li>
+      <li>l'adozione di misure correttive e di mitigazione del rischio;</li>
+      <li>la valutazione della necessità di notificare la violazione all'Autorità di controllo competente <strong>entro il termine di 72 ore</strong> dal momento in cui il Titolare ne è venuto a conoscenza;</li>
+      <li>la valutazione della necessità di comunicare la violazione ai singoli interessati senza ingiustificato ritardo, qualora la violazione possa presentare un rischio elevato per i loro diritti e le loro libertà.</li>
+    </ul>
+
+    <h2 id="sez-12">12. Modifiche e aggiornamenti della presente informativa</h2>
+    <p>La presente informativa potrà essere oggetto di modifiche e/o aggiornamenti al fine di recepire mutamenti normativi, evoluzioni organizzative del Titolare, modifiche dei trattamenti o delle tecnologie utilizzate.</p>
+    <p>Eventuali aggiornamenti saranno resi disponibili:</p>
+    <ul>
+      <li>pubblicando la nuova versione all'indirizzo <a href="/privacy">enterserviceholding.com/privacy</a>, con indicazione della <strong>data di ultimo aggiornamento</strong>;</li>
+      <li>in caso di modifiche particolarmente significative che incidano in maniera sostanziale sui diritti degli interessati, mediante apposita comunicazione ai Clienti abbonati (es. via email) e/o avviso in evidenza sul sito.</li>
+    </ul>
+    <p>Si invita pertanto a consultare periodicamente la presente pagina per essere informati su eventuali aggiornamenti o modifiche.</p>
+
+    <h2 id="sez-13">13. Distinzione tra Titolari del trattamento</h2>
+    <p>Per evitare ogni possibile ambiguità, si precisa quanto segue:</p>
+    <ul>
+      <li><strong>Enterservice S.r.l.s. unipersonale</strong> è Titolare del trattamento per tutti i trattamenti di dati personali descritti nella presente Privacy Policy, relativi al sito <code>enterserviceholding.com</code>, al portale interno <code>app.enterserviceholding.com</code>, alle email professionali su dominio <code>enterserviceholding.com</code>, e ai servizi di consulenza Corporate Finance &amp; Control e HR &amp; Organization offerti alle imprese clienti;</li>
+      <li><strong>Marius Veronesi</strong>, persona fisica, esercente attività professionale di mediazione creditizia con insegna commerciale <strong>Enterfinance</strong> e iscritto presso l'Organismo di Agenti e Mediatori (OAM), agisce in qualità di <strong>Titolare autonomo</strong> per i trattamenti di dati personali relativi ai propri clienti dei servizi di mediazione creditizia. Tali trattamenti sono disciplinati da informativa privacy separata e autonoma, che non rientra nel perimetro del presente documento;</li>
+      <li>per quanto concerne il servizio SaaS <strong>EnterHouse</strong>, Enterservice S.r.l.s. opera in qualità di <strong>Responsabile del trattamento esterno</strong> ai sensi dell'art. 28 GDPR nei confronti dei centri abbonati, con riferimento ai dati dei loro clienti finali. Tali rapporti sono regolati da un apposito Data Processing Agreement (DPA) dedicato, reso disponibile tramite il sito <a href="https://enterhouse.it/privacy">enterhouse.it/privacy</a>, che costituisce disciplina specifica e distinta rispetto alla presente informativa.</li>
+    </ul>
+    <p>La presente Privacy Policy costituisce la disciplina di riferimento ("single source of truth") per i trattamenti del Gruppo Enterservice riconducibili alle attività sopra descritte e riferite esclusivamente a Enterservice S.r.l.s. come Titolare.</p>
+
+    <div class="contact-card">
+      <h3>Contatti per la privacy</h3>
+      <p style="margin-bottom: 12px;">Per qualsiasi richiesta o chiarimento in merito alla presente informativa:</p>
+      <ul style="list-style: none; padding: 0;">
+        <li>📧 <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a></li>
+        <li>✉️ PEC: <a href="mailto:enterservicesrls@namirialpec.it">enterservicesrls@namirialpec.it</a></li>
+        <li>📮 Enterservice S.r.l.s., Via Casilina 3, 00182 Roma (RM), Italia</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Images/logo-sfondo-blu.png" alt="Enterservice">
+        <p>Enterservice S.r.l.s. — consulenza strategica, finanziaria e organizzativa per PMI e startup italiane.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servizi</h5>
+        <a href="index.html#services">Finance &amp; Control</a>
+        <a href="index.html#services">HR &amp; Organization</a>
+        <a href="/enterhouse/">EnterHouse SaaS</a>
+        <a href="https://www.enterfinance.it" target="_blank" rel="noopener">Enterfinance</a>
+      </div>
+      <div class="footer-col">
+        <h5>Lavora con noi</h5>
+        <a href="lavora-con-noi.html">Posizioni aperte</a>
+        <a href="index.html#identity">Chi siamo</a>
+        <a href="clients.html">I nostri clienti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contatti</h5>
+        <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a>
+        <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener">Area riservata</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <strong>Enterservice S.R.L.S. unipersonale</strong> · Sede legale: Via Casilina 3, 00182 Roma (RM) · C.F./P.IVA 15795691003 · REA RM-1614574 · Capitale sociale € 1.000,00 i.v. · PEC: enterservicesrls@namirialpec.it
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Enterservice S.R.L.S. — Tutti i diritti riservati</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/cookie">Cookie</a> · Termini</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const topbar = document.getElementById('topbar');
+window.addEventListener('scroll', () => { topbar.classList.toggle('scrolled', window.scrollY > 16); }, { passive: true });
+
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+function toggleMobileNav() {
+  const open = mobileNav.classList.toggle('active');
+  mobileOverlay.classList.toggle('active', open);
+  mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+menuToggle.addEventListener('click', toggleMobileNav);
+mobileOverlay.addEventListener('click', toggleMobileNav);
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  if (mobileNav.classList.contains('active')) toggleMobileNav();
+}));
+</script>
+</body>
+</html>

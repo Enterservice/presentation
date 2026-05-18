@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy · Enterservice</title>
+<meta name="description" content="Cookie Policy del sito enterserviceholding.com — sito vetrina statico con soli cookie tecnici di sicurezza, nessuna profilazione, analytics cookie-less via Cloudflare.">
+<link rel="icon" type="image/png" href="Images/logo-icona.png">
+<link rel="apple-touch-icon" href="Images/logo-icona.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #140C64; --navy-soft: #2A1E9E; --navy-ink: #0C0740;
+  --yellow: #FBA800; --yellow-soft: #FFD77A; --yellow-bg: #FFF8E7;
+  --gray: #6B6E76; --gray-soft: #B8BABC; --line: #E8E6F0;
+  --ink: #1B1B1F; --paper: #FAFAF7; --white: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(20, 12, 100, 0.06);
+  --shadow: 0 4px 16px -4px rgba(20, 12, 100, 0.10);
+  --radius: 10px; --radius-lg: 16px;
+  --t: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; line-height: 1.65; overflow-x: hidden; }
+.display, h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.015em; line-height: 1.2; }
+a { color: inherit; text-decoration: none; }
+img, svg { max-width: 100%; display: block; }
+button { font-family: inherit; }
+
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 14px 32px; background: rgba(250, 250, 247, 0.85); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--line); transition: padding 0.3s var(--t); }
+.topbar-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.topbar.scrolled { padding: 8px 32px; box-shadow: var(--shadow-sm); }
+.topbrand { display: flex; align-items: center; }
+.topbar-logo { height: 40px; width: auto; max-width: 220px; transition: height 0.3s var(--t); display: block; }
+.topbar.scrolled .topbar-logo { height: 32px; }
+.topnav { display: flex; gap: 28px; align-items: center; }
+.topnav a { color: var(--ink); font-size: 14px; font-weight: 500; transition: color 0.25s; }
+.topnav a:hover { color: var(--navy); }
+.topnav-reserved { border: 1px solid var(--line); padding: 7px 14px; border-radius: 8px; font-size: 13px; color: var(--gray); transition: all 0.25s var(--t); }
+.topnav-reserved:hover { border-color: var(--navy); color: var(--navy); }
+.menu-toggle { display: none; background: transparent; border: none; padding: 8px; cursor: pointer; color: var(--ink); }
+@media (max-width: 980px) { .topnav { display: none; } .menu-toggle { display: block; } }
+
+.mobile-overlay { position: fixed; inset: 0; background: rgba(20,12,100,.4); z-index: 55; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.mobile-overlay.active { opacity: 1; pointer-events: auto; }
+.mobile-nav { position: fixed; top: 0; right: -100%; width: 85%; max-width: 340px; height: 100vh; z-index: 60; background: var(--navy); padding: 100px 32px 40px; transition: right .4s var(--t); box-shadow: -10px 0 40px rgba(0,0,0,.3); overflow-y: auto; }
+.mobile-nav.active { right: 0; }
+.mobile-nav a { color: white; font-size: 17px; padding: 12px 0; display: block; border-bottom: 1px solid rgba(255,255,255,.12); }
+
+.hero { padding: 140px 24px 50px; background: linear-gradient(180deg, var(--paper) 0%, var(--white) 100%); }
+.hero-inner { max-width: 880px; margin: 0 auto; }
+.hero .badge-tag { display: inline-block; background: var(--yellow-bg); color: var(--navy); border: 1px solid rgba(251, 168, 0, 0.25); padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 16px; }
+.hero h1 { font-size: clamp(32px, 4.5vw, 48px); color: var(--navy); margin-bottom: 12px; }
+.hero .lead { font-size: 17px; color: var(--gray); line-height: 1.55; }
+.hero .last-update { display: inline-block; margin-top: 18px; font-size: 13px; color: var(--gray); background: var(--white); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; }
+
+.legal-body { padding: 20px 24px 100px; }
+.legal-inner { max-width: 880px; margin: 0 auto; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(28px, 5vw, 56px); }
+
+.legal-toc { background: var(--yellow-bg); border: 1px solid rgba(251, 168, 0, 0.2); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 36px; }
+.legal-toc h3 { font-size: 13px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; }
+.legal-toc ol { padding-left: 22px; column-count: 2; column-gap: 24px; }
+@media (max-width: 600px) { .legal-toc ol { column-count: 1; } }
+.legal-toc li { font-size: 13.5px; padding: 3px 0; color: var(--ink); break-inside: avoid; }
+.legal-toc a { color: var(--ink); transition: color .2s; }
+.legal-toc a:hover { color: var(--navy); text-decoration: underline; }
+
+.legal-body h2 { font-size: 22px; color: var(--navy); margin: 38px 0 14px; padding-top: 18px; border-top: 2px solid var(--yellow); display: inline-block; padding-right: 24px; }
+.legal-body h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+.legal-body h3 { font-size: 17px; color: var(--navy); margin: 26px 0 10px; font-weight: 700; }
+.legal-body h4 { font-size: 14px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; margin: 18px 0 8px; }
+.legal-body p { font-size: 15px; color: #2D2E36; line-height: 1.7; margin-bottom: 14px; }
+.legal-body ul, .legal-body ol { padding-left: 24px; margin-bottom: 16px; }
+.legal-body li { font-size: 15px; color: #2D2E36; line-height: 1.7; margin-bottom: 6px; }
+.legal-body li strong { color: var(--navy); }
+.legal-body a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--yellow); text-underline-offset: 3px; }
+.legal-body a:hover { color: var(--yellow); }
+.legal-body strong { color: var(--navy-ink); }
+.legal-body code { background: var(--yellow-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Menlo', 'Consolas', monospace; font-size: 13px; color: var(--navy); }
+
+.callout { background: #F3F5FB; border-left: 4px solid var(--navy); padding: 16px 20px; border-radius: 6px; margin: 18px 0; }
+.callout p { margin-bottom: 0; }
+.callout strong { color: var(--navy-ink); }
+
+.legal-table-wrap { overflow-x: auto; margin: 14px 0 24px; border-radius: var(--radius); border: 1px solid var(--line); }
+.legal-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.legal-table th { background: var(--navy); color: var(--white); padding: 12px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.legal-table td { padding: 12px 14px; border-top: 1px solid var(--line); vertical-align: top; color: #2D2E36; }
+.legal-table tr:nth-child(even) td { background: #FAFAFB; }
+.legal-table strong { color: var(--navy); }
+.legal-table code { background: var(--yellow-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Menlo', 'Consolas', monospace; font-size: 13px; color: var(--navy); }
+
+.contact-card { background: var(--navy-ink); color: var(--white); border-radius: var(--radius); padding: 26px 28px; margin-top: 36px; }
+.contact-card h3 { color: var(--white); font-size: 18px; margin-bottom: 12px; }
+.contact-card p, .contact-card li { color: rgba(255,255,255,0.85); font-size: 14.5px; }
+.contact-card a { color: var(--yellow); text-decoration-color: var(--yellow); }
+.contact-card a:hover { color: var(--yellow-soft); }
+
+.footer { background: var(--navy-ink); color: rgba(255, 255, 255, 0.75); padding: 60px 32px 28px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 60px; margin-bottom: 40px; }
+@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+@media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+.footer-brand img { height: 32px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+.footer-brand p { font-size: 13px; line-height: 1.6; max-width: 320px; }
+.footer-col h5 { color: var(--white); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13.5px; color: rgba(255, 255, 255, 0.65); padding: 4px 0; transition: color 0.25s; }
+.footer-col a:hover { color: var(--yellow); }
+.footer-legal { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 22px; margin-bottom: 16px; font-size: 12px; color: rgba(255, 255, 255, 0.55); line-height: 1.7; }
+.footer-legal strong { color: rgba(255, 255, 255, 0.85); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255, 255, 255, 0.45); }
+.footer-bottom a { color: rgba(255, 255, 255, 0.45); transition: color 0.25s; }
+.footer-bottom a:hover { color: var(--yellow); }
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="topbrand">
+      <img src="Images/logo-sfondo-bianco.png" alt="Enterservice" class="topbar-logo">
+    </a>
+    <nav class="topnav">
+      <a href="index.html#identity">Chi siamo</a>
+      <a href="index.html#services">Servizi</a>
+      <a href="/enterhouse/">EnterHouse</a>
+      <a href="index.html#eventi">Eventi</a>
+      <a href="lavora-con-noi.html">Lavora con noi</a>
+      <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener" class="topnav-reserved">Area riservata</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="26" height="26"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="index.html#identity">Chi siamo</a>
+  <a href="index.html#services">Servizi</a>
+  <a href="/enterhouse/">EnterHouse</a>
+  <a href="index.html#eventi">Eventi</a>
+  <a href="lavora-con-noi.html">Lavora con noi</a>
+  <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener">Area riservata</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="badge-tag">Documento legale</span>
+    <h1>Cookie Policy</h1>
+    <p class="lead">Cookie Policy del sito <code style="background:transparent;color:inherit;padding:0;font-size:inherit;font-family:inherit;">enterserviceholding.com</code> — solo cookie tecnici di sicurezza, nessuna profilazione, nessun cookie di terze parti.</p>
+    <div>
+      <span class="last-update">Ultimo aggiornamento: 18 maggio 2026</span>
+    </div>
+  </div>
+</section>
+
+<section class="legal-body">
+  <div class="legal-inner">
+
+    <nav class="legal-toc" aria-label="Indice">
+      <h3>Indice</h3>
+      <ol>
+        <li><a href="#sez-1">Premessa</a></li>
+        <li><a href="#sez-2">Titolare del trattamento</a></li>
+        <li><a href="#sez-3">Ambito di applicazione</a></li>
+        <li><a href="#sez-4">Cosa sono i cookie</a></li>
+        <li><a href="#sez-5">Elenco completo dei cookie utilizzati</a></li>
+        <li><a href="#sez-6">Base giuridica e consenso</a></li>
+        <li><a href="#sez-7">Come gestire e disabilitare i cookie</a></li>
+        <li><a href="#sez-8">Trasferimenti verso Paesi extra-UE</a></li>
+        <li><a href="#sez-9">Diritti dell'interessato</a></li>
+        <li><a href="#sez-10">Modifiche alla Cookie Policy</a></li>
+        <li><a href="#sez-11">Contatti</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="sez-1">1. Premessa — perché questa Cookie Policy è semplice</h2>
+    <p>Il sito vetrina del Gruppo Enterservice, raggiungibile all'indirizzo <a href="https://enterserviceholding.com">enterserviceholding.com</a> (il "Sito"), è un sito statico di presentazione corporate che utilizza esclusivamente <strong>cookie tecnici strettamente necessari</strong> al funzionamento di base e alla sicurezza.</p>
+
+    <p><strong>NON</strong> sono utilizzati:</p>
+    <ul>
+      <li>cookie di profilazione;</li>
+      <li>cookie di marketing / pubblicitari;</li>
+      <li>cookie di tracciamento di terze parti (es. Google Analytics 4, Facebook/Meta Pixel, LinkedIn Insight Tag, TikTok Pixel);</li>
+      <li>cookie di remarketing;</li>
+      <li>cookie social plugin.</li>
+    </ul>
+
+    <p>Per l'analisi del traffico il Sito utilizza <strong>Cloudflare Web Analytics</strong>, una soluzione <strong>cookie-less</strong> (nessun cookie, nessun fingerprint, nessun indirizzo IP raccolto in chiaro) basata su tracciamento server-side e dati aggregati anonimi. Tale sistema non rientra nella disciplina dei cookie e non richiede il consenso dell'utente.</p>
+
+    <div class="callout">
+      <p><strong>Conseguenza pratica:</strong> non è necessario un cookie banner con scelte granulari "Accetta / Rifiuta / Personalizza". È sufficiente la presente informativa estesa, pubblicata su <a href="/cookie">enterserviceholding.com/cookie</a> ed eventualmente un avviso informativo minimale non bloccante.</p>
+    </div>
+
+    <p>La presente Cookie Policy è redatta in conformità a:</p>
+    <ul>
+      <li>art. 122 del D.Lgs. 196/2003 (Codice Privacy);</li>
+      <li>Provvedimento del Garante per la Protezione dei Dati Personali del 10 giugno 2021 in materia di cookie e altri strumenti di tracciamento;</li>
+      <li>Direttiva ePrivacy 2002/58/CE;</li>
+      <li>Regolamento (UE) 2016/679 ("GDPR").</li>
+    </ul>
+
+    <h2 id="sez-2">2. Titolare del trattamento</h2>
+    <p>Il Titolare del trattamento dei dati personali connessi all'utilizzo dei cookie sul Sito è:</p>
+    <ul>
+      <li><strong>Ragione sociale:</strong> Enterservice S.r.l.s. unipersonale</li>
+      <li><strong>Forma giuridica:</strong> Società a responsabilità limitata semplificata, socio unico</li>
+      <li><strong>Sede legale:</strong> Via Casilina 3, 00182 Roma (RM), Italia</li>
+      <li><strong>Codice Fiscale:</strong> 15795691003</li>
+      <li><strong>Partita IVA:</strong> IT15795691003</li>
+      <li><strong>REA:</strong> RM-1614574</li>
+      <li><strong>PEC:</strong> <a href="mailto:enterservicesrls@namirialpec.it">enterservicesrls@namirialpec.it</a></li>
+      <li><strong>Email contatto generale:</strong> <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a></li>
+      <li><strong>Email contatto privacy:</strong> <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a></li>
+      <li><strong>Legale rappresentante:</strong> Marius Veronesi (Amministratore Unico)</li>
+      <li><strong>Sito web:</strong> <a href="https://enterserviceholding.com">enterserviceholding.com</a></li>
+    </ul>
+    <p>Per la disciplina completa del trattamento dei dati personali si rinvia alla <a href="/privacy">Privacy Policy</a>.</p>
+
+    <h2 id="sez-3">3. Ambito di applicazione</h2>
+    <p>La presente Cookie Policy si applica <strong>esclusivamente al Sito</strong>:</p>
+    <ul>
+      <li><a href="https://enterserviceholding.com">enterserviceholding.com</a></li>
+    </ul>
+    <p>comprensivo della pagina apex pubblica e di tutte le sottopagine (ad esempio: <code>/chi-siamo</code>, <code>/finance</code>, <code>/hr</code>, <code>/contatti</code>, ecc.).</p>
+
+    <p><strong>NON</strong> rientrano nell'ambito di applicazione della presente Cookie Policy, in quanto dotati di propria disciplina specifica:</p>
+    <ul>
+      <li><code>app.enterserviceholding.com</code> — portale interno con accesso riservato ai dipendenti tramite Cloudflare Access;</li>
+      <li><code>enterhouse.it</code> e <code>&lt;slug&gt;.enterhouse.it</code> — piattaforma software SaaS "EnterHouse" (si veda la Cookie Policy dedicata disponibile su <a href="https://enterhouse.it/cookie">enterhouse.it/cookie</a>);</li>
+      <li>i servizi di <strong>Mediazione Creditizia (Enterfinance)</strong> prestati da Marius Veronesi persona fisica.</li>
+    </ul>
+
+    <h2 id="sez-4">4. Cosa sono i cookie</h2>
+    <p>I cookie sono piccoli file di testo che i siti web visitati dall'utente inviano al suo browser, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva. I cookie consentono, tra le altre cose, il corretto funzionamento dei siti web, l'autenticazione dell'utente, la memorizzazione di preferenze e il mantenimento di sessioni di navigazione.</p>
+
+    <p>In base al Provvedimento del Garante del 10 giugno 2021 e alla Direttiva ePrivacy 2002/58/CE, i cookie possono essere distinti, in sintesi, nelle seguenti categorie:</p>
+    <ul>
+      <li><strong>Cookie tecnici</strong> (art. 122 D.Lgs. 196/2003): strettamente necessari al funzionamento del sito o all'erogazione del servizio richiesto dall'utente. Non richiedono il consenso preventivo, ma è necessario fornire un'idonea informativa.</li>
+      <li><strong>Cookie di profilazione</strong>: utilizzati per creare profili relativi all'utente e per inviare messaggi pubblicitari in linea con le preferenze manifestate dallo stesso nell'ambito della navigazione in rete. Richiedono il consenso esplicito dell'utente.</li>
+      <li><strong>Cookie analitici</strong>: utilizzati per monitorare e analizzare il traffico e l'utilizzo del sito. Possono essere assimilati ai cookie tecnici se: di prima parte, e utilizzati solo in forma aggregata, e con meccanismi di anonimizzazione idonei. Diversamente, in particolare se di terza parte e con identificatori, richiedono il consenso dell'utente.</li>
+    </ul>
+
+    <h2 id="sez-5">5. Elenco completo dei cookie utilizzati</h2>
+
+    <h3>5.1 Cookie tecnici di prima parte (sempre attivi)</h3>
+    <p>Il Sito <code>enterserviceholding.com</code> è un <strong>sito vetrina statico</strong>, ospitato su Cloudflare Pages. Non utilizza sistemi di autenticazione, non prevede aree riservate, non ha carrello o funzioni di e-commerce e non gestisce form di pagamento.</p>
+    <p>Gli unici cookie tecnici utilizzati sono quelli di sicurezza standard messi a disposizione da Cloudflare, classificati come "strettamente necessari":</p>
+
+    <div class="legal-table-wrap">
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Dominio</th>
+            <th>Finalità</th>
+            <th>Durata</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>__cf_bm</code></td>
+            <td><code>.enterserviceholding.com</code></td>
+            <td>Cookie di sicurezza Cloudflare (Bot Management) per distinguere il traffico umano da bot e proteggere il Sito da attacchi automatizzati.</td>
+            <td>30 minuti</td>
+            <td>Tecnico – sicurezza</td>
+          </tr>
+          <tr>
+            <td><code>cf_clearance</code></td>
+            <td><code>.enterserviceholding.com</code></td>
+            <td>Cookie di sicurezza Cloudflare impostato dopo il superamento di una challenge anti-bot, per evitare di ripeterla durante la stessa sessione.</td>
+            <td>30 giorni</td>
+            <td>Tecnico – sicurezza</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Gli attributi di sicurezza applicati a tali cookie prevedono, tra gli altri: <code>HttpOnly</code>, <code>Secure</code>, <code>SameSite=Lax</code>.</p>
+
+    <div class="callout">
+      <p>I cookie <code>__cf_bm</code> e <code>cf_clearance</code> sono considerati <strong>cookie tecnici di sicurezza strettamente necessari</strong> ai sensi dell'art. 122 D.Lgs. 196/2003. Per tali cookie <strong>non è richiesto il consenso</strong> dell'utente.</p>
+    </div>
+
+    <h3>5.2 Cookie tecnici di preferenza (prima parte)</h3>
+    <p>Il Sito non offre funzionalità che richiedano la memorizzazione di preferenze utente (ad esempio scelta di lingua, tema chiaro/scuro, personalizzazioni di layout). Di conseguenza, <strong>non vengono impostati cookie di preferenza</strong>.</p>
+
+    <h3>5.3 Cookie analitici di prima parte</h3>
+    <p>Il Sito <strong>non utilizza cookie analitici</strong>.</p>
+    <p>L'analisi del traffico è effettuata esclusivamente tramite <strong>Cloudflare Web Analytics</strong>, una soluzione server-side che:</p>
+    <ul>
+      <li>non utilizza cookie;</li>
+      <li>non usa tecniche di fingerprinting;</li>
+      <li>non raccoglie indirizzi IP in chiaro o altri identificatori personali.</li>
+    </ul>
+    <p>I dati sono trattati in forma <strong>aggregata e anonima</strong> (es.: numero di visite, pagine più visualizzate, Paesi di provenienza del traffico, browser utilizzati, pagine di provenienza/referrer). Per tali ragioni, Cloudflare Web Analytics <strong>non rientra nell'ambito di applicazione della disciplina ePrivacy sui cookie</strong> e <strong>non richiede consenso</strong>.</p>
+
+    <h3>5.4 Cookie di terze parti</h3>
+    <p>Il Sito <strong>non imposta direttamente cookie di terze parti</strong>.</p>
+    <p>L'unico caso in cui possono essere installati cookie di terze parti si verifica quando l'utente, durante la navigazione del Sito, clicca su link esterni che rimandano a:</p>
+    <ul>
+      <li>canali social del Gruppo Enterservice;</li>
+      <li>servizi di messaggistica (es. WhatsApp);</li>
+      <li>altre piattaforme o siti web di terzi.</li>
+    </ul>
+    <p>In tali ipotesi, eventuali cookie vengono impostati <strong>direttamente dai domini di terze parti</strong> e ricadono esclusivamente sotto la responsabilità di tali soggetti, secondo le rispettive informative e policy, esterne al controllo di Enterservice.</p>
+
+    <h3>5.5 Cookie di profilazione e marketing</h3>
+    <p>Sul Sito <strong>non vengono utilizzati cookie di profilazione o marketing</strong>.</p>
+    <p>In particolare, <strong>non</strong> sono installati:</p>
+    <ul>
+      <li>pixel di tracciamento Facebook/Meta;</li>
+      <li>Google Ads;</li>
+      <li>LinkedIn Insight Tag;</li>
+      <li>TikTok Pixel;</li>
+      <li>altri strumenti pubblicitari analoghi.</li>
+    </ul>
+    <p>Qualora in futuro si decidesse di introdurre tali strumenti per l'attivazione di campagne marketing, Enterservice:</p>
+    <ol>
+      <li>aggiornerà preventivamente la presente Cookie Policy;</li>
+      <li>implementerà un <strong>cookie banner conforme</strong>, con possibilità per l'utente di esprimere scelte granulari (ad esempio "Accetta tutti", "Rifiuta tutti", "Personalizza").</li>
+    </ol>
+
+    <h2 id="sez-6">6. Base giuridica e consenso</h2>
+    <p>I cookie tecnici di sicurezza di cui alla sezione 5.1 sono installati sul dispositivo dell'utente:</p>
+    <ul>
+      <li>ai sensi dell'<strong>art. 122, comma 1, del D.Lgs. 196/2003</strong>, in quanto strettamente necessari all'erogazione del servizio espressamente richiesto dall'utente (accesso e fruizione del Sito in condizioni di sicurezza, protezione da attacchi e da traffico automatizzato anomalo).</li>
+    </ul>
+    <p>Per tali cookie:</p>
+    <ul>
+      <li><strong>non è richiesto il consenso preventivo</strong> dell'utente;</li>
+      <li>è dovuta la presente <strong>informativa estesa</strong>, pubblicata sul Sito.</li>
+    </ul>
+    <p>Quanto al sistema Cloudflare Web Analytics, essendo:</p>
+    <ul>
+      <li>privo di cookie;</li>
+      <li>privo di identificatori personali;</li>
+      <li>limitato a dati aggregati anonimi;</li>
+    </ul>
+    <p>non richiede il consenso dell'utente né rientra nella disciplina sui cookie e altri strumenti di tracciamento.</p>
+
+    <h2 id="sez-7">7. Come gestire e disabilitare i cookie</h2>
+
+    <h3>7.1 Visualizzare i cookie installati</h3>
+    <p>L'utente può verificare in qualsiasi momento quali cookie siano installati tramite le funzioni di sviluppo del proprio browser. A titolo meramente esemplificativo:</p>
+    <ul>
+      <li><strong>Chrome:</strong> F12 → "Application" → "Storage" → "Cookies"</li>
+      <li><strong>Firefox:</strong> F12 → "Storage" → "Cookies"</li>
+      <li><strong>Safari (macOS):</strong> menu "Sviluppo" → "Mostra Web Inspector" → "Storage" → "Cookies"</li>
+      <li><strong>Edge:</strong> F12 → "Application" → "Storage" → "Cookies"</li>
+    </ul>
+
+    <h3>7.2 Bloccare o cancellare i cookie tramite browser</h3>
+    <p>L'utente può impostare il proprio browser per:</p>
+    <ul>
+      <li>bloccare la ricezione di tutti o parte dei cookie;</li>
+      <li>cancellare i cookie già presenti sul proprio dispositivo.</li>
+    </ul>
+    <p>Le modalità operative variano in funzione del browser utilizzato (Chrome, Firefox, Safari per macOS e iOS, Edge, ecc.) e sono descritte nelle pagine ufficiali di supporto di ciascun produttore.</p>
+
+    <div class="callout">
+      <p><strong>Attenzione:</strong> il blocco o la cancellazione dei cookie tecnici di sicurezza Cloudflare può comportare: la visualizzazione frequente di pagine di verifica anti-bot (challenge); in casi estremi, un temporaneo blocco dell'accesso al Sito, su richiesta automatica del sistema di protezione DDoS.</p>
+    </div>
+
+    <h3>7.3 Modalità di navigazione anonima/privata</h3>
+    <p>I principali browser mettono a disposizione una modalità di navigazione che non memorizza cookie e dati di navigazione tra una sessione e l'altra, ad esempio:</p>
+    <ul>
+      <li><strong>Chrome:</strong> "Nuova finestra di navigazione in incognito";</li>
+      <li><strong>Firefox:</strong> "Nuova finestra anonima";</li>
+      <li><strong>Safari:</strong> "Nuova finestra privata";</li>
+      <li><strong>Edge:</strong> "Nuova finestra InPrivate".</li>
+    </ul>
+    <p>L'utilizzo di tali modalità può ridurre la persistenza dei cookie nel tempo, fermo restando il carattere tecnico e necessario dei cookie di sicurezza sopra descritti.</p>
+
+    <h2 id="sez-8">8. Trasferimenti di dati personali verso Paesi extra-UE</h2>
+    <p>I cookie tecnici di prima parte utilizzati dal Sito <code>enterserviceholding.com</code> sono serviti tramite l'infrastruttura <strong>Cloudflare</strong>, con server di erogazione localizzati in data center situati nell'<strong>Unione Europea</strong>.</p>
+    <p>Tuttavia, <strong>Cloudflare, Inc.</strong> ha sede negli Stati Uniti, e l'erogazione dei servizi di CDN (Content Delivery Network) e di sicurezza può comportare il trasferimento di alcuni <strong>metadati operativi</strong> al di fuori dell'UE, nell'ambito del funzionamento globale della rete Cloudflare.</p>
+    <p>Per tali eventuali trasferimenti, Enterservice si avvale delle seguenti garanzie:</p>
+    <ol>
+      <li><strong>Standard Contractual Clauses (SCC)</strong> versione 2021 adottate dalla Commissione europea (Decisione di esecuzione 2021/914);</li>
+      <li><strong>EU-US Data Privacy Framework</strong> (Decisione della Commissione 2023/1795), nell'ambito del quale Cloudflare risulta certificato;</li>
+      <li><strong>Misure tecniche supplementari di sicurezza</strong>, tra cui la cifratura dei dati in transito e, ove applicabile, a riposo.</li>
+    </ol>
+    <p>L'interessato può richiedere maggiori informazioni, nonché copia delle SCC e delle misure supplementari adottate, scrivendo a: <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a>.</p>
+
+    <h2 id="sez-9">9. Diritti dell'interessato</h2>
+    <p>In qualità di interessato, l'utente può esercitare in qualsiasi momento, nei limiti e alle condizioni previste dal GDPR, i diritti riconosciuti dagli articoli 15–22 del Regolamento (UE) 2016/679, tra cui, in particolare:</p>
+    <ul>
+      <li>diritto di accesso ai dati personali;</li>
+      <li>diritto di rettifica;</li>
+      <li>diritto alla cancellazione ("diritto all'oblio");</li>
+      <li>diritto di limitazione del trattamento;</li>
+      <li>diritto alla portabilità dei dati;</li>
+      <li>diritto di opposizione al trattamento;</li>
+      <li>diritto di revocare il consenso eventualmente prestato, senza pregiudizio per la liceità del trattamento basata sul consenso prima della revoca.</li>
+    </ul>
+    <p>L'utente ha, inoltre, il diritto di proporre reclamo all'<strong>Autorità Garante per la Protezione dei Dati Personali</strong> (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>), secondo le modalità indicate sul relativo sito istituzionale, qualora ritenga che il trattamento dei dati personali effettuato tramite il Sito violi la normativa applicabile.</p>
+    <p>Le modalità operative e ulteriori informazioni in merito ai diritti degli interessati sono descritte nella <a href="/privacy">Privacy Policy del Gruppo</a>.</p>
+    <p>Per richieste specifiche relative all'utilizzo dei cookie, l'utente può contattare il Titolare ai seguenti recapiti:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a></li>
+      <li><strong>PEC:</strong> <a href="mailto:enterservicesrls@namirialpec.it">enterservicesrls@namirialpec.it</a></li>
+      <li><strong>Posta raccomandata:</strong> Enterservice S.r.l.s., Via Casilina 3, 00182 Roma (RM), Italia</li>
+    </ul>
+
+    <h2 id="sez-10">10. Modifiche alla Cookie Policy</h2>
+    <p>Enterservice si riserva il diritto di effettuare aggiornamenti e modifiche alla presente Cookie Policy in qualsiasi momento, in particolare in caso di:</p>
+    <ul>
+      <li>introduzione di nuovi cookie tecnici;</li>
+      <li>attivazione di sistemi di analytics differenti da Cloudflare Web Analytics (es. strumenti che utilizzano cookie o identificatori) — in tal caso verrà implementato un <strong>cookie banner conforme</strong>, con idonee scelte granulari;</li>
+      <li>introduzione di cookie di profilazione e/o di marketing — con contestuale aggiornamento del banner cookie;</li>
+      <li>modifiche organizzative interne o cambi di fornitori tecnici;</li>
+      <li>evoluzioni normative o di prassi applicativa in materia di cookie e strumenti di tracciamento.</li>
+    </ul>
+    <p>Le versioni aggiornate della Cookie Policy saranno rese disponibili alla pagina <a href="/cookie">enterserviceholding.com/cookie</a>, recando l'indicazione della <strong>data dell'ultimo aggiornamento</strong>.</p>
+
+    <h2 id="sez-11">11. Contatti</h2>
+    <p>Per qualsiasi informazione o richiesta relativa alla presente Cookie Policy e, più in generale, al trattamento dei dati personali connessi all'utilizzo del Sito, è possibile contattare Enterservice ai seguenti recapiti:</p>
+
+    <div class="contact-card">
+      <ul style="list-style: none; padding: 0;">
+        <li>📧 <a href="mailto:privacy@enterserviceholding.com">privacy@enterserviceholding.com</a></li>
+        <li>✉️ PEC: <a href="mailto:enterservicesrls@namirialpec.it">enterservicesrls@namirialpec.it</a></li>
+        <li>📮 Enterservice S.r.l.s., Via Casilina 3, 00182 Roma (RM), Italia</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Images/logo-sfondo-blu.png" alt="Enterservice">
+        <p>Enterservice S.r.l.s. — consulenza strategica, finanziaria e organizzativa per PMI e startup italiane.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servizi</h5>
+        <a href="index.html#services">Finance &amp; Control</a>
+        <a href="index.html#services">HR &amp; Organization</a>
+        <a href="/enterhouse/">EnterHouse SaaS</a>
+        <a href="https://www.enterfinance.it" target="_blank" rel="noopener">Enterfinance</a>
+      </div>
+      <div class="footer-col">
+        <h5>Lavora con noi</h5>
+        <a href="lavora-con-noi.html">Posizioni aperte</a>
+        <a href="index.html#identity">Chi siamo</a>
+        <a href="clients.html">I nostri clienti</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contatti</h5>
+        <a href="mailto:info@enterserviceholding.com">info@enterserviceholding.com</a>
+        <a href="https://app.enterserviceholding.com" target="_blank" rel="noopener">Area riservata</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <strong>Enterservice S.R.L.S. unipersonale</strong> · Sede legale: Via Casilina 3, 00182 Roma (RM) · C.F./P.IVA 15795691003 · REA RM-1614574 · Capitale sociale € 1.000,00 i.v. · PEC: enterservicesrls@namirialpec.it
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Enterservice S.R.L.S. — Tutti i diritti riservati</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/cookie">Cookie</a> · Termini</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const topbar = document.getElementById('topbar');
+window.addEventListener('scroll', () => { topbar.classList.toggle('scrolled', window.scrollY > 16); }, { passive: true });
+
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+const mobileOverlay = document.getElementById('mobileOverlay');
+function toggleMobileNav() {
+  const open = mobileNav.classList.toggle('active');
+  mobileOverlay.classList.toggle('active', open);
+  mobileNav.setAttribute('aria-hidden', open ? 'false' : 'true');
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+menuToggle.addEventListener('click', toggleMobileNav);
+mobileOverlay.addEventListener('click', toggleMobileNav);
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  if (mobileNav.classList.contains('active')) toggleMobileNav();
+}));
+</script>
+</body>
+</html>
