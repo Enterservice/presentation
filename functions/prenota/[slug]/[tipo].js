@@ -241,6 +241,9 @@ export function renderPrenotaPage(slug, tipo) {
 const SLUG = ${JSON.stringify(slug)};
 const TIPO_SLUG = ${JSON.stringify(tipo)};
 const API_URL = 'https://app.enterserviceholding.com/api/public/prenota/' + SLUG + '/' + TIPO_SLUG;
+// Cattura ?source=... dalla URL (es. ?source=enterfinance dal sito enterfinance.it)
+// per attribution e hook automatici lato CRM (auto-crea pratica mediazione).
+const SOURCE = new URLSearchParams(location.search).get('source') || null;
 
 const GIORNI_ABBR = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
 const MESI = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
@@ -493,6 +496,7 @@ async function onSubmit(ev) {
     ospite_telefono: form.elements['ospite_telefono'].value.trim() || null,
     ospite_azienda: form.elements['ospite_azienda'].value.trim() || null,
     ospite_note: form.elements['ospite_note'].value.trim() || null,
+    source: SOURCE,
   };
 
   try {
