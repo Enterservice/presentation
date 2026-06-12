@@ -225,7 +225,7 @@ function render(data) {
           <a href="\${url}" class="tipo-card">
             <div class="top-row">
               <div class="titolo">\${escapeHtml(t.titolo)}</div>
-              <span class="badge">\${mod.icon} \${mod.label}</span>
+              <span class="badge">\${mod.icon} \${escapeHtml(mod.label)}</span>
             </div>
             <div class="meta">⏱️ \${t.durata_min} minuti\${luogoLine}</div>
             \${t.descrizione_md ? \`<div class="desc">\${escapeHtml(t.descrizione_md)}</div>\` : ''}

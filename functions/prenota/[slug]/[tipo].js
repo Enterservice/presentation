@@ -300,7 +300,7 @@ function renderHeader() {
     <div style="font-size:.78rem;color:var(--es-gray);margin-bottom:6px;">PRENOTA UN APPUNTAMENTO CON</div>
     <h1>\${escapeHtml(user.nome)}</h1>
     <div class="meta" style="margin-top:14px;">
-      <span class="badge">\${modIcon} \${tipo.modalita.toUpperCase()}</span>
+      <span class="badge">\${modIcon} \${escapeHtml((tipo.modalita || '').toUpperCase())}</span>
       <strong>\${escapeHtml(tipo.titolo)}</strong> · \${tipo.durata_min} min
       \${luogoLine}
     </div>
@@ -394,7 +394,7 @@ function renderSlots() {
     return '<div class="slots-empty">Nessuno slot disponibile in questa data.</div>';
   }
   return '<div class="slots-grid">' +
-    slots.map(s => \`<button class="slot-btn" data-slot="\${s}">\${s}</button>\`).join('') +
+    slots.map(s => \`<button class="slot-btn" data-slot="\${escapeHtml(s)}">\${escapeHtml(s)}</button>\`).join('') +
     '</div>';
 }
 
