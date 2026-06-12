@@ -11,3 +11,11 @@ node_modules/**
 .gitignore
 .assetsignore
 wrangler.toml
+package.json
+package-lock.json
+src
+src/*
+src/**
+functions
+functions/*
+functions/**
